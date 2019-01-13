@@ -258,7 +258,7 @@ class EditFoodPrice extends Component {
                                     Item</b></Button>
                             </div>
                         </fieldset>
-                        <button onClick={this.check}>Check</button>
+                        {/*<button onClick={this.check}>Check</button>*/}
                     </Modal>
                 </div>
             )

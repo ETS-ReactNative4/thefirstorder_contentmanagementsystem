@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import {Button, Tab, Table, Tabs} from "react-bootstrap";
+import "./MainPage.css";
 import {Redirect} from "react-router-dom";
 import ActivityLogTable from "./ActivityLogTable";
 
@@ -64,7 +65,7 @@ class ActivityLog extends Component {
             return (<Redirect to={'/'}/>)
         }
         return(
-            <div>
+            <div className="MainPage">
                 <h3>Activity Log</h3>
                 <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
                     {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>

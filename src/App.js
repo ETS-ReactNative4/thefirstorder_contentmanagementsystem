@@ -37,6 +37,9 @@ class App extends Component {
                         <div className="title_img">
                             <Img style = {{width: 200, height: 200}} src={makanow} resizeMode="contain" />
                         </div>
+                        <div className="h3">
+                            <h3 align="center">Manager {user.firstName}</h3>
+                        </div>
                         <div className="title_img">
                             <a href="/MainPage">
                                 <Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/> Menu</a>
@@ -48,23 +51,6 @@ class App extends Component {
                         <div className="title_img">
                             <a href="" onClick={this.logout}>
                                 <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" />Logout</a>
-                        </div>
-                    <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/><br/>
-                        <br/>
-                        <br/><br/>
-                        <br/>
-                        <br/><br/>
-                        <br/>
-                        <br/><br/>
-                        <br/>
-                        <div className="h3">
-                        <h3 align="center">Manager {user.firstName}</h3>
                         </div>
                     </div>
 
