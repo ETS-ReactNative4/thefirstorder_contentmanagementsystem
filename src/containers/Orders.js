@@ -1,29 +1,22 @@
 import React, { Component } from "react";
+import axios from "axios";
+import {Button, Tab, Table, Tabs} from "react-bootstrap";
+import "./MainPage.css";
 import {Redirect} from "react-router-dom";
-import "./MainPage.css"
-import axios from 'axios';
-import {Button, Tab, Tabs} from 'react-bootstrap';
-import MenuTabs from "./MenuTabs";
-import AddMenu from "./AddMenu";
+import OrderTable from "./OrderTable";
 
-class MainPage extends Component {
+class Orders extends Component {
 
     constructor(props){
         super(props);
         this.state={
             restaurantData: [],
-            menuData: [],
-            managerId: "",
-            //JUST IN CASE: JSON.parse(sessionStorage.getItem("userData")).managerAllocations[0].managerAllocationPK.restaurantId,
-            selectedRestaurant: "",
-            selectedMenu: "",
-            update: false,
+            selectedRestaurant: '',
+            managerId: '',
             redirect: false
         };
         this.check = this.check.bind(this);
-        this.getRestaurants = this.getRestaurants.bind(this);
-        this.handleUpdateMenuTab = this.handleUpdateMenuTab.bind(this);
-        this.handleStopUpdateMenuTab = this.handleStopUpdateMenuTab.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
     }
 
     componentWillMount(){
@@ -50,10 +43,6 @@ class MainPage extends Component {
         }
     }
 
-    handleSelect(restaurantId) {
-        this.setState({selectedRestaurant: restaurantId});
-    }
-
     getRestaurants(ev, managerId){
         axios.get('https://makanow.herokuapp.com/api/restaurants/getRestaurantsByManagerId/'+managerId)
             .then(function(response) {
@@ -61,23 +50,15 @@ class MainPage extends Component {
                 if(response.data.length !== 0){
                     ev.setState({selectedRestaurant: response.data[0].restaurantId})
                 }
-        });
+            });
     }
 
-    handleUpdateMenuTab(){
-        this.setState({
-            update: true
-        })
-    }
-
-    handleStopUpdateMenuTab(){
-        this.setState({
-            update: false
-        })
+    handleSelect(restaurantId) {
+        this.setState({selectedRestaurant: restaurantId});
     }
 
     check(){
-        console.log(JSON.parse(sessionStorage.getItem("userData")).managerId);
+        console.log(this.state.selectedRestaurant);
     }
 
     render(){
@@ -85,20 +66,16 @@ class MainPage extends Component {
         if(this.state.redirect){
             return (<Redirect to={'/'}/>)
         }
-
         return(
-
             <div className="MainPage">
+                <h3> Orders </h3>
                 <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
                     {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
-                        <AddMenu manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
-                        <MenuTabs manager={this.state.managerId} restaurant={this.state.restaurantData[i]} update={this.state.update} handleUpdateMenuTab={this.handleUpdateMenuTab} handleStopUpdateMenuTab={this.handleStopUpdateMenuTab}/></Tab>)}
-                    {/*<button onClick={this.check}>Check</button>*/}
+                        <OrderTable selectedRestaurant={this.state.restaurantData[i].restaurantId}/>
+                    </Tab>)}
                 </Tabs>
             </div>
-        );
-
+        )
     }
 }
-
-export default MainPage;
+export default Orders;

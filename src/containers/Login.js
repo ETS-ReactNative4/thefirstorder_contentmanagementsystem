@@ -14,6 +14,7 @@ export default class Login extends Component {
             managerId: "",
             password: "",
             redirect: false,
+            adminRedirect: false,
             loginFailed: ""
         };
         this.login = this.login.bind(this);
@@ -34,7 +35,15 @@ export default class Login extends Component {
                 }
                 else if (responseJSON) {
                     sessionStorage.setItem('userData', JSON.stringify(responseJSON));
-                    this.setState({redirect: true});
+                    if(JSON.parse(sessionStorage.getItem("userData")).managerId){
+                        if(JSON.parse(sessionStorage.getItem("userData")).managerId.substring(0,2) === "MA"){
+                            this.setState({redirect: true});
+                        }
+                    }else if(JSON.parse(sessionStorage.getItem("userData")).adminId){
+                        if(JSON.parse(sessionStorage.getItem("userData")).adminId.substring(0,2) === "AD"){
+                            this.setState({adminRedirect: true});
+                        }
+                    }
                 }
                 else {
                     console.log("Invalid ID or Password");
@@ -56,9 +65,13 @@ export default class Login extends Component {
             return (<Redirect to={'/MainPage'}/>)
         }
 
-        if(sessionStorage.getItem("userData")){
-            return (<Redirect to={'/MainPage'}/>)
+        if(this.state.adminRedirect){
+            return (<Redirect to={'/AdminMainPage'}/>)
         }
+
+        // if(sessionStorage.getItem("userData")){
+        //     return (<Redirect to={'/MainPage'}/>)
+        // }
 
         return (
             <div className="row small-up-2 medium-up-3 large-up-4">

@@ -8,6 +8,8 @@ import EditFoodPrice from "./EditFoodPrice";
 import ChangeMenuName from "./ChangeMenuName";
 import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 import DisplayFoodCustomisation from "./DisplayFoodCustomisation";
+import {CSVLink, CSVDownload} from 'react-csv';
+import ImportCSV from "./ImportCSV";
 
 class FoodPrices extends Component {
 
@@ -16,6 +18,7 @@ class FoodPrices extends Component {
         this.state = {
             menuData: [],
             foodData: [],
+            foodDataCSV: [],
             selectedCategory: "1",
             selectedSubCategory: "1",
             foodUpdate: false,
@@ -164,7 +167,9 @@ class FoodPrices extends Component {
         axios.get('https://makanow.herokuapp.com/api/foods/'+this.props.menu.menuId)
             .then(function(response) {
                 ev.setState({
-                    foodData: response.data});
+                    foodData: response.data[0],
+                    foodDataCSV: response.data[1]
+                });
             });
     }
 
@@ -172,7 +177,9 @@ class FoodPrices extends Component {
         axios.get('https://makanow.herokuapp.com/api/foods/getFoodsByCategory/'+this.props.menu.menuId+'/'+this.state.selectedCategory)
             .then(function(response) {
                 ev.setState({
-                    foodData: response.data});
+                    foodData: response.data[0],
+                    foodDataCSV: response.data[1]
+                });
             });
     }
 
@@ -196,7 +203,9 @@ class FoodPrices extends Component {
         axios.get('https://makanow.herokuapp.com/api/foods/getFoodsBySubCategory/'+this.props.menu.menuId+'/'+this.state.selectedSubCategory)
             .then(function(response) {
                 ev.setState({
-                    foodData: response.data});
+                    foodData: response.data[0],
+                    foodDataCSV: response.data[1]
+                });
             });
     }
 
@@ -258,22 +267,32 @@ class FoodPrices extends Component {
                         <ChangeMenuName handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>
                     </ButtonGroup>
                 </ButtonToolbar>
-                <p></p>
-                Filter Categories:
-                <text> </text>
-                <SplitButton title={<b>{this.state.dropdownTitle}</b>}>
-                    <MenuItem onClick={() => this.onSelect1()}><b>View All</b></MenuItem>
-                    {this.state.categoryData.map((category, k) =>
-                        <MenuItem eventKey={k}
-                                  onClick={() => this.onSelect(k, category.foodCategoryId)}><b>All {category.foodCategoryName}</b></MenuItem>
-                    )}
-                    <MenuItem divider/>
-                    <MenuItem header><b>Sub Categories</b></MenuItem>
-                    {this.state.subCategoryData.map((subCategory, k) =>
-                    <MenuItem eventKey={k}
-                              onClick={() => this.onSelect2(k, subCategory.subCategoryId)}><b>{subCategory.subCategoryName}</b></MenuItem>
-                )}
-                </SplitButton>
+                <ButtonToolbar>
+                    <p></p>
+                    <SplitButton title={<b>{this.state.dropdownTitle}</b>}>
+                        <MenuItem onClick={() => this.onSelect1()}><b>View All</b></MenuItem>
+                        {this.state.categoryData.map((category, k) =>
+                            <MenuItem eventKey={k}
+                                      onClick={() => this.onSelect(k, category.foodCategoryId)}><b>All {category.foodCategoryName}</b></MenuItem>
+                        )}
+                        <MenuItem divider/>
+                        <MenuItem header><b>Sub Categories</b></MenuItem>
+                        {this.state.subCategoryData.map((subCategory, k) =>
+                            <MenuItem eventKey={k}
+                                      onClick={() => this.onSelect2(k, subCategory.subCategoryId)}><b>{subCategory.subCategoryName}</b></MenuItem>
+                        )}
+                    </SplitButton>
+                    <ButtonGroup className="pull-right">
+                        <CSVLink filename={this.props.menu.menuName+"_"+this.state.dropdownTitle+".csv"} data={this.state.foodDataCSV}>
+                            <Button className="pull-right" bsStyle="info">
+                                <span
+                                    className="glyphicon glyphicon-save"></span> Export Menu </Button>
+                        </CSVLink>
+                    </ButtonGroup>
+                    <ButtonGroup className="pull-right">
+                        <ImportCSV manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
+                    </ButtonGroup>
+                </ButtonToolbar>
                 {/*<FilterCategory selectedMenu={this.props.menu.menuId} selectCategory={this.selectCategory} selectedCategory={this.state.selectedCategory}/>*/}
                 <p></p>
                 {/*<p align="right">*/}
@@ -301,7 +320,7 @@ class FoodPrices extends Component {
                             <tr index={k}>
                                 <td align="center">{k+1}</td>
                                 <td align="center">{food.foodId}</td>
-                                    <td align="center"><img src={food.foodImg} width="150" height="125"/></td>
+                                <td align="center"><img src={food.foodImg} width="150" height="125"/></td>
                                 <td align="left">{food.foodName}</td>
                                 <td align="left" word-wrap="break-word"><p>{food.foodDescription}</p></td>
                                 <DisplayFoodCustomisation managerId={this.props.manager} restaurantId={this.props.restaurant} menuId={this.props.menu.menuId} foodId={food.foodId} categoryId={food.foodCategory} foodData={this.state.foodData}/>

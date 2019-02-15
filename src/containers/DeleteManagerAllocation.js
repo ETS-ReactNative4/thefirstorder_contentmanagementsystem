@@ -2,104 +2,76 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import Modal from 'react-modal';
+import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 
-class AddMenu extends Component {
+class DeleteManagerAllocation extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedRestaurant: this.props.selectedRestaurant,
             messageFromServer: '',
-            updateMenuTab: '',
-            menuName: '',
-            errorMessage: '',
-            needToUpdate: false,
             modalIsOpen: false
         };
         this.check = this.check.bind(this);
         this.onClick = this.onClick.bind(this);
-        this.handleTextChange = this.handleTextChange.bind(this);
-        this.addMenu = this.addMenu.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
 
-    componentDidMount(){
-        this.props.handleUpdateMenuTab()
+    componentWillMount(){
+    }
+
+    componentDidMount() {
     }
 
     openModal() {
         this.setState({
-            selectedRestaurant: this.props.selectedRestaurant,
             modalIsOpen: true
         });
     }
 
-    closeModal(){
+    closeModal() {
         this.setState({
             modalIsOpen: false,
-            messageFromServer: '',
-            errorMessage: '',
-            menuName: ''
+            messageFromServer: ''
         });
-        this.props.handleUpdateMenuTab()
+        this.props.handleManagerAllocationUpdate();
     }
 
-    onClick(ev){
-        if(this.state.menuName) {
-            this.props.handleUpdateMenuTab()
-            this.addMenu(this);
-        }else{
-            this.setState({
-                errorMessage: 'Please enter a menu name.'
-            })
-        }
+    onClick(ev) {
+        this.deleteManagerAllocation(this);
+        this.props.handleManagerAllocationUpdate();
     }
 
-    handleTextChange(e){
-        if (e.target.name === "menuName") {
-            this.setState({
-                menuName: e.target.value
-            });
-        }
-    }
-
-    addMenu(e){
-        axios.post('https://makanow.herokuapp.com/api/menus/addMenu/'+this.props.manager+'/'+this.state.selectedRestaurant+'/'+this.state.menuName).then(function(response) {
-            e.setState({
+    deleteManagerAllocation(ev){
+        axios.delete('https://makanow.herokuapp.com/api/manager/deleteManagerAllocation/'+this.props.manager.managerId+'/'+this.props.restaurantId).then(function(response) {
+            ev.setState({
                 messageFromServer: response.data
             });
         });
     }
 
-    check(){
-        console.log(this.props.manager);
+    check() {
+        console.log(this.state.update);
     }
 
-    render(){
+    render() {
 
-        if(this.state.messageFromServer === '') {
-
+        if (this.state.messageFromServer === '') {
             return (
                 <div>
-                    <Button className="pull-right" bsStyle="success" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu</Button>
+                    <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}><span
+                        className="glyphicon glyphicon-remove"></span> Delete </Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}
-                        contentLabel="Add Menu"
+                        contentLabel="Delete Manager Allocation"
                         className="Modal">
                         <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
                             className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
                         <fieldset>
                             <p></p>
-                            <p align="center"><h3><b>Add Menu to "{this.props.selectedRestaurantName}"?</b></h3></p>
-                            <hr />
-                            <label>Menu Name: </label><input required type="text" id="menuName" name="menuName"
-                                                        value={this.state.menuName}
-                                                        onChange={this.handleTextChange}></input>
-                            <p></p>
-                            <hr />
+                            <p align="center"><b>Delete allocated manager?</b></p>
                             <div className='button-center'>
                                 <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}><span
                                     className="glyphicon glyphicon-remove"></span></Button>
@@ -111,17 +83,17 @@ class AddMenu extends Component {
                     </Modal>
                 </div>
             )
-        }else{
-            return(
+        } else {
+            return (
                 <div>
                     <div>
-                        <Button className="pull-right" bsStyle="success" bsSize="small" onClick={this.openModal}><span
-                            className="glyphicon glyphicon-plus"></span> Add Menu</Button>
+                        <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}><span
+                            className="glyphicon glyphicon-remove"></span> Delete </Button>
                         <Modal
                             isOpen={this.state.modalIsOpen}
                             onAfterOpen={this.afterOpenModal}
                             onRequestClose={this.closeModal}
-                            contentLabel="Add Menu"
+                            contentLabel="Delete Manager Allocation"
                             className="Modal">
                             <div className='button-center'>
                                 <h3>{this.state.messageFromServer}</h3>
@@ -134,4 +106,4 @@ class AddMenu extends Component {
         }
     }
 }
-export default AddMenu;
+export default DeleteManagerAllocation;

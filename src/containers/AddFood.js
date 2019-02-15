@@ -26,7 +26,7 @@ class AddFood extends Component {
             errorMessage: '',
             images: [],
             file: '',
-            foodImgBlob: null,
+            foodImgBlob: null
         };
         this.check = this.check.bind(this);
         this.addNewFood = this.addNewFood.bind(this);
@@ -102,11 +102,11 @@ class AddFood extends Component {
 
     onClick(e){
 
-        if(this.state.foodName && this.state.foodDescription && this.state.selectedCategory !== "1" && this.state.selectedSubCategory !== "1" && this.state.foodPrice <= 0){
+        if(this.state.foodName && this.state.foodDescription && this.state.selectedCategory !== "1" && this.state.foodPrice <= 0){
             this.setState({
                 errorMessage: 'Food price must be more than zero'
             })
-        }else if(this.state.foodName && this.state.foodDescription && this.state.selectedCategory !== "1" && this.state.selectedSubCategory !== "1" && this.state.foodPrice) {
+        }else if(this.state.foodName && this.state.foodDescription && this.state.selectedCategory !== "1" && this.state.foodPrice) {
             this.addNewFood(this);
             this.props.handleAddFoodUpdate();
         }else{
@@ -186,7 +186,7 @@ class AddFood extends Component {
                         <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
                             className="closebtn glyphicon glyphicon-remove"></span></Button>
                         <p align="center">
-                            <h2><b>Food Item Details</b></h2>
+                            <h3><b>Food Item Details</b></h3>
                         </p>
                         <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
                         <fieldset>

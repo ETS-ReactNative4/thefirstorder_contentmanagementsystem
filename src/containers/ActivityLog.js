@@ -47,7 +47,9 @@ class ActivityLog extends Component {
         axios.get('https://makanow.herokuapp.com/api/restaurants/getRestaurantsByManagerId/'+managerId)
             .then(function(response) {
                 ev.setState({restaurantData: response.data});
-                ev.setState({selectedRestaurant: response.data[0].restaurantId})
+                if(response.data.length !== 0){
+                    ev.setState({selectedRestaurant: response.data[0].restaurantId})
+                }
             });
     }
 

@@ -118,7 +118,7 @@ class DisplayFoodCustomisation extends Component {
                         className="closebtn glyphicon glyphicon-remove"></span></Button>
                     {/*<button onClick={this.check}>Check</button>*/}
                     <p align="center">
-                        <h2><b>View / Update Customisations: </b></h2>
+                        <h3><b>View / Update Customisations: </b></h3>
                     </p>
                     <AddCustomisation categoryId={this.props.categoryId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
                     <br/>

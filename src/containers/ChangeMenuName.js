@@ -96,12 +96,15 @@ class ChangeMenuName extends Component {
                             className="closebtn glyphicon glyphicon-remove"></span></Button>
                         <fieldset>
                             <p></p>
-                            <p align="center"><b>Change Menu Name?</b>
+                            <p align="center">
+                                <h3><b>Change Menu Name?</b></h3>
                             </p>
+                            <hr />
                             <label>New Menu Name: </label><input required type="text" id="menuName" name="menuName"
                                                                  onChange={this.handleTextChange}></input>
                             <p></p>
                         </fieldset>
+                        <hr />
                         <div className='button-center'>
                             <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}><span
                                 className="glyphicon glyphicon-remove"></span></Button>
