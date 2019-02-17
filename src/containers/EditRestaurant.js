@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+import {Button, MenuItem, SplitButton} from "react-bootstrap";
 import Modal from 'react-modal';
 import {Input} from "reactstrap";
 import "./AddRestaurantModal.css";
@@ -28,7 +28,8 @@ class EditRestaurant extends Component {
             images: [],
             file: '',
             restaurantImgBlob: null,
-            restaurantImage: [this.props.restaurant.restaurantImg]
+            restaurantImage: [this.props.restaurant.restaurantImg],
+            dropdownTitle: this.props.restaurant.affordability
         };
         this.onClick = this.onClick.bind(this);
         this.check = this.check.bind(this);
@@ -47,7 +48,8 @@ class EditRestaurant extends Component {
             postalCode: this.props.restaurant.postalCode,
             operatingHours: this.props.restaurant.operatingHours,
             cuisine: this.props.restaurant.cuisine,
-            affordability: this.props.restaurant.affordability
+            affordability: this.props.restaurant.affordability,
+            dropdownTitle: this.props.restaurant.affordability
         })
     }
 
@@ -62,7 +64,8 @@ class EditRestaurant extends Component {
             operatingHours: this.props.restaurant.operatingHours,
             cuisine: this.props.restaurant.cuisine,
             affordability: this.props.restaurant.affordability,
-            images: []
+            images: [],
+            dropdownTitle: this.props.restaurant.affordability
         })
     }
 
@@ -77,6 +80,7 @@ class EditRestaurant extends Component {
             operatingHours: this.props.restaurant.operatingHours,
             cuisine: this.props.restaurant.cuisine,
             affordability: this.props.restaurant.affordability,
+            dropdownTitle: this.props.restaurant.affordability,
             modalIsOpen: true
         });
     }
@@ -95,7 +99,8 @@ class EditRestaurant extends Component {
             modalIsOpen: false,
             messageFromServer: '',
             errorMessage:'',
-            images: []
+            images: [],
+            dropdownTitle: ''
         });
         this.props.handleRestaurantUpdate();
     }
@@ -136,21 +141,26 @@ class EditRestaurant extends Component {
                 cuisine: e.target.value
             });
         }
-        if (e.target.name === "operatingHours1") {
+        if (e.target.name === "operatingHours") {
             this.setState({
-                operatingHours1: e.target.value
+                operatingHours: e.target.value
             });
         }
-        if (e.target.name === "operatingHours2") {
-            this.setState({
-                operatingHours2: e.target.value
-            });
-        }
-        if (e.target.name === "affordability") {
-            this.setState({
-                affordability: e.target.value
-            });
-        }
+        // if (e.target.name === "operatingHours1") {
+        //     this.setState({
+        //         operatingHours1: e.target.value
+        //     });
+        // }
+        // if (e.target.name === "operatingHours2") {
+        //     this.setState({
+        //         operatingHours2: e.target.value
+        //     });
+        // }
+        // if (e.target.name === "affordability") {
+        //     this.setState({
+        //         affordability: e.target.value
+        //     });
+        // }
     }
 
     editRestaurant(e){
@@ -162,7 +172,8 @@ class EditRestaurant extends Component {
             street: e.state.street,
             postalCode: e.state.postalCode,
             cuisine: e.state.cuisine,
-            operatingHours: e.state.operatingHours1 + " - " + e.state.operatingHours2,
+            operatingHours: e.state.operatingHours,
+            // operatingHours: e.state.operatingHours1 + " - " + e.state.operatingHours2,
             affordability: e.state.affordability,
             restaurantImg: e.state.restaurantImage[0]
         }
@@ -201,7 +212,7 @@ class EditRestaurant extends Component {
 
     onClick(e){
 
-        if(this.state.restaurantName && this.state.restaurantDescription && this.state.contactNumber && this.state.building && this.state.street && this.state.postalCode && this.state.cuisine && this.state.affordability) {
+        if(this.state.restaurantName && this.state.restaurantDescription && this.state.contactNumber && this.state.building && this.state.street && this.state.postalCode && this.state.cuisine && this.state.operatingHours && this.state.affordability !== "Not Selected") {
             this.editRestaurant(this);
             this.props.handleRestaurantUpdate();
             this.setState({
@@ -212,6 +223,27 @@ class EditRestaurant extends Component {
                 errorMessage: 'All fields must be filled'
             })
         }
+    }
+
+    onSelect1(){
+        this.setState({
+            dropdownTitle: "Low",
+            affordability: "Low"
+        });
+    }
+
+    onSelect2(){
+        this.setState({
+            dropdownTitle: "Medium",
+            affordability: "Medium"
+        });
+    }
+
+    onSelect3(){
+        this.setState({
+            dropdownTitle: "High",
+            affordability: "High"
+        });
     }
 
     check(){
@@ -262,12 +294,21 @@ class EditRestaurant extends Component {
                             <label>Cuisine: </label><input required type="text" id="cuisine" name="cuisine"
                                                            value={this.state.cuisine}
                                                            onChange={this.handleTextChange}></input>
-                            <label>Operating Hours: </label><input required type="time" id="operatingHours1" name="operatingHours1" onChange={this.handleTextChange}></input>
-                            <text> to </text>
-                            <input required type="time" id="operatingHours2" name="operatingHours2" onChange={this.handleTextChange}></input>
-                            <label>Affordability: </label><input required type="text" id="affordability" name="affordability"
-                                                                 value={this.state.affordability}
-                                                                 onChange={this.handleTextChange}></input>
+                            <label>Operating Hours: </label><input required type="text" id="operatingHours" name="operatingHours"
+                                                                   value={this.state.operatingHours}
+                                                                   onChange={this.handleTextChange}></input>
+                            {/*<input required type="time" id="operatingHours1" name="operatingHours1" onChange={this.handleTextChange}></input>*/}
+                            {/*<text> to </text>*/}
+                            {/*<input required type="time" id="operatingHours2" name="operatingHours2" onChange={this.handleTextChange}></input>*/}
+                            <label>Affordability: </label>
+                            <SplitButton title={<b>{this.state.dropdownTitle}</b>}>
+                                <MenuItem onClick={() => this.onSelect1()}>Low</MenuItem>
+                                <MenuItem onClick={() => this.onSelect2()}>Medium</MenuItem>
+                                <MenuItem onClick={() => this.onSelect3()}>High</MenuItem>
+                            </SplitButton>
+                            {/*<input required type="text" id="affordability" name="affordability"*/}
+                                                                 {/*value={this.state.affordability}*/}
+                                                                 {/*onChange={this.handleTextChange}></input>*/}
                             <table>
                                 <tr>
                                     <td>

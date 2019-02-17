@@ -117,7 +117,8 @@ class AdminMainPage extends Component {
                                 {restaurant.street}<br/>
                                 Singapore {restaurant.postalCode}<br/>
                                 Contact: {restaurant.contactNumber}<br/>
-                                Operating Hours: {restaurant.operatingHours}</td>
+                                Operating Hours:<br/>
+                                {restaurant.operatingHours}</td>
                             <td align="left"><DisplayManagers restaurant={restaurant}/></td>
                             <td align="left"><EditRestaurant restaurant={restaurant} handleRestaurantUpdate={this.handleRestaurantUpdate}/></td>
                             <td align="left"><DeleteRestaurant restaurant={restaurant} handleRestaurantUpdate={this.handleRestaurantUpdate}/></td>
