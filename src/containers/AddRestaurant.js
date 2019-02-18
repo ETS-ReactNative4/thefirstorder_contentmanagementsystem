@@ -115,7 +115,7 @@ class AddRestaurant extends Component {
 
     onClick(e){
 
-        if(this.state.restaurantName && this.state.restaurantDescription && this.state.contactNumber && this.state.building && this.state.street && this.state.postalCode && this.state.cuisine && this.state.operatingHours && this.state.affordability) {
+        if(this.state.restaurantName && this.state.restaurantDescription && this.state.contactNumber && this.state.building && this.state.street && this.state.postalCode.length === 6 && this.state.cuisine && this.state.operatingHours && this.state.affordability) {
             this.addRestaurant(this);
             this.props.handleRestaurantUpdate();
             this.setState({
@@ -246,7 +246,7 @@ class AddRestaurant extends Component {
                             <label>Description: </label><input required type="text" id="restaurantDescription" name="restaurantDescription"
                                                                value={this.state.restaurantDescription}
                                                                onChange={this.handleTextChange}></input>
-                            <label>Contact No: </label><input required type="text" id="contactNumber" name="contactNumber"
+                            <label>Contact No: </label><input required type="number" id="contactNumber" name="contactNumber"
                                                               value={this.state.contactNumber}
                                                               onChange={this.handleTextChange}></input>
                             <label>Building: </label><input required type="text" id="building" name="building"

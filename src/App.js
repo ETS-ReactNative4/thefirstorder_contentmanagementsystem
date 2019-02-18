@@ -7,6 +7,8 @@ import makanow from './containers/images/makanow.png';
 import activitylog from './containers/images/activitylog.png';
 import logout from './containers/images/logout.png';
 import menu from './containers/images/menu.png';
+import conversion from './containers/images/conversion.png';
+import orders from './containers/images/orders.png';
 import Img from "react-image";
 
 class App extends Component {
@@ -51,7 +53,7 @@ class App extends Component {
                             </div>
                             <div className="title_img">
                                 <a href="/Orders">
-                                    <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/> Orders</a>
+                                    <Img style = {{width: 20, height: 20}} src={orders} resizeMode="contain"/> Orders</a>
                             </div>
                             <div className="title_img">
                                 <a href="" onClick={this.logout}>
@@ -98,7 +100,7 @@ class App extends Component {
                             </div>
                             <div className="title_img">
                                 <a href="/ConversionRate">
-                                    <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>Conversion Rate</a>
+                                    <Img style = {{width: 20, height: 20}} src={conversion} resizeMode="contain"/>Conversion Rate</a>
                             </div>
                             <div className="title_img">
                                 <a href="" onClick={this.logout}>
