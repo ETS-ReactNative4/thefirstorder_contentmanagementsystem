@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { PostData } from "../components/PostData";
 import {Redirect} from 'react-router-dom';
-import "./Login.css";
+// import "./Login.css";
 import {Button} from "react-bootstrap";
 import Img from 'react-image';
 import makanow from './images/makanow.png';
+
+import "./css/style.css";
+// import "./js/index.js"
 
 export default class Login extends Component {
     constructor() {
@@ -21,9 +24,21 @@ export default class Login extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
+    componentDidMount () {
+
+
+        const script = document.createElement("script");
+
+        script.src = "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
+        script.async = true;
+
+        document.body.appendChild(script);
+    }
+
     login(){
 
         if(this.state.managerId && this.state.password){
+            console.log("Processing...");
                 PostData('managers/authenticate', this.state).then ((result) => {
                 let responseJSON = result;
                 const status =  responseJSON.status;
@@ -52,6 +67,10 @@ export default class Login extends Component {
                     })
                 }
             });
+        }else{
+            this.setState({
+                loginFailed: "Please do not leave empty fields!"
+            })
         }
     }
 
@@ -72,44 +91,26 @@ export default class Login extends Component {
         // if(sessionStorage.getItem("userData")){
         //     return (<Redirect to={'/MainPage'}/>)
         // }
-
+        console.log("LOGIN PAGE")
+        console.log(this.state)
         return (
-            <div className="row small-up-2 medium-up-3 large-up-4">
-                <div data-reactroot>
-                    <div className="container">
-                        <div className="title_img">
-                            <Img style = {{width: 500, height: 500}} src={makanow} resizeMode="contain" />
+            <div className="container_login">
+                <div className = "login-form">
+                    <h1>Makanow</h1>
+                    <form>
+                        <div className="form-group">
+                            <input type="text" className="form-control" name="managerId"
+                                   placeholder="Manager ID" id="UserName" onChange={this.onChange}/>
                         </div>
-                        <br/><br/>
-                        <p align="center" style={{color:"red"}}>{this.state.loginFailed}</p>
-                        <br/>
-                        <div  className = "formName">
-                            <form>
-                                <div className = "sideBySide">
-
-                                    <label>Manager ID:</label>
-
-                                    <div>
-                                        <input type="text" name="managerId" placeholder="Eg. MA000" onChange={this.onChange}/>
-                                    </div>
-                                </div>
-                                <br/><br/>
-                                <div className = "sideBySide">
-
-                                    <label>Password:</label>
-
-                                    <div>
-                                        <input type="password" name="password" onChange={this.onChange}/>
-                                    </div>
-                                </div>
-                                <br/>
-                            </form>
-                            <Button className="submitButton" type="submit" bsStyle="primary" onClick={this.login}>LOGIN</Button>
+                        <div className="form-group">
+                            <input type="password" className="form-control" name="password"
+                                   placeholder="Password" id="Passwod" onChange={this.onChange}/>
                         </div>
-                    </div>
+                        <span className="alert">{this.state.loginFailed}</span>
+                        <button type="button" className="log-btn" onClick={this.login}>Log in</button>
+                    </form>
                 </div>
             </div>
         );
     }
-
 }

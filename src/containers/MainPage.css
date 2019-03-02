@@ -1,5 +1,7 @@
 .MainPage{
-    margin-left: 10%;
+  margin: 0 3% 0 15%;
+  padding-bottom: 5%;
+  font-family: "Malgun Gothic";
 }
 .button-col {
     width:100px;
@@ -18,7 +20,7 @@ table {
 }
 .counterCell {
     text-align: center;
-    width:50px;
+    width: 50px;
 }
 .button-center {
     text-align: center;

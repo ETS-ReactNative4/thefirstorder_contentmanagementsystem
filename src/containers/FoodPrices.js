@@ -10,6 +10,7 @@ import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 import DisplayFoodCustomisation from "./DisplayFoodCustomisation";
 import {CSVLink, CSVDownload} from 'react-csv';
 import ImportCSV from "./ImportCSV";
+import no_image_icon from './images/no-image-icon.png';
 
 class FoodPrices extends Component {
 
@@ -245,6 +246,15 @@ class FoodPrices extends Component {
         return <span className="glyphicon glyphicon-remove"></span>
     }
 
+    displayFoodImage(k){
+        if (this.state.foodData[k].foodImg){
+            return (
+                <img src={this.state.foodData[k].foodImg} width="75" height="75"/>
+            )
+        }
+        return <img src={no_image_icon} width="75" height="75"/>
+    }
+
     check(){
         console.log(this.state.foodData);
     }
@@ -299,7 +309,7 @@ class FoodPrices extends Component {
                     {/*<span className="glyphicon glyphicon-time"></span> Last Updated:  {this.props.menu.dateOfCreation}*/}
                 {/*</p>*/}
                 <p></p>
-                <Table striped condensed hover>
+                <Table bordered striped>
                     <thead>
                         <tr>
                             <th align="center">S/N</th>
@@ -317,10 +327,10 @@ class FoodPrices extends Component {
                     </thead>
                     <tbody>
                     {this.state.foodData.map((food, k) =>
-                            <tr index={k}>
+                            <tr className="table_items" index={k}>
                                 <td align="center">{k+1}</td>
                                 <td align="center">{food.foodId}</td>
-                                <td align="center"><img src={food.foodImg} width="150" height="125"/></td>
+                                <td align="center">{this.displayFoodImage(k)}</td>
                                 <td align="left">{food.foodName}</td>
                                 <td align="left" word-wrap="break-word"><p>{food.foodDescription}</p></td>
                                 <DisplayFoodCustomisation managerId={this.props.manager} restaurantId={this.props.restaurant} menuId={this.props.menu.menuId} foodId={food.foodId} categoryId={food.foodCategory} foodData={this.state.foodData}/>
@@ -333,7 +343,7 @@ class FoodPrices extends Component {
                                 {/*<td align="center"><Button bsStyle="danger" bsSize="small" onClick={this.onClick}><span className="glyphicon glyphicon-remove"></span></Button></td>*/}
                                 <td align="left"><DeleteFoodPrice manager={this.props.manager} selectedMenu={this.props.menu.menuId} menuName={this.props.menu.menuName} restaurant={this.props.restaurant} selectedFood={food.foodId} foodName={food.foodName} selectedFoodCategory={food.foodCategory} handleDeleteFoodUpdate={this.handleDeleteFoodUpdate} handleFoodData={this.handleFoodData} updateDropdownTitle={this.updateDropdownTitle}/></td>
                             </tr>
-                    )
+                        )
                     }
                     </tbody>
                 </Table>

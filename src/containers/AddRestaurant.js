@@ -114,8 +114,15 @@ class AddRestaurant extends Component {
     }
 
     onClick(e){
-
-        if(this.state.restaurantName && this.state.restaurantDescription && this.state.contactNumber && this.state.building && this.state.street && this.state.postalCode.length === 6 && this.state.cuisine && this.state.operatingHours && this.state.affordability) {
+        if(this.state.postalCode.length !== 6){
+            this.setState({
+                errorMessage: 'Invalid postal code'
+            })
+        }else if(this.state.contactNumber.length !== 8){
+            this.setState({
+                errorMessage: 'Invalid contact number'
+            })
+        }else if(this.state.restaurantName && this.state.restaurantDescription && this.state.contactNumber && this.state.building && this.state.street && this.state.postalCode.length === 6 && this.state.cuisine && this.state.operatingHours && this.state.affordability) {
             this.addRestaurant(this);
             this.props.handleRestaurantUpdate();
             this.setState({

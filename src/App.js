@@ -35,29 +35,33 @@ class App extends Component {
 
             if (user.managerId){
                 return (
-                    <div className="App container">
+                    <div className="app_container">
                         <div class="sidenav">
-                            <div className="title_img">
-                                <Img style = {{width: 200, height: 200}} src={makanow} resizeMode="contain" />
+                            <div class="logo">
+                                <Img src={makanow} resizeMode="contain" />
                             </div>
-                            <div className="h3">
+                            <div class="nav_item">
                                 <h3 align="center">Manager {user.firstName}</h3>
                             </div>
-                            <div className="title_img">
-                                <a href="/MainPage">
-                                    <Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/> Menu</a>
-                            </div>
-                            <div className="title_img">
-                                <a href="/ActivityLog">
-                                    <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/> Activity Log</a>
-                            </div>
-                            <div className="title_img">
+                                <div class="nav_item">
+                                    <a href="/MainPage">
+                                        <Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/> Menu
+                                    </a>
+                                </div>
+                                <div class="nav_item">
+                                    <a href="/ActivityLog">
+                                        <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/> Activity Log
+                                    </a>
+                                </div>
+                            <div class="nav_item">
                                 <a href="/Orders">
-                                    <Img style = {{width: 20, height: 20}} src={orders} resizeMode="contain"/> Orders</a>
+                                    <Img style = {{width: 20, height: 20}} src={orders} resizeMode="contain"/> Orders
+                                </a>
                             </div>
-                            <div className="title_img">
+                            <div class="nav_item">
                                 <a href="" onClick={this.logout}>
-                                    <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" /> Logout</a>
+                                    <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" /> Logout
+                                </a>
                             </div>
                         </div>
 
@@ -86,25 +90,28 @@ class App extends Component {
 
             if (user.adminId){
                 return (
-                    <div className="App container">
+                    <div class="app_container">
                         <div class="sidenav">
-                            <div className="title_img">
-                                <Img style = {{width: 200, height: 200}} src={makanow} resizeMode="contain" />
+                            <div class="logo">
+                                <Img src={makanow} resizeMode="contain" />
                             </div>
-                            <div className="h3">
+                            <div class="nav_item">
                                 <h3 align="center">Admin</h3>
                             </div>
-                            <div className="title_img">
+                            <div class="nav_item">
                                 <a href="/AdminMainPage">
-                                    <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>Manage Restaurants</a>
+                                    <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>Manage Restaurants
+                                </a>
                             </div>
-                            <div className="title_img">
+                            <div class="nav_item">
                                 <a href="/ConversionRate">
-                                    <Img style = {{width: 20, height: 20}} src={conversion} resizeMode="contain"/>Conversion Rate</a>
+                                    <Img style = {{width: 20, height: 20}} src={conversion} resizeMode="contain"/>Conversion Rate
+                                </a>
                             </div>
-                            <div className="title_img">
+                            <div class="nav_item">
                                 <a href="" onClick={this.logout}>
-                                    <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" /> Logout</a>
+                                    <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" /> Logout
+                                </a>
                             </div>
                         </div>
 
@@ -133,7 +140,7 @@ class App extends Component {
         }
 
         return (
-            <div className="App container">
+            <div class="app_container">
                 <Routes />
             </div>
         );
