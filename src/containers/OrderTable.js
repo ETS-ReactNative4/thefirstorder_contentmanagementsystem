@@ -53,12 +53,15 @@ class OrderTable extends Component {
             if (JSON.stringify(this.state.sentOrderData) !== JSON.stringify(this.state.sentOrderData1)) {
                 if (this.state.dataLength === this.state.dataLength1) {
                     this.getSentOrders(this);
-                }else{
+                    this.getSentOrders1(this);
+                    this.getAcknowledgedOrders(this);
+                }else if(this.state.dataLength !== this.state.dataLength1){
                     // notify.show("New Order Received!", "success");
                     this.notify();
                     this.getSentOrders(this);
                     this.getAcknowledgedOrders(this);
                     this.setState({
+                        updateAcknowledgedOrders: false,
                         dataLength: this.state.dataLength1
                     });
                 }
@@ -164,8 +167,8 @@ class OrderTable extends Component {
                             <th align="center">Table No:</th>
                             <th align="center">Order ID:</th>
                             <th align="center">Order Summary:</th>
-                            {/*<th align="center">Subtotal:</th>*/}
-                            {/*<th align="center">Mode of Payment:</th>*/}
+                            <th align="center">Subtotal:</th>
+                            <th align="center">Mode of Payment:</th>
                             <th align="center">Payment Status:</th>
                             <th align="center">Date & Time:</th>
                         </tr>
@@ -224,7 +227,7 @@ class OrderTable extends Component {
                                 <td align="left">{k+1}</td>
                                 <td align="left">{sentOrder.seatingTable.qrCode}</td>
                                 <td align="left">{sentOrder.orderId}</td>
-                                <DisplayCustomerOrderList orderId={sentOrder.orderId} updateAcknowledgedOrders={this.state.updateAcknowledgedOrders}/>
+                                <DisplayCustomerOrderList orderId={sentOrder.orderId} updateAcknowledgedOrders={this.state.updateAcknowledgedOrders} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate}/>
                                 {/*<td align="left">{sentOrder.subtotal}</td>*/}
                                 {/*<td align="left">{sentOrder.orderSummary.modeOfPayment}</td>*/}
                                 <td align="left">{sentOrder.orderSummary.paymentStatus}</td>

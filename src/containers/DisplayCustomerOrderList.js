@@ -28,8 +28,13 @@ class DisplayCustomerOrderList extends Component {
         this.getCustomerOrders(this);
     }
 
-    componentWillUpdate(){
-        if(this.props.updateAcknowledgedOrders === true){
+    componentDidUpdate(prevProps, prevState){
+        // if(this.props.updateAcknowledgedOrders === true){
+        //     this.getCustomerOrders(this);
+        // }
+        if (prevProps.orderId !== this.props.orderId) {
+            console.log(prevProps.orderId);
+            console.log(this.props.orderId);
             this.getCustomerOrders(this);
         }
     }
@@ -84,6 +89,7 @@ class DisplayCustomerOrderList extends Component {
                         <text> X {customerOrder.customerOrderQuantity} </text>
                         <text>{this.getOrderCustomisations(k)}</text>
                         <text>{this.getCustomerRemarks(k)}</text>
+                        {/*<button onClick={this.check}>Check</button>*/}
                         <hr/>
                     </div>
                 )}
