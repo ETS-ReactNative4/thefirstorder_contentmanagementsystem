@@ -16,6 +16,8 @@ class AddManagerAllocation extends Component {
             dropdownTitle: "Not Selected",
             firstName: '',
             lastName: '',
+            password: '',
+            confirmPassword: '',
             messageFromServer: '',
             errorMessage: ''
         };
@@ -44,6 +46,8 @@ class AddManagerAllocation extends Component {
         this.setState({
             firstName: '',
             lastName: '',
+            password: '',
+            confirmPassword: '',
             dropdownTitle: "Not Selected",
             modalIsOpen: false,
             messageFromServer: '',
@@ -69,7 +73,7 @@ class AddManagerAllocation extends Component {
     }
 
     createAndAllocateManager(e){
-        axios.post('https://makanow.herokuapp.com/api/manager/createAndAllocateManager/'+this.props.restaurantId+'/'+this.state.firstName+'/'+this.state.lastName).then(function(response) {
+        axios.post('https://makanow.herokuapp.com/api/manager/createAndAllocateManager/'+this.props.restaurantId+'/'+this.state.firstName+'/'+this.state.lastName+'/'+this.state.password).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });
@@ -100,6 +104,16 @@ class AddManagerAllocation extends Component {
                 lastName: e.target.value
             });
         }
+        if (e.target.name === "password") {
+            this.setState({
+                password: e.target.value
+            });
+        }
+        if (e.target.name === "confirmPassword") {
+            this.setState({
+                confirmPassword: e.target.value
+            });
+        }
     }
 
     onClick(e){
@@ -115,7 +129,11 @@ class AddManagerAllocation extends Component {
             this.setState({
                 errorMessage: 'Please select an existing manager OR create a new manager.'
             })
-        }else if(this.state.dropdownTitle !== "Not Selected"){
+        }else if(this.state.password !== this.state.confirmPassword){
+            this.setState({
+                errorMessage: 'Password do not match!'
+            })
+        } else if(this.state.dropdownTitle !== "Not Selected"){
             this.addManagerAllocation(this, this.state.selectedManagerId);
             this.props.handleManagerAllocationUpdate();
         }else if(this.state.firstName && this.state.lastName){
@@ -175,6 +193,12 @@ class AddManagerAllocation extends Component {
                             <label>Last Name: </label><input required type="text" min="0" id="lastName" name="lastName"
                                                               value={this.state.lastName}
                                                               onChange={this.handleTextChange}></input>
+                            <label>Password: </label><input required type="password" min="0" id="password" name="password"
+                                                             value={this.state.password}
+                                                             onChange={this.handleTextChange}></input>
+                            <label>Confirm Password: </label><input required type="password" min="0" id="confirmPassword" name="confirmPassword"
+                                                            value={this.state.confirmPassword}
+                                                            onChange={this.handleTextChange}></input>
                             <br/>
                             <div className='button-center'>
                                 <br/>

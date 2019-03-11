@@ -12,6 +12,7 @@ import EditRestaurant from "./EditRestaurant";
 import DeleteRestaurant from "./DeleteRestaurant";
 import AddRestaurant from "./AddRestaurant";
 import DisplayManagers from "./DisplayManagers";
+import no_image_icon from "./images/no-image-icon.png";
 
 class AdminMainPage extends Component {
 
@@ -75,6 +76,15 @@ class AdminMainPage extends Component {
         })
     }
 
+    displayRestaurantImage(k){
+        if (this.state.restaurantData[k].restaurantImg){
+            return (
+                <img src={this.state.restaurantData[k].restaurantImg} width="75" height="75"/>
+            )
+        }
+        return <img src={no_image_icon} width="75" height="75"/>
+    }
+
     check(){
         console.log(this.state.restaurantData);
     }
@@ -110,7 +120,7 @@ class AdminMainPage extends Component {
                         <tr index={k}>
                             <td align="'center">{k+1}</td>
                             <td align="'center">{restaurant.restaurantId}</td>
-                            <td align="center"><img src={restaurant.restaurantImg} width="150" height="125"/></td>
+                            <td align="center">{this.displayRestaurantImage(k)}</td>
                             <td align="left">{restaurant.restaurantName}</td>
                             <td align="left">{restaurant.restaurantDescription}</td>
                             <td align="left">{restaurant.building},<br/>

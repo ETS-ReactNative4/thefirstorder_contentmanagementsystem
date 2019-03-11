@@ -214,7 +214,7 @@ class OrderTable extends Component {
                             <th align="center">Table No:</th>
                             <th align="center">Order ID:</th>
                             <th align="center">Order Summary:</th>
-                            {/*<th align="center">Subtotal:</th>*/}
+                            <th align="center">Subtotal:</th>
                             {/*<th align="center">Mode of Payment:</th>*/}
                             <th align="center">Payment Status:</th>
                             <th align="center">Date & Time:</th>
@@ -228,7 +228,7 @@ class OrderTable extends Component {
                                 <td align="left">{sentOrder.seatingTable.qrCode}</td>
                                 <td align="left">{sentOrder.orderId}</td>
                                 <DisplayCustomerOrderList orderId={sentOrder.orderId} updateAcknowledgedOrders={this.state.updateAcknowledgedOrders} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate}/>
-                                {/*<td align="left">{sentOrder.subtotal}</td>*/}
+                                <td align="left">S${sentOrder.subtotal}</td>
                                 {/*<td align="left">{sentOrder.orderSummary.modeOfPayment}</td>*/}
                                 <td align="left">{sentOrder.orderSummary.paymentStatus}</td>
                                 <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(sentOrder.orderSummary.orderSummaryDate))}</td>
@@ -260,7 +260,7 @@ class OrderTable extends Component {
                                 <td align="left">{acknowledgedOrder.seatingTable.qrCode}</td>
                                 <td align="left">{acknowledgedOrder.orderId}</td>
                                 <DisplayCustomerOrder orderId={acknowledgedOrder.orderId}/>
-                                <td align="left">{acknowledgedOrder.subtotal}</td>
+                                <td align="left">S${acknowledgedOrder.subtotal}</td>
                                 <td align="left">{acknowledgedOrder.orderSummary.modeOfPayment}</td>
                                 <td align="left">{acknowledgedOrder.orderSummary.paymentStatus}</td>
                                 <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(acknowledgedOrder.orderSummary.orderSummaryDate))}</td>
