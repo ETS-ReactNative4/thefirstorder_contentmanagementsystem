@@ -95,32 +95,34 @@ class ConversionRate extends Component {
         }
         return(
             <div className="MainPage">
-                <h3><b>Conversion Rate</b></h3>
-                <hr/>
-                <p>
-                <label>Points to Cash: </label>
-                    <input required type="number" id="pointsToCash" name="pointsToCash"
-                                                      value={this.state.pointsToCash}
-                                                      onChange={this.handleTextChange}></input>
-                    <text> = </text>
-                    <input required type="number" id="pointsToCash1" name="pointsToCash1"
-                           value={this.state.pointsToCash1}
-                           onChange={this.handleTextChange}></input>
-                    <text> SGD (S$) </text>
-                </p>
-                <p>
-                <label>Cash to Points: </label>
-                    <input required type="number" id="cashToPoints" name="cashToPoints"
-                                                      value={this.state.cashToPoints}
-                                                      onChange={this.handleTextChange}></input>
-                    <text> = </text>
-                    <input required type="number" id="cashToPoints1" name="cashToPoints1"
-                           value={this.state.cashToPoints1}
-                           onChange={this.handleTextChange}></input>
-                    <text> POINT(S) </text>
-                </p>
-                <UpdateConversionRate adminId={this.state.adminId} pointsToCash={this.state.pointsToCash/this.state.pointsToCash1} cashToPoints={this.state.cashToPoints/this.state.cashToPoints1}/>
-                {/*<button onClick={this.check}>Check</button>*/}
+                <div className="content">
+                    <h2>Conversion Rate</h2>
+                    <hr/>
+                    <div>
+                    <label>Points to Cash: </label>
+                        <input required type="number" id="pointsToCash" name="pointsToCash"
+                                                          value={this.state.pointsToCash}
+                                                          onChange={this.handleTextChange}></input>
+                        <text> = </text>
+                        <input required type="number" id="pointsToCash1" name="pointsToCash1"
+                               value={this.state.pointsToCash1}
+                               onChange={this.handleTextChange}></input>
+                        <text> SGD (S$) </text>
+                    </div>
+                    <div>
+                    <label>Cash to Points: </label>
+                        <input required type="number" id="cashToPoints" name="cashToPoints"
+                                                          value={this.state.cashToPoints}
+                                                          onChange={this.handleTextChange}></input>
+                        <text> = </text>
+                        <input required type="number" id="cashToPoints1" name="cashToPoints1"
+                               value={this.state.cashToPoints1}
+                               onChange={this.handleTextChange}></input>
+                        <text> POINT(S) </text>
+                    </div>
+                    <UpdateConversionRate adminId={this.state.adminId} pointsToCash={this.state.pointsToCash/this.state.pointsToCash1} cashToPoints={this.state.cashToPoints/this.state.cashToPoints1}/>
+                    {/*<button onClick={this.check}>Check</button>*/}
+                </div>
             </div>
         )
     }

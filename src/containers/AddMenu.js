@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
+import { Button, Tab, Tabs } from "react-bootstrap";
 import Modal from 'react-modal';
 
 class AddMenu extends Component {
@@ -82,7 +82,7 @@ class AddMenu extends Component {
 
             return (
                 <div>
-                    <Button className="pull-right" bsStyle="success" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu</Button>
+                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span>Add Menu</Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}

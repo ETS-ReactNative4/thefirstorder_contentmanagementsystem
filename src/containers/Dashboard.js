@@ -1,22 +1,29 @@
 import React, { Component } from "react";
-import axios from "axios";
-import {Button, Tab, Table, Tabs} from "react-bootstrap";
-import "./MainPage.css";
 import {Redirect} from "react-router-dom";
+import "./MainPage.css"
+import axios from 'axios';
+import {Button, Tab, Tabs} from 'react-bootstrap';
+import MenuTabs from "./MenuTabs";
+import AddMenu from "./AddMenu";
 import ActivityLogTable from "./ActivityLogTable";
+import Analytics from "./Analytics";
 
-class ActivityLog extends Component {
+
+class Dashboard extends Component {
 
     constructor(props){
         super(props);
         this.state={
             restaurantData: [],
-            selectedRestaurant: '',
-            managerId: '',
+            managerId: "",
+            //JUST IN CASE: JSON.parse(sessionStorage.getItem("userData")).managerAllocations[0].managerAllocationPK.restaurantId,
+            selectedRestaurant: "",
+            selectedMenu: "",
+            update: false,
             redirect: false
         };
         this.check = this.check.bind(this);
-        this.handleSelect = this.handleSelect.bind(this);
+        this.getRestaurants = this.getRestaurants.bind(this);
     }
 
     componentWillMount(){
@@ -58,7 +65,7 @@ class ActivityLog extends Component {
     }
 
     check(){
-        console.log(this.state.selectedRestaurant);
+        console.log(JSON.parse(sessionStorage.getItem("userData")).managerId);
     }
 
     render(){
@@ -66,18 +73,22 @@ class ActivityLog extends Component {
         if(this.state.redirect){
             return (<Redirect to={'/'}/>)
         }
+
         return(
+
             <div className="MainPage">
                 <div className="content">
-                    <h2>Activity Log</h2>
+                    <h2>Dashboard</h2>
                     <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
                         {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
-                            <ActivityLogTable selectedRestaurant={this.state.restaurantData[i].restaurantId}/>
+                            <Analytics selectedRestaurant={this.state.restaurantData[i].restaurantId}/>
                         </Tab>)}
                     </Tabs>
                 </div>
             </div>
-        )
+        );
+
     }
 }
-export default ActivityLog;
+
+export default Dashboard;

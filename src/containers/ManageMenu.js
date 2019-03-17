@@ -5,8 +5,11 @@ import axios from 'axios';
 import {Button, Tab, Tabs} from 'react-bootstrap';
 import MenuTabs from "./MenuTabs";
 import AddMenu from "./AddMenu";
+import Img from "react-image";
+import activitylog from "./images/activitylog.png";
 
-class MainPage extends Component {
+
+class ManageMenu extends Component {
 
     constructor(props){
         super(props);
@@ -88,17 +91,27 @@ class MainPage extends Component {
 
         return(
 
-            <div className="MainPage">
-                <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
-                    {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
-                        <AddMenu manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
-                        <MenuTabs manager={this.state.managerId} restaurant={this.state.restaurantData[i]} update={this.state.update} handleUpdateMenuTab={this.handleUpdateMenuTab} handleStopUpdateMenuTab={this.handleStopUpdateMenuTab}/></Tab>)}
-                    {/*<button onClick={this.check}>Check</button>*/}
-                </Tabs>
+            <div class="MainPage">
+                <div class="content">
+                    <h2>Menu Manager</h2>
+                    <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
+                        {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
+
+                            <AddMenu manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
+
+                            <MenuTabs manager={this.state.managerId} restaurant={this.state.restaurantData[i]} update={this.state.update} handleUpdateMenuTab={this.handleUpdateMenuTab} handleStopUpdateMenuTab={this.handleStopUpdateMenuTab}/>
+
+                            </Tab>
+                        )}
+
+
+                        {/*<button onClick={this.check}>Check</button>*/}
+                    </Tabs>
+                </div>
             </div>
         );
 
     }
 }
 
-export default MainPage;
+export default ManageMenu;

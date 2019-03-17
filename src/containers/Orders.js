@@ -68,12 +68,14 @@ class Orders extends Component {
         }
         return(
             <div className="MainPage">
-                <h3> Orders </h3>
-                <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
-                    {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
-                        <OrderTable selectedRestaurant={this.state.restaurantData[i].restaurantId}/>
-                    </Tab>)}
-                </Tabs>
+                <div className="content">
+                    <h2> Orders </h2>
+                    <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
+                        {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
+                            <OrderTable selectedRestaurant={this.state.restaurantData[i].restaurantId}/>
+                        </Tab>)}
+                    </Tabs>
+                </div>
             </div>
         )
     }

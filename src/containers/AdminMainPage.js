@@ -97,46 +97,48 @@ class AdminMainPage extends Component {
 
         return(
             <div className="MainPage">
-                <h3><b>Restaurant Manager</b></h3>
-                <hr/>
-                <AddRestaurant adminId={this.state.adminId} handleRestaurantUpdate={this.handleRestaurantUpdate}/>
-                {/*<button onClick={this.check}>Check</button>*/}
-                <Table striped condensed hover>
-                    <thead>
-                    <tr>
-                        <th align="center">S/N</th>
-                        <th align="center">Restaurant ID</th>
-                        <th align="center"></th>
-                        <th align="center">Name</th>
-                        <th align="center">Description</th>
-                        <th align="center">Contact Details</th>
-                        <th align="center">Manager(s)</th>
-                        <th align="center">Edit</th>
-                        <th align="center">Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.restaurantData.map((restaurant, k) =>
-                        <tr index={k}>
-                            <td align="'center">{k+1}</td>
-                            <td align="'center">{restaurant.restaurantId}</td>
-                            <td align="center">{this.displayRestaurantImage(k)}</td>
-                            <td align="left">{restaurant.restaurantName}</td>
-                            <td align="left">{restaurant.restaurantDescription}</td>
-                            <td align="left">{restaurant.building},<br/>
-                                {restaurant.street}<br/>
-                                Singapore {restaurant.postalCode}<br/>
-                                Contact: {restaurant.contactNumber}<br/>
-                                Operating Hours:<br/>
-                                {restaurant.operatingHours}</td>
-                            <td align="left"><DisplayManagers restaurant={restaurant}/></td>
-                            <td align="left"><EditRestaurant restaurant={restaurant} handleRestaurantUpdate={this.handleRestaurantUpdate}/></td>
-                            <td align="left"><DeleteRestaurant restaurant={restaurant} handleRestaurantUpdate={this.handleRestaurantUpdate}/></td>
+                <div className="content">
+                    <h2>Restaurant Manager</h2>
+                    <hr/>
+                    <AddRestaurant adminId={this.state.adminId} handleRestaurantUpdate={this.handleRestaurantUpdate}/>
+                    {/*<button onClick={this.check}>Check</button>*/}
+                    <Table striped condensed hover>
+                        <thead>
+                        <tr>
+                            <th align="center">S/N</th>
+                            <th align="center">Restaurant ID</th>
+                            <th align="center"></th>
+                            <th align="center">Name</th>
+                            <th align="center">Description</th>
+                            <th align="center">Contact Details</th>
+                            <th align="center">Manager(s)</th>
+                            <th align="center">Edit</th>
+                            <th align="center">Delete</th>
                         </tr>
-                    )
-                    }
-                    </tbody>
-                </Table>
+                        </thead>
+                        <tbody>
+                        {this.state.restaurantData.map((restaurant, k) =>
+                            <tr index={k}>
+                                <td align="'center">{k+1}</td>
+                                <td align="'center">{restaurant.restaurantId}</td>
+                                <td align="center">{this.displayRestaurantImage(k)}</td>
+                                <td align="left">{restaurant.restaurantName}</td>
+                                <td align="left">{restaurant.restaurantDescription}</td>
+                                <td align="left">{restaurant.building},<br/>
+                                    {restaurant.street}<br/>
+                                    Singapore {restaurant.postalCode}<br/>
+                                    Contact: {restaurant.contactNumber}<br/>
+                                    Operating Hours:<br/>
+                                    {restaurant.operatingHours}</td>
+                                <td align="left"><DisplayManagers restaurant={restaurant}/></td>
+                                <td align="left"><EditRestaurant restaurant={restaurant} handleRestaurantUpdate={this.handleRestaurantUpdate}/></td>
+                                <td align="left"><DeleteRestaurant restaurant={restaurant} handleRestaurantUpdate={this.handleRestaurantUpdate}/></td>
+                            </tr>
+                        )
+                        }
+                        </tbody>
+                    </Table>
+                </div>
             </div>
         );
 

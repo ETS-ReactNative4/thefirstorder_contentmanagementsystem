@@ -176,7 +176,7 @@ class AddFood extends Component {
 
             return (
                 <div>
-                    <Button className="pull-left" bsStyle="success" bsSize="small" onClick={this.openModal}><span
+                    <Button className="pull-left" bsStyle="success" onClick={this.openModal}><span
                         className="glyphicon glyphicon-plus"></span> Add Food Item</Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}

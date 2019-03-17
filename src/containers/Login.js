@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { PostData } from "../components/PostData";
 import {Redirect} from 'react-router-dom';
 // import "./Login.css";
-import {Button} from "react-bootstrap";
+import {Button, Image} from "react-bootstrap";
 import Img from 'react-image';
 import makanow from './images/makanow.png';
 
@@ -81,7 +81,7 @@ export default class Login extends Component {
     render() {
 
         if(this.state.redirect){
-            return (<Redirect to={'/MainPage'}/>)
+            return (<Redirect to={'/Dashboard'}/>)
         }
 
         if(this.state.adminRedirect){
@@ -89,26 +89,30 @@ export default class Login extends Component {
         }
 
         // if(sessionStorage.getItem("userData")){
-        //     return (<Redirect to={'/MainPage'}/>)
+        //     return (<Redirect to={'/ManageMenu'}/>)
         // }
         console.log("LOGIN PAGE")
         console.log(this.state)
         return (
             <div className="container_login">
-                <div className = "login-form">
-                    <h1>Makanow</h1>
-                    <form>
-                        <div className="form-group">
-                            <input type="text" className="form-control" name="managerId"
-                                   placeholder="Manager ID" id="UserName" onChange={this.onChange}/>
+                <div className="wrapper">
+                    <div className = "login-form">
+                        <div>
+                            <Img style = {{width: 200, height: 200, marginLeft: 45}} src={makanow} resizeMode="contain" />
                         </div>
-                        <div className="form-group">
-                            <input type="password" className="form-control" name="password"
-                                   placeholder="Password" id="Passwod" onChange={this.onChange}/>
-                        </div>
-                        <span className="alert">{this.state.loginFailed}</span>
-                        <button type="button" className="log-btn" onClick={this.login}>Log in</button>
-                    </form>
+                        <form>
+                            <div className="form-group">
+                                <input type="text" className="form-control" name="managerId"
+                                       placeholder="Manager ID" id="UserName" onChange={this.onChange}/>
+                            </div>
+                            <div className="form-group">
+                                <input type="password" className="form-control" name="password"
+                                       placeholder="Password" id="Passwod" onChange={this.onChange}/>
+                            </div>
+                            <span className="alert">{this.state.loginFailed}</span>
+                            <button type="button" className="log-btn" onClick={this.login}>Log in</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         );

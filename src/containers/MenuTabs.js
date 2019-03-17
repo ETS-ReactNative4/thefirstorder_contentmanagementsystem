@@ -1,7 +1,11 @@
+import "./css/style.css"
 import React, { Component } from "react";
-import {Tab, Tabs} from 'react-bootstrap'
+import {Tab, Tabs, Button} from 'react-bootstrap'
 import axios from "axios";
 import FoodPrices from "./FoodPrices";
+
+import ChangeMenuName from "./ChangeMenuName";
+import DeleteMenu from "./DeleteMenu";
 
 class MenuTabs extends Component {
 
@@ -68,7 +72,7 @@ class MenuTabs extends Component {
     }
 
     check(){
-        console.log(this.state.menuData);
+        console.log(this.state);
     }
 
     render(){
@@ -76,10 +80,37 @@ class MenuTabs extends Component {
         return(
             <div>
                 <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
-                    {this.state.menuData.map((menu, j) => <Tab eventKey={j} title={menu.menuName}>
-                        <FoodPrices manager={this.props.manager} menu={this.state.menuData[j]} restaurant={this.props.restaurant.restaurantId} handleAddFood={this.handleAddFood} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleUpdateFoodPrices={this.handleUpdateFoodPrices}/></Tab>)}
+                    {this.state.menuData.map((menu, j) =>
+                        <Tab
+                            eventKey={j}
+                            title={
+                                <span>{menu.menuName}
+                                    <span className="menu-controls">
+                                        {/*<button  class="btn-simple btn btn-xs btn-warning"  type="button" onClick={ChangeMenuName}>            /!*Edit Menu Name*!/*/}
+                                            {/*<span class="glyphicon glyphicon-edit"></span>*/}
+                                        {/*</button>*/}
+
+                                        {/*<ChangeMenuName handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.state.menuData[this.state.selectedMenu]} restaurant={this.props.restaurant}/>*/}
+
+                                        {/*<button className="btn-simple btn btn-xs btn-danger" type="button"onClick={ChangeMenuName}>            /!*Delete Menu*!/*/}
+                                            {/*<span className="glyphicon glyphicon-remove"></span>*/}
+                                        {/*</button>*/}
+
+                                        {/*<DeleteMenu manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />*/}
+
+                                        </span>
+                                    </span>
+                            }>
+                            <FoodPrices manager={this.props.manager}
+                                    menu={this.state.menuData[j]}
+                                    restaurant={this.props.restaurant.restaurantId}
+                                    handleAddFood={this.handleAddFood}
+                                    handleUpdateMenuTab={this.props.handleUpdateMenuTab}
+                                    handleUpdateFoodPrices={this.handleUpdateFoodPrices}/>
+                    </Tab>)}
+                    {/*<Tab eventKey="contact" title={<span className="add_menu">Add Menu</span>}></Tab>*/}
                 </Tabs>
-                {/*<button onClick={this.check}>Check</button>*/}
+                {/*<Button onClick={this.check}>Check</Button>*/}
             </div>
         )
     }

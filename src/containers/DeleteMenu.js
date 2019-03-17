@@ -76,7 +76,7 @@ class DeleteMenu extends Component {
                 <div>
                     {/*<button onClick={this.check}>Check</button>*/}
                     <Button className="pull-right" bsStyle="danger" bsSize="small" onClick={this.openModal}><span
-                        className="glyphicon glyphicon-remove"></span> Delete Menu "{this.props.selectedMenu.menuName}"</Button>
+                        className="glyphicon glyphicon-remove"></span> Delete "{this.props.selectedMenu.menuName}"</Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}

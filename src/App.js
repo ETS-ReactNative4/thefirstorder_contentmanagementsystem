@@ -10,6 +10,7 @@ import menu from './containers/images/menu.png';
 import conversion from './containers/images/conversion.png';
 import orders from './containers/images/orders.png';
 import Img from "react-image";
+import ManageMenu from "./containers/ManageMenu";
 
 class App extends Component {
 
@@ -37,31 +38,63 @@ class App extends Component {
                 return (
                     <div className="app_container">
                         <div class="sidenav">
-                            <div class="logo">
-                                <Img src={makanow} resizeMode="contain" />
-                            </div>
-                            <div class="nav_item">
-                                <h3 align="center">Manager {user.firstName}</h3>
-                            </div>
-                                <div class="nav_item">
-                                    <a href="/MainPage">
-                                        <Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/> Menu
-                                    </a>
+                            <div class="sidenav-wrapper">
+                                <div class="logo">
+                                    <Img src={makanow} resizeMode="contain" />
                                 </div>
                                 <div class="nav_item">
-                                    <a href="/ActivityLog">
-                                        <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/> Activity Log
-                                    </a>
+                                    <h3>Manager {user.firstName}</h3>
                                 </div>
-                            <div class="nav_item">
-                                <a href="/Orders">
-                                    <Img style = {{width: 20, height: 20}} src={orders} resizeMode="contain"/> Orders
-                                </a>
-                            </div>
-                            <div class="nav_item">
-                                <a href="" onClick={this.logout}>
-                                    <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" /> Logout
-                                </a>
+                                <ul className="nav">
+                                    <li>
+                                        <a className="nav-link" href="/Dashboard">
+                                            <i className="glyphicon glyphicon-book">
+                                                {/*<Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Dashboard</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className = "nav-link" href="/ManageMenu">
+                                            <i class="glyphicon glyphicon-book">
+                                                {/*<Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Menu</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className = "nav-link" href="/ActivityLog">
+                                            <i class="glyphicon glyphicon-list-alt">
+                                                {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Activity Log</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className = "nav-link" href="/Orders">
+                                            <i class="glyphicon glyphicon-shopping-cart">
+                                                {/*<Img style = {{width: 20, height: 20}} src={orders} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Orders</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link" href="/ManagerProfile">
+                                            <i className="glyphicon glyphicon-list-alt">
+                                                {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Profile</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className = "nav-link" href="" onClick={this.logout}>
+                                            <i class="glyphicon glyphicon-off">
+                                                {/*<Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" />*/}
+                                            </i>
+                                            <p>Logout</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
@@ -91,27 +124,40 @@ class App extends Component {
             if (user.adminId){
                 return (
                     <div class="app_container">
-                        <div class="sidenav">
-                            <div class="logo">
-                                <Img src={makanow} resizeMode="contain" />
-                            </div>
-                            <div class="nav_item">
-                                <h3 align="center">Admin</h3>
-                            </div>
-                            <div class="nav_item">
-                                <a href="/AdminMainPage">
-                                    <Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>Manage Restaurants
-                                </a>
-                            </div>
-                            <div class="nav_item">
-                                <a href="/ConversionRate">
-                                    <Img style = {{width: 20, height: 20}} src={conversion} resizeMode="contain"/>Conversion Rate
-                                </a>
-                            </div>
-                            <div class="nav_item">
-                                <a href="" onClick={this.logout}>
-                                    <Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" /> Logout
-                                </a>
+                        <div className="sidenav">
+                            <div className="sidenav-wrapper">
+                                <div className="logo">
+                                    <Img src={makanow} resizeMode="contain"/>
+                                </div>
+                                <div className="nav_item">
+                                    <h3 align="center">Admin</h3>
+                                </div>
+                                <ul className="nav">
+                                    <li>
+                                        <a className="nav-link" href="/AdminMainPage">
+                                            <i className="glyphicon glyphicon-dashboard">
+                                                {/*<Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Restaurants</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link" href="/ConversionRate">
+                                            <i className="glyphicon glyphicon-piggy-bank">
+                                                {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Conversion Rate</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link" href="" onClick={this.logout}>
+                                            <i className="glyphicon glyphicon-off">
+                                                {/*<Img style = {{width: 20, height: 20}} src={logout} resizeMode="contain" />*/}
+                                            </i>
+                                            <p>Logout</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
@@ -145,6 +191,7 @@ class App extends Component {
             </div>
         );
     }
+
 }
 
 

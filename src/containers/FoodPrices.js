@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, ButtonToolbar, MenuItem, SplitButton, Tab, Table, Tabs} from 'react-bootstrap'
+import {Button, ButtonToolbar, MenuItem, SplitButton, Tab, Table} from 'react-bootstrap'
 import axios from "axios";
 import DeleteMenu from "./DeleteMenu";
 import DeleteFoodPrice from "./DeleteFoodPrice";
@@ -44,6 +44,7 @@ class FoodPrices extends Component {
         this.onSelect2 = this.onSelect2.bind(this);
         this.updateDropdownTitle = this.updateDropdownTitle.bind(this);
     }
+
 
     componentWillMount(){
         if(this.state.selectedCategory === "1"){
@@ -93,6 +94,7 @@ class FoodPrices extends Component {
     //         });
     //     }
     // }
+
 
     componentDidUpdate(){
         if (this.state.selectedCategory === ""){
@@ -249,36 +251,35 @@ class FoodPrices extends Component {
     displayFoodImage(k){
         if (this.state.foodData[k].foodImg){
             return (
-                <img src={this.state.foodData[k].foodImg} width="75" height="75"/>
+                <img src={this.state.foodData[k].foodImg} width="50" height="50"/>
             )
         }
-        return <img src={no_image_icon} width="75" height="75"/>
+        return <img src={no_image_icon} width="50" height="50"/>
     }
 
     check(){
         console.log(this.state.foodData);
     }
 
+    // Delete when complete (Keith)
+    // componentDidMount(){
+    //     console.log(this.props);
+    // }
 
     render(){
 
         return (
-
             <div>
-                <p></p>
-                <ButtonToolbar>
-                    <AddFood manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
-                    {/*<Button className="pull-left" bsStyle="success" bsSize="small"><span className="glyphicon glyphicon-plus"></span> Add Food Item</Button>*/}
-                    <ButtonGroup className="pull-right">
+                <ButtonToolbar className="toolbar">
+                    <ButtonGroup className="pull-left">
                         <DeleteMenu manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />
                         {/*<Button className="pull-right" bsStyle="danger" bsSize="small" onClick={this.onClick}><span className="glyphicon glyphicon-remove"></span> Delete Menu {this.props.menu.menuId}</Button>*/}
                     </ButtonGroup>
-                    <ButtonGroup className="pull-right">
+                    <ButtonGroup className="pull-left">
                         <ChangeMenuName handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>
                     </ButtonGroup>
                 </ButtonToolbar>
-                <ButtonToolbar>
-                    <p></p>
+                <ButtonToolbar className="toolbar">
                     <SplitButton title={<b>{this.state.dropdownTitle}</b>}>
                         <MenuItem onClick={() => this.onSelect1()}><b>View All</b></MenuItem>
                         {this.state.categoryData.map((category, k) =>
@@ -292,24 +293,30 @@ class FoodPrices extends Component {
                                       onClick={() => this.onSelect2(k, subCategory.subCategoryId)}><b>{subCategory.subCategoryName}</b></MenuItem>
                         )}
                     </SplitButton>
+
                     <ButtonGroup className="pull-right">
                         <CSVLink filename={this.props.menu.menuName+"_"+this.state.dropdownTitle+".csv"} data={this.state.foodDataCSV}>
                             <Button className="pull-right" bsStyle="info">
-                                <span
-                                    className="glyphicon glyphicon-save"></span> Export Menu </Button>
+                                <span className="glyphicon glyphicon-save"></span> Export Menu </Button>
                         </CSVLink>
                     </ButtonGroup>
                     <ButtonGroup className="pull-right">
                         <ImportCSV manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
                     </ButtonGroup>
+
+                    <ButtonGroup className="pull-right">
+                        <AddFood manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
+                        {/*<Button className="pull-left" bsStyle="success" bsSize="small"><span className="glyphicon glyphicon-plus"></span> Add Food Item</Button>*/}
+                    </ButtonGroup>
                 </ButtonToolbar>
                 {/*<FilterCategory selectedMenu={this.props.menu.menuId} selectCategory={this.selectCategory} selectedCategory={this.state.selectedCategory}/>*/}
-                <p></p>
+                {/*<p></p>*/}
                 {/*<p align="right">*/}
                     {/*<span className="glyphicon glyphicon-time"></span> Last Updated:  {this.props.menu.dateOfCreation}*/}
                 {/*</p>*/}
-                <p></p>
-                <Table bordered striped>
+                {/*<p></p>*/}
+
+                <Table striped hover>
                     <thead>
                         <tr>
                             <th align="center">S/N</th>
@@ -347,10 +354,12 @@ class FoodPrices extends Component {
                     }
                     </tbody>
                 </Table>
-                {/*<button onClick={this.check}>Check</button>*/}
+                {/*<Button onClick={this.check}>Check</Button>*/}
             </div>
+
         )
     }
 }
 
 export default FoodPrices;
+

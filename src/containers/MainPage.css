@@ -1,8 +1,16 @@
 .MainPage{
-  margin: 0 3% 0 15%;
-  padding-bottom: 5%;
-  font-family: "Malgun Gothic";
+    /*margin: 0 3% 0 20%;*/
+    position: relative;
+    float: right;
+    width: calc(100% - 260px);
+    padding-bottom: 5%;
+    font-family: "Malgun Gothic";
 }
+.MainPage .content{
+    padding: 30px 30px;
+    /*min-height: calc(100% - 123px);*/
+}
+
 .button-col {
     width:100px;
     text-align:center;
