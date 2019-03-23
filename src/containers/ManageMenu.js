@@ -58,7 +58,7 @@ class ManageMenu extends Component {
     }
 
     getRestaurants(ev, managerId){
-        axios.get('https://makanow.herokuapp.com/api/restaurants/getRestaurantsByManagerId/'+managerId)
+        axios.get('http://makanow.herokuapp.com/api/restaurants/getRestaurantsByManagerId/'+managerId)
             .then(function(response) {
                 ev.setState({restaurantData: response.data});
                 if(response.data.length !== 0){

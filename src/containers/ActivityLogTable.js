@@ -24,7 +24,7 @@ class ActivityLogTable extends Component {
     }
 
     getActivityLogs(ev){
-        axios.post('https://makanow.herokuapp.com/api/activityLogs/'+this.props.selectedRestaurant)
+        axios.post('http://makanow.herokuapp.com/api/activityLogs/'+this.props.selectedRestaurant)
             .then(function(response) {
                 ev.setState({activityLogData: response.data});
             });

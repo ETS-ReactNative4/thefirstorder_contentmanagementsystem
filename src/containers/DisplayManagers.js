@@ -42,7 +42,7 @@ class DisplayManagers extends Component {
     }
 
     getManagers(ev){
-        axios.get('https://makanow.herokuapp.com/api/managers/getManagersByRestaurantId/'+this.props.restaurant.restaurantId)
+        axios.get('http://makanow.herokuapp.com/api/managers/getManagersByRestaurantId/'+this.props.restaurant.restaurantId)
             .then(function(response) {
                 ev.setState({managerData: response.data});
             });

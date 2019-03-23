@@ -49,7 +49,7 @@ class DeleteFoodPrice extends Component {
     }
 
     deleteFoodPrice(ev) {
-        axios.delete('https://makanow.herokuapp.com/api/foodPrices/deleteFoodPrice', {
+        axios.delete('http://makanow.herokuapp.com/api/foodPrices/deleteFoodPrice', {
             params: {
                 menuId: ev.props.selectedMenu,
                 foodId: ev.props.selectedFood,

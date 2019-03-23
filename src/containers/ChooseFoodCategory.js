@@ -49,7 +49,7 @@ class ChooseFoodCategory extends Component {
     }
 
     getCategories(ev){
-        axios.post('https://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.selectedMenu)
+        axios.post('http://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.selectedMenu)
             .then(function(response) {
                 ev.setState({
                     categoryData: response.data});
@@ -61,7 +61,7 @@ class ChooseFoodCategory extends Component {
             foodCategoryName: ev.state.foodCategoryName,
             foodCategoryImg: ev.state.images[0]
         }
-        axios.post('https://makanow.herokuapp.com/api/categories/addCategory/'+this.props.selectedMenu, addedFoodCategory)
+        axios.post('http://makanow.herokuapp.com/api/categories/addCategory/'+this.props.selectedMenu, addedFoodCategory)
             .then(function(response) {
                 ev.setState({
                     selectedCategory: response.data,
@@ -70,7 +70,7 @@ class ChooseFoodCategory extends Component {
     }
 
     getSubCategoriesByCategoryId(ev, num){
-        axios.post('https://makanow.herokuapp.com/api/subCategories/getSubCategoriesByCategoryId/'+num)
+        axios.post('http://makanow.herokuapp.com/api/subCategories/getSubCategoriesByCategoryId/'+num)
             .then(function(response) {
                 ev.setState({
                     subCategoryData: response.data});
@@ -82,7 +82,7 @@ class ChooseFoodCategory extends Component {
             subCategoryName: ev.state.subCategoryName,
             subCategoryImg: ev.state.images[0]
         }
-        axios.post('https://makanow.herokuapp.com/api/subCategories/addSubCategory/'+this.props.selectedCategory, addedSubCategory)
+        axios.post('http://makanow.herokuapp.com/api/subCategories/addSubCategory/'+this.props.selectedCategory, addedSubCategory)
             .then(function(response) {
                 ev.setState({
                     selectedSubCategory: response.data,
@@ -201,7 +201,9 @@ class ChooseFoodCategory extends Component {
             let file = imageFiles[i];
 
             reader.onloadend = () => {
-                self.setState({ images: self.state.images.concat(reader.result) });
+                self.setState({
+                    images: self.state.images.concat(reader.result)
+                });
             }
 
             reader.readAsDataURL(file);
@@ -216,7 +218,7 @@ class ChooseFoodCategory extends Component {
 
 
     check() {
-        console.log(this.state.selectedSubCategory);
+        console.log(this.state.images[0]);
     }
 
     render() {
@@ -273,6 +275,7 @@ class ChooseFoodCategory extends Component {
                                             <img src={this.state.images[0]} width="150" height="125"/>
                                         </td>
                                     </tr>
+                                    {/*<button onClick={this.check}>Check</button>*/}
                                 </table>
                                 <div className='button-center'>
                                     <br/>
@@ -382,7 +385,6 @@ class ChooseFoodCategory extends Component {
                             <Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>Close</Button>
                         </div>
                     </Modal>
-                    {/*<button onClick={this.check}>Check</button>*/}
                 </SplitButton>
                 </div>
             )

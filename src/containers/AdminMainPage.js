@@ -64,7 +64,7 @@ class AdminMainPage extends Component {
     }
 
     getRestaurants(ev){
-        axios.get('https://makanow.herokuapp.com/api/restaurants/getAllRestaurantsByAdminId/'+this.state.adminId)
+        axios.get('http://makanow.herokuapp.com/api/restaurants/getAllRestaurantsByAdminId/'+this.state.adminId)
             .then(function(response) {
                 ev.setState({restaurantData: response.data});
             });

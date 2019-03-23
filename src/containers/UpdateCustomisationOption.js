@@ -74,7 +74,7 @@ class UpdateCustomisationOption extends Component {
             menuId: e.props.menuId,
             managerId: e.props.managerId
         }
-        axios.post('https://makanow.herokuapp.com/api/customisationOption/updateCustomisationOption', updatedCustomisationOption).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/customisationOption/updateCustomisationOption', updatedCustomisationOption).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

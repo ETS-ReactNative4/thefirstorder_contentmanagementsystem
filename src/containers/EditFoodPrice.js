@@ -144,7 +144,7 @@ class EditFoodPrice extends Component {
             managerId: e.props.manager,
             foodImg: e.state.foodImage[0]
         }
-        axios.post('https://makanow.herokuapp.com/api/foodPrices/updateFoodPrice/'+this.props.selectedMenu + '/' + this.state.foodId, foodItem).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/foodPrices/updateFoodPrice/'+this.props.selectedMenu + '/' + this.state.foodId, foodItem).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

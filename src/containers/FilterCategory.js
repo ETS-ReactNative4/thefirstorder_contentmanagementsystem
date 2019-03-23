@@ -27,7 +27,7 @@ class FilterCategory extends Component {
     }
 
     getCategories(ev){
-        axios.post('https://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.selectedMenu)
+        axios.post('http://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.selectedMenu)
             .then(function(response) {
                 ev.setState({
                     categoryData: response.data});

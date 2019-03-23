@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     font-family: "Malgun Gothic";
-    /*background: rgba(255, 255, 255, 0.8);*/
+    background-image: linear-gradient(to top, #cad3d8 0%, #f0faff 100%);
 }
 
 .app_container .navbar-brand {
@@ -33,7 +33,7 @@ a{
 }
 
 .sidenav::before{
-    opacity: .13;
+    opacity: .2;
     background: #000000;
     display: block;
     content: "";
@@ -105,6 +105,7 @@ nav > li > a {
   padding: 10px 15px;
 }
 
+
 .sidenav .nav a, .table > tbody > tr .td-actions .btn {
   -webkit-transition: all 150ms ease-in;
   -o-transition: all 150ms ease-in;
@@ -149,6 +150,10 @@ nav > li > a {
 
 .h3{
   font-family: "Malgun Gothic";
+}
+
+.content_content{
+    margin-top: 2%;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

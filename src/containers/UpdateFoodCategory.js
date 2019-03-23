@@ -48,7 +48,7 @@ class UpdateFoodCategory extends Component {
     }
 
     getCategories(ev){
-        axios.post('https://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.selectedMenu)
+        axios.post('http://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.selectedMenu)
             .then(function(response) {
                 ev.setState({
                     categoryData: response.data});
@@ -59,7 +59,7 @@ class UpdateFoodCategory extends Component {
         var addedFoodCategory = {
             foodCategoryName: ev.state.foodCategoryName
         }
-        axios.post('https://makanow.herokuapp.com/api/categories/addCategory/'+this.props.selectedMenu, addedFoodCategory)
+        axios.post('http://makanow.herokuapp.com/api/categories/addCategory/'+this.props.selectedMenu, addedFoodCategory)
             .then(function(response) {
                 ev.setState({
                     selectedCategory: response.data,
@@ -68,7 +68,7 @@ class UpdateFoodCategory extends Component {
     }
 
     getSubCategoriesByCategoryId(ev, num){
-        axios.post('https://makanow.herokuapp.com/api/subCategories/getSubCategoriesByCategoryId/'+num)
+        axios.post('http://makanow.herokuapp.com/api/subCategories/getSubCategoriesByCategoryId/'+num)
             .then(function(response) {
                 ev.setState({
                     subCategoryData: response.data});
@@ -79,7 +79,7 @@ class UpdateFoodCategory extends Component {
         var addedSubCategory = {
             subCategoryName: ev.state.subCategoryName
         }
-        axios.post('https://makanow.herokuapp.com/api/subCategories/addSubCategory/'+this.props.selectedCategory, addedSubCategory)
+        axios.post('http://makanow.herokuapp.com/api/subCategories/addSubCategory/'+this.props.selectedCategory, addedSubCategory)
             .then(function(response) {
                 ev.setState({
                     selectedSubCategory: response.data,

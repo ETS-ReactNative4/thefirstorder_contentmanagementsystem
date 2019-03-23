@@ -26,10 +26,18 @@ export default class Login extends Component {
 
     componentDidMount () {
 
+        // this.setState({redirect: true});
 
         const script = document.createElement("script");
 
-        script.src = "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
+        //script.src = "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
+
+        //Updated font-awesome
+
+        script.src = "http://maxcdn.bootstrapcdn.com/font-awesome/5.7.2/css/font-awesome.min.css";
+
+        //script.src = "https://use.fontawesome.com/releases/v5.7.2/css/all.css";
+
         script.async = true;
 
         document.body.appendChild(script);
@@ -95,24 +103,22 @@ export default class Login extends Component {
         console.log(this.state)
         return (
             <div className="container_login">
-                <div className="wrapper">
-                    <div className = "login-form">
-                        <div>
-                            <Img style = {{width: 200, height: 200, marginLeft: 45}} src={makanow} resizeMode="contain" />
-                        </div>
-                        <form>
-                            <div className="form-group">
-                                <input type="text" className="form-control" name="managerId"
-                                       placeholder="Manager ID" id="UserName" onChange={this.onChange}/>
-                            </div>
-                            <div className="form-group">
-                                <input type="password" className="form-control" name="password"
-                                       placeholder="Password" id="Passwod" onChange={this.onChange}/>
-                            </div>
-                            <span className="alert">{this.state.loginFailed}</span>
-                            <button type="button" className="log-btn" onClick={this.login}>Log in</button>
-                        </form>
+                <div className = "login-form">
+                    <div>
+                        <Img style = {{width: 200, height: 200, marginLeft: 45}} src={makanow} resizeMode="contain" />
                     </div>
+                    <form>
+                        <div className="form-group">
+                            <input type="text" className="form-control" name="managerId"
+                                   placeholder="Manager ID" id="UserName" onChange={this.onChange}/>
+                        </div>
+                        <div className="form-group">
+                            <input type="password" className="form-control" name="password"
+                                   placeholder="Password" id="Passwod" onChange={this.onChange}/>
+                        </div>
+                        <span className="alert">{this.state.loginFailed}</span>
+                        <button type="button" className="log-btn" onClick={this.login}>Log in</button>
+                    </form>
                 </div>
             </div>
         );

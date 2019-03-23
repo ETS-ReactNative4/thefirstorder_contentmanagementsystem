@@ -55,7 +55,7 @@ class DisplayFoodCustomisation extends Component {
     }
 
     getFoodCustomisations(ev){
-        axios.get('https://makanow.herokuapp.com/api/customisation/menu/'+this.props.menuId+'/food/'+this.props.foodId+'/category/'+this.props.categoryId)
+        axios.get('http://makanow.herokuapp.com/api/customisation/menu/'+this.props.menuId+'/food/'+this.props.foodId+'/category/'+this.props.categoryId)
             .then(function(response) {
                 ev.setState({
                     foodCustomisationData: response.data});

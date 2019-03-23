@@ -85,7 +85,7 @@ class AddRestaurant extends Component {
             restaurantImg: e.state.images[0]
 
         }
-        axios.post('https://makanow.herokuapp.com/api/restaurant/addRestaurant/'+this.props.adminId, newRestaurant).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/restaurant/addRestaurant/'+this.props.adminId, newRestaurant).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

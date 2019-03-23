@@ -167,7 +167,7 @@ class FoodPrices extends Component {
     }
 
     getFoods(ev){
-        axios.get('https://makanow.herokuapp.com/api/foods/'+this.props.menu.menuId)
+        axios.get('http://makanow.herokuapp.com/api/foods/'+this.props.menu.menuId)
             .then(function(response) {
                 ev.setState({
                     foodData: response.data[0],
@@ -177,7 +177,7 @@ class FoodPrices extends Component {
     }
 
     getFoodsByCategory(ev){
-        axios.get('https://makanow.herokuapp.com/api/foods/getFoodsByCategory/'+this.props.menu.menuId+'/'+this.state.selectedCategory)
+        axios.get('http://makanow.herokuapp.com/api/foods/getFoodsByCategory/'+this.props.menu.menuId+'/'+this.state.selectedCategory)
             .then(function(response) {
                 ev.setState({
                     foodData: response.data[0],
@@ -187,7 +187,7 @@ class FoodPrices extends Component {
     }
 
     getCategories(ev){
-        axios.post('https://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.menu.menuId)
+        axios.post('http://makanow.herokuapp.com/api/categories/getCategoriesByMenuId/'+this.props.menu.menuId)
             .then(function(response) {
                 ev.setState({
                     categoryData: response.data});
@@ -195,7 +195,7 @@ class FoodPrices extends Component {
     }
 
     getSubCategoriesByMenuId(ev){
-        axios.post('https://makanow.herokuapp.com/api/subCategories/'+this.props.menu.menuId)
+        axios.post('http://makanow.herokuapp.com/api/subCategories/'+this.props.menu.menuId)
             .then(function(response) {
                 ev.setState({
                     subCategoryData: response.data});
@@ -203,7 +203,7 @@ class FoodPrices extends Component {
     }
 
     getFoodsBySubCategory(ev){
-        axios.get('https://makanow.herokuapp.com/api/foods/getFoodsBySubCategory/'+this.props.menu.menuId+'/'+this.state.selectedSubCategory)
+        axios.get('http://makanow.herokuapp.com/api/foods/getFoodsBySubCategory/'+this.props.menu.menuId+'/'+this.state.selectedSubCategory)
             .then(function(response) {
                 ev.setState({
                     foodData: response.data[0],

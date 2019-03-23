@@ -58,7 +58,7 @@ class DeleteMenu extends Component {
 
 
     deleteMenu(ev){
-        axios.delete('https://makanow.herokuapp.com/api/menus',{params: {menuId: ev.props.selectedMenu.menuId, restaurantId: ev.props.restaurant, managerId:ev.props.manager}}).then(function(response) {
+        axios.delete('http://makanow.herokuapp.com/api/menus',{params: {menuId: ev.props.selectedMenu.menuId, restaurantId: ev.props.restaurant, managerId:ev.props.manager}}).then(function(response) {
             ev.setState({
                 messageFromServer: response.data
             });
@@ -75,7 +75,7 @@ class DeleteMenu extends Component {
             return (
                 <div>
                     {/*<button onClick={this.check}>Check</button>*/}
-                    <Button className="pull-right" bsStyle="danger" bsSize="small" onClick={this.openModal}><span
+                    <Button className="pull-right" bsStyle="danger" bsSize="medium" onClick={this.openModal}><span
                         className="glyphicon glyphicon-remove"></span> Delete "{this.props.selectedMenu.menuName}"</Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}

@@ -53,7 +53,7 @@ class MenuTabs extends Component {
     }
 
     getMenus(ev, restaurantId){
-        axios.get('https://makanow.herokuapp.com/api/menus/getMenusByRestaurantId/'+restaurantId)
+        axios.get('http://makanow.herokuapp.com/api/menus/getMenusByRestaurantId/'+restaurantId)
             .then(function(response) {
                 ev.setState({menuData: response.data});
             });

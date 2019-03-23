@@ -43,7 +43,7 @@ class DeleteRestaurant extends Component {
     }
 
     deleteRestaurant(ev) {
-        axios.delete('https://makanow.herokuapp.com/api/restaurants/' + this.props.restaurant.restaurantId, {
+        axios.delete('http://makanow.herokuapp.com/api/restaurants/' + this.props.restaurant.restaurantId, {
         }).then(function (response) {
             ev.setState({
                 messageFromServer: response.data

@@ -65,7 +65,7 @@ class AddMenu extends Component {
     }
 
     addMenu(e){
-        axios.post('https://makanow.herokuapp.com/api/menus/addMenu/'+this.props.manager+'/'+this.state.selectedRestaurant+'/'+this.state.menuName).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/menus/addMenu/'+this.props.manager+'/'+this.state.selectedRestaurant+'/'+this.state.menuName).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });
@@ -82,7 +82,7 @@ class AddMenu extends Component {
 
             return (
                 <div>
-                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span>Add Menu</Button>
+                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu</Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}

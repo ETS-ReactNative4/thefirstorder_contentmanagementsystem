@@ -12,6 +12,7 @@ class ManagerProfile extends Component {
         this.state={
             managerId: '',
             managerData: [],
+            newManagerData: [],
             firstName: '',
             lastName: '',
             oldPassword: '',
@@ -61,21 +62,23 @@ class ManagerProfile extends Component {
             lastName: e.state.lastName,
             newPassword: e.state.newPassword,
         }
-        axios.post('http://localhost:8080/api/managers/updateManagerProfile/'+this.state.managerId, updateManager).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/managers/updateManagerProfile/'+this.state.managerId, updateManager).then(function(response) {
             e.setState({
-                messageFromServer: response.data
+                newManagerData: JSON.stringify(response.data)
             });
+            sessionStorage.setItem('userData', JSON.stringify(response.data));
         });
     }
 
     onClick(e){
 
-        if(this.state.firstName && this.state.lastName && this.state.oldPassword === JSON.parse(sessionStorage.getItem("userData")).password && this.state.newPassword === this.state.confirmPassword){
+        if(this.state.firstName && this.state.lastName && this.state.oldPassword === JSON.parse(sessionStorage.getItem("userData")).password && this.state.newPassword && this.state.confirmPassword && this.state.newPassword === this.state.confirmPassword){
             this.updateManagerProfile(this);
             this.setState({
                 oldPassword: '',
                 newPassword: '',
-                confirmPassword: ''
+                confirmPassword: '',
+                messageFromServer: 'Profile updated successfully'
             });
         }else if(this.state.firstName === '' || this.state.lastName === '' || this.state.oldPassword === '' || this.state.newPassword === '' || this.state.confirmPassword === ''){
             this.setState({
@@ -136,12 +139,7 @@ class ManagerProfile extends Component {
     }
 
     check(){
-        console.log(this.state.firstName);
-        console.log(this.state.lastName);
-        console.log(this.state.oldPassword);
-        console.log(this.state.newPassword);
-        console.log(this.state.confirmPassword);
-        console.log(this.state.messageFromServer);
+        console.log(this.state.newManagerData);
     }
 
     render(){

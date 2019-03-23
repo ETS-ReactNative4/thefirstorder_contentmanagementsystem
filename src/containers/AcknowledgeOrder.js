@@ -43,7 +43,7 @@ class AcknowledgeOrder extends Component {
     }
 
     acknowledgeOrder(e) {
-        axios.post('https://makanow.herokuapp.com/api/orders/acknowledge/'+this.props.restaurantId+'/'+this.props.orderId+'/').then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/orders/acknowledge/'+this.props.restaurantId+'/'+this.props.orderId+'/').then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

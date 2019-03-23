@@ -57,7 +57,7 @@ class AddManagerAllocation extends Component {
     }
 
     getManagers(e) {
-        axios.post('https://makanow.herokuapp.com/api/managers').then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/managers').then(function(response) {
             e.setState({
                 managerData: response.data
             });
@@ -65,7 +65,7 @@ class AddManagerAllocation extends Component {
     }
 
     addManagerAllocation(e, managerId){
-        axios.post('https://makanow.herokuapp.com/api/manager/addManagerAllocation/'+managerId+'/'+this.props.restaurantId).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/manager/addManagerAllocation/'+managerId+'/'+this.props.restaurantId).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });
@@ -73,7 +73,7 @@ class AddManagerAllocation extends Component {
     }
 
     createAndAllocateManager(e){
-        axios.post('https://makanow.herokuapp.com/api/manager/createAndAllocateManager/'+this.props.restaurantId+'/'+this.state.firstName+'/'+this.state.lastName+'/'+this.state.password).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/manager/createAndAllocateManager/'+this.props.restaurantId+'/'+this.state.firstName+'/'+this.state.lastName+'/'+this.state.password).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

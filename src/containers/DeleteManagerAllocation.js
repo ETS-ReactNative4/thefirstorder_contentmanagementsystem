@@ -44,7 +44,7 @@ class DeleteManagerAllocation extends Component {
     }
 
     deleteManagerAllocation(ev){
-        axios.delete('https://makanow.herokuapp.com/api/manager/deleteManagerAllocation/'+this.props.manager.managerId+'/'+this.props.restaurantId).then(function(response) {
+        axios.delete('http://makanow.herokuapp.com/api/manager/deleteManagerAllocation/'+this.props.manager.managerId+'/'+this.props.restaurantId).then(function(response) {
             ev.setState({
                 messageFromServer: response.data
             });

@@ -66,7 +66,7 @@ class ChangeMenuName extends Component {
 
     changeMenuName(e){
         console.log(this.props);
-        axios.post('https://makanow.herokuapp.com/api/menus/changeMenuName/'+this.props.manager+'/'+this.props.restaurant+'/'+this.props.selectedMenu.menuId+'/'+this.state.newMenuName).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/menus/changeMenuName/'+this.props.manager+'/'+this.props.restaurant+'/'+this.props.selectedMenu.menuId+'/'+this.state.newMenuName).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });
@@ -87,7 +87,7 @@ class ChangeMenuName extends Component {
         if(this.state.messageFromServer === '') {
             return (
                 <div>
-                    <Button className="pull-right" bsStyle="warning" bsSize="small" onClick={this.openModal}>
+                    <Button className="pull-right" bsStyle="warning" bsSize="medium" onClick={this.openModal}>
                         <span className="glyphicon glyphicon-edit"></span> Change Menu Name</Button>
                     <Modal
                         isOpen={this.state.modalIsOpen}

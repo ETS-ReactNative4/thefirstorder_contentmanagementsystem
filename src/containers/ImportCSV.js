@@ -75,7 +75,7 @@ class ImportCSV extends Component {
     }
 
     fileUpload1(e){
-        axios.post('https://makanow.herokuapp.com/api/importCSV/'+this.props.selectedMenu.menuId+"/"+this.props.restaurant+"/"+this.props.manager, this.state.csvData, {
+        axios.post('http://makanow.herokuapp.com/api/importCSV/'+this.props.selectedMenu.menuId+"/"+this.props.restaurant+"/"+this.props.manager, this.state.csvData, {
             headers: {
                 'Accept': 'application/json',
                 'content-type': 'application/json',

@@ -22,7 +22,7 @@ class ManagerNameId extends Component {
     }
 
     getManager(ev){
-        axios.post('https://makanow.herokuapp.com/api/managers/'+this.props.managerId)
+        axios.post('http://makanow.herokuapp.com/api/managers/'+this.props.managerId)
             .then(function(response) {
                 ev.setState({
                     managerName: response.data});

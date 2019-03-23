@@ -22,7 +22,6 @@ class Analytics extends Component {
     }
 
     check(){
-        console.log(this.state.activityLogData);
     }
 
     render(){

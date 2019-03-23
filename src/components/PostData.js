@@ -1,6 +1,6 @@
 export function PostData(type, userData){
 
-    let BaseUrl = 'https://makanow.herokuapp.com/api/';
+    let BaseUrl = 'http://makanow.herokuapp.com/api/';
 
     return new Promise((resolve, reject) => {
 

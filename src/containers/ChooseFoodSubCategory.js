@@ -30,7 +30,7 @@
 //     }
 //
 //     getSubCategoriesByCategoryId(ev){
-//         axios.post('http://localhost:8080/api/subCategories/getSubCategoriesByCategoryId/'+this.props.selectCategory)
+//         axios.post('http://makanow.herokuapp.com/api/subCategories/getSubCategoriesByCategoryId/'+this.props.selectCategory)
 //             .then(function(response) {
 //                 ev.setState({
 //                     subCategoryData: response.data});

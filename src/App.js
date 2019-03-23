@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
-import "./App.css";
 import Routes from "./Routes";
 import 'react-web-tabs/dist/react-web-tabs.css';
 import makanow from './containers/images/makanow.png';
@@ -11,6 +10,7 @@ import conversion from './containers/images/conversion.png';
 import orders from './containers/images/orders.png';
 import Img from "react-image";
 import ManageMenu from "./containers/ManageMenu";
+import "./App.css";
 
 class App extends Component {
 
@@ -48,7 +48,7 @@ class App extends Component {
                                 <ul className="nav">
                                     <li>
                                         <a className="nav-link" href="/Dashboard">
-                                            <i className="glyphicon glyphicon-book">
+                                            <i className="fas fa-chart-pie">
                                                 {/*<Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/>*/}
                                             </i>
                                             <p>Dashboard</p>
@@ -56,10 +56,18 @@ class App extends Component {
                                     </li>
                                     <li>
                                         <a className = "nav-link" href="/ManageMenu">
-                                            <i class="glyphicon glyphicon-book">
+                                            <i className="fas fa-book-open">
                                                 {/*<Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/>*/}
                                             </i>
                                             <p>Menu</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className="nav-link" href="/ConversionRate">
+                                            <i className="fas fa-money-bill">
+                                                {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
+                                            </i>
+                                            <p>Conversion Rates</p>
                                         </a>
                                     </li>
                                     <li>
@@ -80,7 +88,7 @@ class App extends Component {
                                     </li>
                                     <li>
                                         <a className="nav-link" href="/ManagerProfile">
-                                            <i className="glyphicon glyphicon-list-alt">
+                                            <i className="fas fa-cog">
                                                 {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
                                             </i>
                                             <p>Profile</p>
@@ -135,18 +143,10 @@ class App extends Component {
                                 <ul className="nav">
                                     <li>
                                         <a className="nav-link" href="/AdminMainPage">
-                                            <i className="glyphicon glyphicon-dashboard">
+                                            <i className="fas fa-chart-pie">
                                                 {/*<Img style = {{width: 20, height: 20}} src={menu} resizeMode="contain"/>*/}
                                             </i>
                                             <p>Restaurants</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="nav-link" href="/ConversionRate">
-                                            <i className="glyphicon glyphicon-piggy-bank">
-                                                {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
-                                            </i>
-                                            <p>Conversion Rate</p>
                                         </a>
                                     </li>
                                     <li>

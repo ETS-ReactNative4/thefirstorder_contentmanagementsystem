@@ -98,7 +98,7 @@ class OrderTable extends Component {
     }
 
     getSentOrders(ev){
-        axios.get('https://makanow.herokuapp.com/api/orders/restaurant/'+this.props.selectedRestaurant+'/retrieve_sent_orders/')
+        axios.get('http://makanow.herokuapp.com/api/orders/restaurant/'+this.props.selectedRestaurant+'/retrieve_sent_orders/')
             .then(function(response) {
                 ev.setState({
                     sentOrderData: response.data,
@@ -108,7 +108,7 @@ class OrderTable extends Component {
     }
 
     getSentOrders1(ev){
-        axios.get('https://makanow.herokuapp.com/api/orders/restaurant/'+this.props.selectedRestaurant+'/retrieve_sent_orders/')
+        axios.get('http://makanow.herokuapp.com/api/orders/restaurant/'+this.props.selectedRestaurant+'/retrieve_sent_orders/')
             .then(function(response) {
                 ev.setState({
                     sentOrderData1: response.data,
@@ -118,7 +118,7 @@ class OrderTable extends Component {
     }
 
     getAcknowledgedOrders(ev){
-        axios.get('https://makanow.herokuapp.com/api/orders/restaurant/'+this.props.selectedRestaurant+'/retrieve_acknowledged_orders/')
+        axios.get('http://makanow.herokuapp.com/api/orders/restaurant/'+this.props.selectedRestaurant+'/retrieve_acknowledged_orders/')
             .then(function(response) {
                 ev.setState({
                     acknowledgedOrderData: response.data,
@@ -180,10 +180,10 @@ class OrderTable extends Component {
                                 <td align="left">{acknowledgedOrder.seatingTable.qrCode}</td>
                                 <td align="left">{acknowledgedOrder.orderId}</td>
                                 <DisplayCustomerOrder orderId={acknowledgedOrder.orderId}/>
-                                <td align="left">S${acknowledgedOrder.subtotal}</td>
-                                <td align="left">{acknowledgedOrder.orderSummary.modeOfPayment}</td>
-                                <td align="left">{acknowledgedOrder.orderSummary.paymentStatus}</td>
-                                <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(acknowledgedOrder.orderSummary.orderSummaryDate))}</td>
+                                <td align="left">S${acknowledgedOrder.totalAmount}</td>
+                                <td align="left">{acknowledgedOrder.modeOfPayment}</td>
+                                <td align="left">{acknowledgedOrder.paymentStatus}</td>
+                                <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(acknowledgedOrder.orderDate))}</td>
                             </tr>
                         )
                         }
@@ -228,10 +228,10 @@ class OrderTable extends Component {
                                 <td align="left">{sentOrder.seatingTable.qrCode}</td>
                                 <td align="left">{sentOrder.orderId}</td>
                                 <DisplayCustomerOrderList orderId={sentOrder.orderId} updateAcknowledgedOrders={this.state.updateAcknowledgedOrders} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate}/>
-                                <td align="left">S${sentOrder.subtotal}</td>
+                                <td align="left">S${sentOrder.totalAmount}</td>
                                 {/*<td align="left">{sentOrder.orderSummary.modeOfPayment}</td>*/}
-                                <td align="left">{sentOrder.orderSummary.paymentStatus}</td>
-                                <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(sentOrder.orderSummary.orderSummaryDate))}</td>
+                                <td align="left">{sentOrder.paymentStatus}</td>
+                                <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(sentOrder.orderDate))}</td>
                                 <td align="center"><AcknowledgeOrder restaurantId={this.props.selectedRestaurant} orderId={sentOrder.orderId} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate}/></td>
                             </tr>
                         )
@@ -260,11 +260,11 @@ class OrderTable extends Component {
                                 <td align="left">{acknowledgedOrder.seatingTable.qrCode}</td>
                                 <td align="left">{acknowledgedOrder.orderId}</td>
                                 <DisplayCustomerOrder orderId={acknowledgedOrder.orderId}/>
-                                <td align="left">S${acknowledgedOrder.subtotal}</td>
-                                <td align="left">{acknowledgedOrder.orderSummary.modeOfPayment}</td>
-                                <td align="left">{acknowledgedOrder.orderSummary.paymentStatus}</td>
-                                <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(acknowledgedOrder.orderSummary.orderSummaryDate))}</td>
-                            </tr>
+                                <td align="left">S${acknowledgedOrder.totalAmount}</td>
+                                <td align="left">{acknowledgedOrder.modeOfPayment}</td>
+                                <td align="left">{acknowledgedOrder.paymentStatus}</td>
+                                <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(acknowledgedOrder.orderDate))}</td>
+                                </tr>
                         )
                         }
                         </tbody>

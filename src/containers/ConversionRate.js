@@ -1,34 +1,30 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, Tab, Table, Tabs} from "react-bootstrap";
+import {Tab, Tabs} from "react-bootstrap";
 import "./MainPage.css";
 import {Redirect} from "react-router-dom";
-import ActivityLogTable from "./ActivityLogTable";
-import UpdateConversionRate from "./UpdateConversionRate";
+import DisplayConversionRate from "./DisplayConversionRates";
 
 class ConversionRate extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            conversionRateData: [],
-            pointsToCash: '',
-            pointsToCash1: '1',
-            cashToPoints: '',
-            cashToPoints1: '1',
+            restaurantData: [],
+            selectedRestaurant: '',
             redirect: false,
-            adminId: ""
+            managerId: ""
         };
-        this.handleTextChange = this.handleTextChange.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
         this.check = this.check.bind(this);
     }
 
     componentWillMount(){
         if(sessionStorage.getItem("userData")){
             this.setState({
-                adminId: JSON.parse(sessionStorage.getItem("userData")).adminId
+                managerId: JSON.parse(sessionStorage.getItem("userData")).managerId
             })
-            this.getConversionRates(this);
+            this.getRestaurants(this, this.state.managerId);
         }
         else{
             this.setState({redirect: true});
@@ -38,47 +34,27 @@ class ConversionRate extends Component {
     componentDidMount(){
         if(sessionStorage.getItem("userData")){
             this.setState({
-                adminId: JSON.parse(sessionStorage.getItem("userData")).adminId
+                managerId: JSON.parse(sessionStorage.getItem("userData")).managerId
             })
-            this.getConversionRates(this);
+            this.getRestaurants(this, this.state.managerId);
         }
         else{
             this.setState({redirect: true});
         }
     }
 
-    getConversionRates(ev){
-        axios.get('https://makanow.herokuapp.com/api/admins/'+ this.state.adminId  +'/conversion_rates')
+    getRestaurants(ev, managerId){
+        axios.get('http://makanow.herokuapp.com/api/restaurants/getRestaurantsByManagerId/'+managerId)
             .then(function(response) {
-                ev.setState({
-                    conversionRateData: response.data,
-                    pointsToCash: response.data[0],
-                    cashToPoints: response.data[1]
-                });
+                ev.setState({restaurantData: response.data});
+                if(response.data.length !== 0){
+                    ev.setState({selectedRestaurant: response.data[0].restaurantId})
+                }
             });
     }
 
-    handleTextChange(e){
-        if (e.target.name === "pointsToCash") {
-            this.setState({
-                pointsToCash: e.target.value
-            });
-        }
-        if (e.target.name === "pointsToCash1") {
-            this.setState({
-                pointsToCash1: e.target.value
-            });
-        }
-        if (e.target.name === "cashToPoints") {
-            this.setState({
-                cashToPoints: e.target.value
-            });
-        }
-        if (e.target.name === "cashToPoints1") {
-            this.setState({
-                cashToPoints1: e.target.value
-            });
-        }
+    handleSelect(restaurantId) {
+        this.setState({selectedRestaurant: restaurantId});
     }
 
     check(){
@@ -96,32 +72,12 @@ class ConversionRate extends Component {
         return(
             <div className="MainPage">
                 <div className="content">
-                    <h2>Conversion Rate</h2>
-                    <hr/>
-                    <div>
-                    <label>Points to Cash: </label>
-                        <input required type="number" id="pointsToCash" name="pointsToCash"
-                                                          value={this.state.pointsToCash}
-                                                          onChange={this.handleTextChange}></input>
-                        <text> = </text>
-                        <input required type="number" id="pointsToCash1" name="pointsToCash1"
-                               value={this.state.pointsToCash1}
-                               onChange={this.handleTextChange}></input>
-                        <text> SGD (S$) </text>
-                    </div>
-                    <div>
-                    <label>Cash to Points: </label>
-                        <input required type="number" id="cashToPoints" name="cashToPoints"
-                                                          value={this.state.cashToPoints}
-                                                          onChange={this.handleTextChange}></input>
-                        <text> = </text>
-                        <input required type="number" id="cashToPoints1" name="cashToPoints1"
-                               value={this.state.cashToPoints1}
-                               onChange={this.handleTextChange}></input>
-                        <text> POINT(S) </text>
-                    </div>
-                    <UpdateConversionRate adminId={this.state.adminId} pointsToCash={this.state.pointsToCash/this.state.pointsToCash1} cashToPoints={this.state.cashToPoints/this.state.cashToPoints1}/>
-                    {/*<button onClick={this.check}>Check</button>*/}
+                    <h2> Conversion Rate </h2>
+                    <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
+                        {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
+                            <DisplayConversionRate restaurantId={this.state.restaurantData[i].restaurantId}/>
+                        </Tab>)}
+                    </Tabs>
                 </div>
             </div>
         )

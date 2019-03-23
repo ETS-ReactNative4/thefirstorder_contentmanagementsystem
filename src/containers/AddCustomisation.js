@@ -54,7 +54,7 @@ class AddCustomisation extends Component {
             managerId: e.props.managerId,
             restaurantId: e.props.restaurantId
         }
-        axios.post('https://makanow.herokuapp.com/api/customisation/addCustomisation', addedCustomisation).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/customisation/addCustomisation', addedCustomisation).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

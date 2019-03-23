@@ -81,7 +81,7 @@ class AddFood extends Component {
             foodImg: e.state.images[0]
 
         }
-        axios.post('https://makanow.herokuapp.com/api/foodPrices/addFoodPrice/'+this.props.selectedMenu, addedFoodItem).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/foodPrices/addFoodPrice/'+this.props.selectedMenu, addedFoodItem).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });
@@ -176,6 +176,7 @@ class AddFood extends Component {
 
             return (
                 <div>
+                    <div ref={el => (this.instance = el)} />
                     <Button className="pull-left" bsStyle="success" onClick={this.openModal}><span
                         className="glyphicon glyphicon-plus"></span> Add Food Item</Button>
                     <Modal

@@ -37,7 +37,7 @@ class UpdateConversionRate extends Component {
     }
 
     onClick(ev) {
-        if(this.props.pointsToCash && this.props.cashToPoints){
+        if(this.props.pointsToCash >= 0 && this.props.cashToPoints >= 0){
             this.updateConversionRates(this);
         }else{
             window.location.reload();
@@ -45,7 +45,7 @@ class UpdateConversionRate extends Component {
     }
 
     updateConversionRates(ev){
-        axios.post('https://makanow.herokuapp.com/api/admin/updateConversionRates/'+ this.props.adminId + '/' +this.props.pointsToCash+'/'+this.props.cashToPoints)
+        axios.post('http://makanow.herokuapp.com/api/restaurants/updateConversionRates/'+ this.props.restaurantId + '/' +this.props.pointsToCash+'/'+this.props.cashToPoints)
             .then(function(response) {
                 ev.setState({
                     messageFromServer: response.data});
@@ -53,7 +53,8 @@ class UpdateConversionRate extends Component {
     }
 
     check() {
-        console.log(this.props.selectedMenu);
+        console.log(this.props.pointsToCash);
+        console.log(this.props.cashToPoints);
     }
 
     render() {

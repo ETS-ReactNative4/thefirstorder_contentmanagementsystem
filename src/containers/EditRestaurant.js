@@ -177,7 +177,7 @@ class EditRestaurant extends Component {
             affordability: e.state.affordability,
             restaurantImg: e.state.restaurantImage[0]
         }
-        axios.post('https://makanow.herokuapp.com/api/restaurants/updateRestaurant/'+this.props.restaurant.restaurantId, updatedRestaurant).then(function(response) {
+        axios.post('http://makanow.herokuapp.com/api/restaurants/updateRestaurant/'+this.props.restaurant.restaurantId, updatedRestaurant).then(function(response) {
             e.setState({
                 messageFromServer: response.data
             });

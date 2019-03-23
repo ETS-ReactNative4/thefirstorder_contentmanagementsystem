@@ -45,7 +45,7 @@ class DeleteCustomisation extends Component {
     }
 
     deleteCustomisation(ev){
-        axios.delete('https://makanow.herokuapp.com/api/customisation/deleteCustomisation',{params: {customisationId: this.props.customisationId,menuId: ev.props.menuId, foodId:ev.props.foodId, restaurantId: ev.props.restaurantId, managerId:ev.props.managerId}}).then(function(response) {
+        axios.delete('http://makanow.herokuapp.com/api/customisation/deleteCustomisation',{params: {customisationId: this.props.customisationId,menuId: ev.props.menuId, foodId:ev.props.foodId, restaurantId: ev.props.restaurantId, managerId:ev.props.managerId}}).then(function(response) {
             ev.setState({
                 messageFromServer: response.data
             });

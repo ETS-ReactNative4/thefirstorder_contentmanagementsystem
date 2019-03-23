@@ -40,7 +40,7 @@ class DisplayCustomerOrderList extends Component {
     }
 
     getCustomerOrders(ev){
-        axios.get('https://makanow.herokuapp.com/api/customerOrder/getCustomerOrderByOrderId/'+this.props.orderId)
+        axios.get('http://makanow.herokuapp.com/api/customerOrder/getCustomerOrderByOrderId/'+this.props.orderId)
             .then(function(response) {
                 ev.setState({customerOrderData: response.data});
             });
