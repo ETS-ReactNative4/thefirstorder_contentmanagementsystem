@@ -8,7 +8,7 @@ import MenuTabs from "./MenuTabs";
 import AddMenu from "./AddMenu";
 import ActivityLogTable from "./ActivityLogTable";
 import Analytics from "./Analytics";
-// import ChartistGraph from 'react-chartist';
+import ChartistGraph from 'react-chartist';
 import { Card } from "../components/Card/Card.jsx";
 import {
     dataPie,
@@ -125,12 +125,12 @@ class Dashboard extends Component {
                                         stats="Updated 3 minutes ago"
                                         content={
                                             <div className="ct-chart">
-                                                {/*<ChartistGraph*/}
-                                                    {/*data={dataSales}*/}
-                                                    {/*type="Line"*/}
-                                                    {/*options={optionsSales}*/}
-                                                    {/*responsiveOptions={responsiveSales}*/}
-                                                {/*/>*/}
+                                                <ChartistGraph
+                                                    data={dataSales}
+                                                    type="Line"
+                                                    options={optionsSales}
+                                                    responsiveOptions={responsiveSales}
+                                                />
                                             </div>
                                         }
                                         legend={
