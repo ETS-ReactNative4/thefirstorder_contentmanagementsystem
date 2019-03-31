@@ -1,8 +1,7 @@
-.app_container{
-    width: 100%;
+div.app_container {
     height: 100%;
+    width: 100%;
     font-family: "Malgun Gothic";
-    background-image: linear-gradient(to top, #cad3d8 0%, #f0faff 100%);
 }
 
 .app_container .navbar-brand {
@@ -152,8 +151,18 @@ nav > li > a {
   font-family: "Malgun Gothic";
 }
 
-.content_content{
+div.main_content{
+    float: left;
     margin-top: 2%;
+    width: 100%;
+    /*width: calc(100% - 25%);*/
+}
+
+div.right_content{
+    float: right;
+    margin-top: 2%;
+    width: 25%;
+    background-color: #10CE88;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */

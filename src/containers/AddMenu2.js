@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button, Tab, Tabs } from "react-bootstrap";
-import Modal from 'react-modal';
+import { Button, Tab, Tabs, Modal } from "react-bootstrap";
+// import Modal from 'react-modal';
 
 class AddMenu extends Component {
 
@@ -82,30 +82,33 @@ class AddMenu extends Component {
 
             return (
                 <div>
-                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu</Button>
-                    <Modal
-                        isOpen={this.state.modalIsOpen}
-                        onRequestClose={this.closeModal}
-                        contentLabel="Add Menu"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}>
-                            <span className="closebtn glyphicon glyphicon-remove"></span>
-                        </Button>
-                        <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
-                        <fieldset>
-                            <p></p>
-                            <p align="center"><h3><b>Add Menu to "{this.props.selectedRestaurantName}"?</b></h3></p>
-                            <hr />
-                            <label>Menu Name: </label>
-                            <input
-                                required type="text"
-                                id="menuName"
-                                name="menuName"
-                                value={this.state.menuName}
-                                onChange={this.handleTextChange}>
-                            </input>
-                            <p></p>
-                            <hr />
+                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu *New*</Button>
+
+                    <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            {/*<Modal.Title>Add Menu</Modal.Title>*/}
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <p></p>
+                                <p align="center">
+                                    <h3>
+                                        <b>Add Menu to "{this.props.selectedRestaurantName}"?</b>
+                                    </h3>
+                                </p>
+                                <hr />
+                                <label>Menu Name: </label>
+                                <input
+                                    required type="text"
+                                    id="menuName"
+                                    name="menuName"
+                                    value={this.state.menuName}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
                             <div className='button-center'>
                                 <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}>
                                     <span className="glyphicon glyphicon-remove"></span>
@@ -115,7 +118,7 @@ class AddMenu extends Component {
                                     <span className="glyphicon glyphicon-ok"></span>
                                 </Button>
                             </div>
-                        </fieldset>
+                        </Modal.Footer>
                     </Modal>
                 </div>
             )
@@ -125,16 +128,30 @@ class AddMenu extends Component {
                     <div>
                         <Button className="pull-right" bsStyle="success" bsSize="small" onClick={this.openModal}><span
                             className="glyphicon glyphicon-plus"></span> Add Menu</Button>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Add Menu"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Add Menu"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
                                 <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                            </Modal.Footer>
                         </Modal>
                     </div>
                 </div>

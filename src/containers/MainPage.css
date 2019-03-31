@@ -2,9 +2,11 @@
     /*margin: 0 3% 0 20%;*/
     position: relative;
     float: right;
+    min-height: 100%;
     width: calc(100% - 260px);
     padding-bottom: 5%;
     font-family: "Malgun Gothic";
+    background-color: #f0faff;
 }
 .MainPage .content{
     padding: 30px 30px;

@@ -5,6 +5,7 @@ import axios from 'axios';
 import {Button, Tab, Tabs} from 'react-bootstrap';
 import MenuTabs from "./MenuTabs";
 import AddMenu from "./AddMenu";
+import AddMenu2 from "./AddMenu2";
 import Img from "react-image";
 import activitylog from "./images/activitylog.png";
 
@@ -98,6 +99,8 @@ class ManageMenu extends Component {
                         {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
 
                             <AddMenu manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
+
+                            <AddMenu2 manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
 
                             <MenuTabs manager={this.state.managerId} restaurant={this.state.restaurantData[i]} update={this.state.update} handleUpdateMenuTab={this.handleUpdateMenuTab} handleStopUpdateMenuTab={this.handleStopUpdateMenuTab}/>
 

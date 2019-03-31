@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, DropdownButton, MenuItem, SplitButton} from "react-bootstrap";
-import Modal from "react-modal";
+import {Button, DropdownButton, MenuItem, SplitButton, Modal} from "react-bootstrap";
+// import Modal from "react-modal";
 import {Input} from "reactstrap";
 
 class ChooseFoodCategory extends Component {
@@ -222,7 +222,8 @@ class ChooseFoodCategory extends Component {
     }
 
     render() {
-
+        console.log("Food Category");
+        console.log(this.state.messageFromServer);
         if(this.state.messageFromServer === '') {
             return (
                 <div>
@@ -231,38 +232,226 @@ class ChooseFoodCategory extends Component {
                         {this.state.categoryData.map((category, k) =>
                             <MenuItem eventKey={k}
                                       onClick={() => this.onSelect(k, category.foodCategoryId)}>{category.foodCategoryName}</MenuItem>
-                        )
-                        }
+                        )}
                         <MenuItem divider/>
                         <MenuItem onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add
                             Category</MenuItem>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Add Category"
-                            className="Modal">
-                            <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                                className="closebtn glyphicon glyphicon-remove"></span></Button>
-                            <p align="center">
-                                <h2><b>Add Category</b></h2>
-                            </p>
-                            <p align="center" style={{color: "red"}}>{this.state.errorMessage}</p>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Add Category"*/}
+                            {/*className="Modal">*/}
+                            {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                                {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                            {/*<p align="center">*/}
+                                {/*<h2><b>Add Category</b></h2>*/}
+                            {/*</p>*/}
+                            {/*<p align="center" style={{color: "red"}}>{this.state.errorMessage}</p>*/}
+                            {/*<fieldset>*/}
+                                {/*<label align="left">Food Category ID: </label><input type="text" id="foodCategoryId"*/}
+                                                                                     {/*name="foodCategoryId"*/}
+                                                                                     {/*placeholder="    Auto-Generated"*/}
+                                                                                     {/*disabled></input>*/}
+                                {/*<label>Name: </label><input required type="text" id="foodCategoryName"*/}
+                                                            {/*name="foodCategoryName"*/}
+                                                            {/*value={this.state.foodCategoryName}*/}
+                                                            {/*onChange={this.handleTextChange}></input>*/}
+                                {/*<table>*/}
+                                    {/*<tr>*/}
+                                        {/*<td>*/}
+                                            {/*<label>Upload Image: </label>*/}
+                                        {/*</td>*/}
+                                        {/*<td>*/}
+                                            {/*<Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>*/}
+                                        {/*</td>*/}
+                                    {/*</tr>*/}
+                                {/*</table>*/}
+                                {/*<table>*/}
+                                    {/*<tr>*/}
+                                        {/*<td>*/}
+                                            {/*<label>Image Preview: </label>*/}
+                                        {/*</td>*/}
+                                        {/*<td>*/}
+                                            {/*<img src={this.state.images[0]} width="150" height="125"/>*/}
+                                        {/*</td>*/}
+                                    {/*</tr>*/}
+                                    {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                                {/*</table>*/}
+                                {/*<div className='button-center'>*/}
+                                    {/*<br/>*/}
+                                    {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Add Category</b></Button>*/}
+                                {/*</div>*/}
+                            {/*</fieldset>*/}
+                        {/*</Modal>*/}
+
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>
+                                    <p align="center">
+                                        <h2><b>Add Category</b></h2>
+                                    </p>
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <fieldset>
+                                    <label align="left">Food Category ID: </label>
+                                    <input
+                                        type="text"
+                                        id="foodCategoryId"
+                                        name="foodCategoryId"
+                                        placeholder="Auto-Generated"
+                                        disabled>
+                                    </input>
+                                    <label>Name: </label>
+                                    <input
+                                        required
+                                        type="text"
+                                        id="foodCategoryName"
+                                        name="foodCategoryName"
+                                        value={this.state.foodCategoryName}
+                                        onChange={this.handleTextChange}>
+                                    </input>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>Upload Image: </label>
+                                            </td>
+                                            <td>
+                                                <Input
+                                                    id="file-id"
+                                                    name="file_name"
+                                                    type="file"
+                                                    onChange={this.setImages}
+                                                    accept=".jpg, .png, .jpeg"
+                                                />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>Image Preview: </label>
+                                            </td>
+                                            <td>
+                                                <img src={this.state.images[0]} width="150" height="125"/>
+                                            </td>
+                                        </tr>
+                                        {/*<button onClick={this.check}>Check</button>*/}
+                                    </table>
+                                </fieldset>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <p align="center" style={{color: "red"}}>{this.state.errorMessage}</p>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                        <b>Add Category</b>
+                                    </Button>
+                                </div>
+                            </Modal.Footer>
+                        </Modal>
+
+                    </SplitButton>
+
+                    <br/>
+
+                    <label>Sub Category: </label>
+                    <SplitButton title={this.state.subDropdownTitle}>
+                    {this.state.subCategoryData.map((subCategory, k) =>
+                        <MenuItem eventKey={k} onClick={() => this.onSelect1(k, subCategory.subCategoryId)}>{subCategory.subCategoryName}</MenuItem>
+                    )}
+                    <MenuItem divider/>
+                    <MenuItem onClick={this.openModal1}><span className="glyphicon glyphicon-plus"></span>
+                        Add Sub Category
+                    </MenuItem>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen1}*/}
+                        {/*onRequestClose={this.closeModal1}*/}
+                        {/*contentLabel="Add Sub Category"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*<p align="center">*/}
+                            {/*<h2><b>Add Sub Category to {this.state.dropdownTitle}</b></h2>*/}
+                        {/*</p>*/}
+                        {/*<p align="center" style={{color: "red"}}>{this.state.errorMessage1}</p>*/}
+                        {/*<fieldset>*/}
+                            {/*<label align="left">Sub Category ID: </label><input type="text" id="subCategoryId"*/}
+                                                                                 {/*name="subCategoryId"*/}
+                                                                                 {/*placeholder="    Auto-Generated"*/}
+                                                                                 {/*disabled></input>*/}
+                            {/*<label>Name: </label><input required type="text" id="subCategoryName"*/}
+                                                        {/*name="subCategoryName"*/}
+                                                        {/*value={this.state.subCategoryName}*/}
+                                                        {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<table>*/}
+                                {/*<tr>*/}
+                                    {/*<td>*/}
+                                        {/*<label>Upload Image: </label>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                            {/*</table>*/}
+                            {/*<table>*/}
+                                {/*<tr>*/}
+                                    {/*<td>*/}
+                                        {/*<label>Image Preview: </label>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<img src={this.state.images[0]} width="150" height="125"/>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                            {/*</table>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<br/>*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick1}><b>Add Sub Category</b></Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                    {/*</Modal>*/}
+
+
+                    <Modal show={this.state.modalIsOpen1} onHide={this.closeModal1}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                <p align="center">
+                                    <h2><b>Add Sub Category to {this.state.dropdownTitle}</b></h2>
+                                </p>
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
                             <fieldset>
-                                <label align="left">Food Category ID: </label><input type="text" id="foodCategoryId"
-                                                                                     name="foodCategoryId"
-                                                                                     placeholder="    Auto-Generated"
-                                                                                     disabled></input>
-                                <label>Name: </label><input required type="text" id="foodCategoryName"
-                                                            name="foodCategoryName"
-                                                            value={this.state.foodCategoryName}
-                                                            onChange={this.handleTextChange}></input>
+                                <label align="left">Sub Category ID: </label>
+                                <input
+                                    type="text"
+                                    id="subCategoryId"
+                                    name="subCategoryId"
+                                    placeholder="Auto-Generated"
+                                    disabled>
+                                </input>
+                                <label>Name: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="subCategoryName"
+                                    name="subCategoryName"
+                                    value={this.state.subCategoryName}
+                                    onChange={this.handleTextChange}>
+                                </input>
                                 <table>
                                     <tr>
                                         <td>
                                             <label>Upload Image: </label>
                                         </td>
                                         <td>
-                                            <Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>
+                                            <Input
+                                                id="file-id"
+                                                name="file_name"
+                                                type="file"
+                                                onChange={this.setImages}
+                                                accept=".jpg, .png, .jpeg"
+                                            />
                                         </td>
                                     </tr>
                                 </table>
@@ -275,68 +464,17 @@ class ChooseFoodCategory extends Component {
                                             <img src={this.state.images[0]} width="150" height="125"/>
                                         </td>
                                     </tr>
-                                    {/*<button onClick={this.check}>Check</button>*/}
                                 </table>
-                                <div className='button-center'>
-                                    <br/>
-                                    <Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Add Category</b></Button>
-                                </div>
                             </fieldset>
-                        </Modal>
-                    </SplitButton>
-                    <label>Sub Category: </label><SplitButton title={this.state.subDropdownTitle}>
-                    {this.state.subCategoryData.map((subCategory, k) =>
-                        <MenuItem eventKey={k} onClick={() => this.onSelect1(k, subCategory.subCategoryId)}>{subCategory.subCategoryName}</MenuItem>
-                    )
-                    }
-                    <MenuItem divider/>
-                    <MenuItem onClick={this.openModal1}><span className="glyphicon glyphicon-plus"></span> Add Sub
-                        Category</MenuItem>
-                    <Modal
-                        isOpen={this.state.modalIsOpen1}
-                        onRequestClose={this.closeModal1}
-                        contentLabel="Add Sub Category"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <p align="center">
-                            <h2><b>Add Sub Category to {this.state.dropdownTitle}</b></h2>
-                        </p>
-                        <p align="center" style={{color: "red"}}>{this.state.errorMessage1}</p>
-                        <fieldset>
-                            <label align="left">Sub Category ID: </label><input type="text" id="subCategoryId"
-                                                                                 name="subCategoryId"
-                                                                                 placeholder="    Auto-Generated"
-                                                                                 disabled></input>
-                            <label>Name: </label><input required type="text" id="subCategoryName"
-                                                        name="subCategoryName"
-                                                        value={this.state.subCategoryName}
-                                                        onChange={this.handleTextChange}></input>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label>Upload Image: </label>
-                                    </td>
-                                    <td>
-                                        <Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label>Image Preview: </label>
-                                    </td>
-                                    <td>
-                                        <img src={this.state.images[0]} width="150" height="125"/>
-                                    </td>
-                                </tr>
-                            </table>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <p align="center" style={{color: "red"}}>{this.state.errorMessage1}</p>
                             <div className='button-center'>
-                                <br/>
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick1}><b>Add Sub Category</b></Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick1}>
+                                    <b>Add Sub Category</b>
+                                </Button>
                             </div>
-                        </fieldset>
+                        </Modal.Footer>
                     </Modal>
                 </SplitButton>
                 </div>
@@ -354,37 +492,73 @@ class ChooseFoodCategory extends Component {
                         <MenuItem divider/>
                         <MenuItem onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add
                             Category</MenuItem>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Add Category"
-                            className="Modal">
-                            <div className='button-center'>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Add Category"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
                                 <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>
+                                        Close
+                                    </Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
                     </SplitButton>
+                    <br/>
                     <label>Sub Category: </label><SplitButton title={this.state.subDropdownTitle}>
                     {this.state.subCategoryData.map((subCategory, k) =>
                         <MenuItem eventKey={k} onClick={() => this.onSelect1(k, subCategory.subCategoryId)}>{subCategory.subCategoryName}</MenuItem>
                     )
                     }
                     <MenuItem divider/>
-                    <MenuItem onClick={this.openModal1}><span className="glyphicon glyphicon-plus"></span> Add Sub
-                        Category</MenuItem>
-                    <Modal
-                        isOpen={this.state.modalIsOpen1}
-                        onAfterOpen={this.afterOpenModal}
-                        onRequestClose={this.closeModal1}
-                        contentLabel="Add Category"
-                        className="Modal">
-                        <div className='button-center'>
+                    <MenuItem onClick={this.openModal1}>
+                        <span className="glyphicon glyphicon-plus"></span>
+                        Add Sub Category
+                    </MenuItem>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen1}*/}
+                        {/*onAfterOpen={this.afterOpenModal}*/}
+                        {/*onRequestClose={this.closeModal1}*/}
+                        {/*contentLabel="Add Category"*/}
+                        {/*className="Modal">*/}
+                        {/*<div className='button-center'>*/}
+                            {/*<h3>{this.state.messageFromServer}</h3>*/}
+                            {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>Close</Button>*/}
+                        {/*</div>*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen1} onHide={this.closeModal1}>
+                        <Modal.Header closeButton>
+                            {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                        </Modal.Header>
+                        <Modal.Body>
                             <h3>{this.state.messageFromServer}</h3>
-                            <Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>Close</Button>
-                        </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <div className='button-center'>
+                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>
+                                    Close
+                                </Button>
+                            </div>
+                        </Modal.Footer>
                     </Modal>
+
                 </SplitButton>
                 </div>
             )

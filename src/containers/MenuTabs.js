@@ -101,12 +101,14 @@ class MenuTabs extends Component {
                                         </span>
                                     </span>
                             }>
-                            <FoodPrices manager={this.props.manager}
-                                    menu={this.state.menuData[j]}
-                                    restaurant={this.props.restaurant.restaurantId}
-                                    handleAddFood={this.handleAddFood}
-                                    handleUpdateMenuTab={this.props.handleUpdateMenuTab}
-                                    handleUpdateFoodPrices={this.handleUpdateFoodPrices}/>
+                            <FoodPrices
+                                manager={this.props.manager}
+                                menu={this.state.menuData[j]}
+                                restaurant={this.props.restaurant.restaurantId}
+                                handleAddFood={this.handleAddFood}
+                                handleUpdateMenuTab={this.props.handleUpdateMenuTab}
+                                handleUpdateFoodPrices={this.handleUpdateFoodPrices}
+                            />
                     </Tab>)}
                     {/*<Tab eventKey="contact" title={<span className="add_menu">Add Menu</span>}></Tab>*/}
                 </Tabs>

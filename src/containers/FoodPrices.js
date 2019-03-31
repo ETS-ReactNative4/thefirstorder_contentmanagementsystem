@@ -2,15 +2,20 @@ import React, { Component } from "react";
 import {Button, ButtonToolbar, MenuItem, SplitButton, Tab, Table} from 'react-bootstrap'
 import axios from "axios";
 import DeleteMenu from "./DeleteMenu";
+import DeleteMenu2 from "./DeleteMenu2";
 import DeleteFoodPrice from "./DeleteFoodPrice";
 import AddFood from "./AddFood";
+import AddFood2 from "./AddFood2";
 import EditFoodPrice from "./EditFoodPrice";
 import ChangeMenuName from "./ChangeMenuName";
+import ChangeMenuName2 from "./ChangeMenuName2";
 import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 import DisplayFoodCustomisation from "./DisplayFoodCustomisation";
-import {CSVLink, CSVDownload} from 'react-csv';
 import ImportCSV from "./ImportCSV";
+import ImportCSV2 from "./ImportCSV2";
+import {CSVLink, CSVDownload} from 'react-csv';
 import no_image_icon from './images/no-image-icon.png';
+import "./loader.css"
 
 class FoodPrices extends Component {
 
@@ -257,6 +262,14 @@ class FoodPrices extends Component {
         return <img src={no_image_icon} width="50" height="50"/>
     }
 
+    showLoader(){
+        if(this.state.foodData.length === 0){
+            return(
+                <div className="loader"></div>
+            )
+        }
+    }
+
     check(){
         console.log(this.state.foodData);
     }
@@ -273,10 +286,12 @@ class FoodPrices extends Component {
                 <ButtonToolbar className="toolbar">
                     <ButtonGroup className="pull-left">
                         <DeleteMenu manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />
+                        <DeleteMenu2 manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />
                         {/*<Button className="pull-right" bsStyle="danger" bsSize="small" onClick={this.onClick}><span className="glyphicon glyphicon-remove"></span> Delete Menu {this.props.menu.menuId}</Button>*/}
                     </ButtonGroup>
                     <ButtonGroup className="pull-left">
                         <ChangeMenuName handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>
+                        <ChangeMenuName2 handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>
                     </ButtonGroup>
                 </ButtonToolbar>
                 <ButtonToolbar className="toolbar">
@@ -302,10 +317,12 @@ class FoodPrices extends Component {
                     </ButtonGroup>
                     <ButtonGroup className="pull-right">
                         <ImportCSV manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
+                        <ImportCSV2 manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
                     </ButtonGroup>
 
                     <ButtonGroup className="pull-right">
                         <AddFood manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
+                        <AddFood2 manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
                         {/*<Button className="pull-left" bsStyle="success" bsSize="small"><span className="glyphicon glyphicon-plus"></span> Add Food Item</Button>*/}
                     </ButtonGroup>
                 </ButtonToolbar>
@@ -315,7 +332,7 @@ class FoodPrices extends Component {
                     {/*<span className="glyphicon glyphicon-time"></span> Last Updated:  {this.props.menu.dateOfCreation}*/}
                 {/*</p>*/}
                 {/*<p></p>*/}
-
+                {this.showLoader()}
                 <Table striped hover>
                     <thead>
                         <tr>

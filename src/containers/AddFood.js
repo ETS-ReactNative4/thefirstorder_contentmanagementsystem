@@ -201,6 +201,7 @@ class AddFood extends Component {
                                                                value={this.state.foodDescription}
                                                                onChange={this.handleTextChange}></input>
                             <ChooseFoodCategory selectedMenu={this.props.selectedMenu} selectCategory={this.selectCategory} selectSubCategory={this.selectSubCategory} selectedCategory={this.state.selectedCategory} handleAddFoodUpdate={this.props.handleAddFoodUpdate}/>
+
                             <label>Price($): </label><input required type="number" min="0" id="foodPrice" name="foodPrice"
                                                             value={this.state.foodPrice}
                                                             onChange={this.handleTextChange}></input><br/>

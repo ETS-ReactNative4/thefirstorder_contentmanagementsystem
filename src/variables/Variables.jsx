@@ -477,9 +477,20 @@ var dataPie = {
   labels: ["40%", "20%", "40%"],
   series: [40, 20, 40]
 };
+
+var dataPie2 = {
+    labels: ["12%", "30%", "24%", "7%", "34%"],
+    series: [12, 30, 24, 7, 34]
+};
+
 var legendPie = {
   names: ["Open", "Bounce", "Unsubscribe"],
   types: ["info", "danger", "warning"]
+};
+
+var legendPie2 = {
+    names: ["Food 1", "Food 2", "Food 3", "Food 4", "Food 5"],
+    types: ["info", "danger", "warning", "warning", "white"]
 };
 
 // Data for Line Chart
@@ -500,6 +511,29 @@ var dataSales = {
     [23, 113, 67, 108, 190, 239, 307, 308]
   ]
 };
+
+var dataSales = {
+    labels: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "October",
+        "September",
+        "November",
+        "December",
+    ],
+    data: [
+        [287, 385, 490, 492, 554, 586, 698, 695],
+    ]
+};
+
+
+
 var optionsSales = {
   low: 0,
   high: 800,
@@ -528,9 +562,14 @@ var responsiveSales = [
     }
   ]
 ];
+// var legendSales = {
+//   names: ["Open", "Click", "Click Second Time"],
+//   types: ["info", "danger", "warning"]
+// };
+
 var legendSales = {
-  names: ["Open", "Click", "Click Second Time"],
-  types: ["info", "danger", "warning"]
+    names: ["Revenue"],
+    types: ["info"]
 };
 
 // Data for Bar Chart
@@ -585,7 +624,9 @@ module.exports = {
   tdArray, // For tables (TableList view)
   iconsArray, // For icons (Icons view)
   dataPie,
+    dataPie2,
   legendPie,
+    legendPie2,
   dataSales,
   optionsSales,
   responsiveSales,
