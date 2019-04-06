@@ -4,6 +4,7 @@ import {Tab, Tabs} from "react-bootstrap";
 import "./MainPage.css";
 import {Redirect} from "react-router-dom";
 import DisplayConversionRate from "./DisplayConversionRates";
+import Header from "./Header";
 
 class ConversionRate extends Component {
 
@@ -71,8 +72,10 @@ class ConversionRate extends Component {
         }
         return(
             <div className="MainPage">
+
+                <Header title={"Conversation Rate"}/>
+
                 <div className="content">
-                    <h2> Conversion Rate </h2>
                     <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
                         {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
                             <DisplayConversionRate restaurantId={this.state.restaurantData[i].restaurantId}/>

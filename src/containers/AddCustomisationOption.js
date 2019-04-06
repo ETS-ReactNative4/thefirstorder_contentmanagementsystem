@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, MenuItem, SplitButton} from "react-bootstrap";
-import Modal from 'react-modal';
+import {Button, MenuItem, SplitButton, Modal} from "react-bootstrap";
+// import Modal from 'react-modal';
 import ChooseFoodCategory from "./ChooseFoodCategory";
 import FilterCategory from "./FilterCategory";
 import ChooseFoodSubCategory from "./ChooseFoodSubCategory";
@@ -133,6 +133,55 @@ class AddCustomisationOption extends Component {
                         </fieldset>
                         {/*<button onClick={this.check}>Check</button>*/}
                     </Modal>
+
+                    <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                <p align="center">
+                                    <h2><b>Customisation Option Details: </b></h2>
+                                </p>
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <label align="left">Option ID: </label>
+                                <input
+                                    className="center"
+                                    type="text"
+                                    id="optionId"
+                                    name="optionId"
+                                    placeholder="Auto-Generated"
+                                    disabled></input>
+                                <label>Option Name: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="optionDescription"
+                                    name="optionDescription"
+                                    value={this.state.optionDescription}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Option Price($): </label>
+                                <input
+                                    required
+                                    type="number"
+                                    min="0"
+                                    id="optionPrice"
+                                    name="optionPrice"
+                                    value={this.state.optionPrice}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
+                            <div className='button-center'>
+                                <br/>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Add Option</b></Button>
+                            </div>
+                        </Modal.Footer>
+                    </Modal>
+
                 </div>
             )
         }else{
@@ -141,17 +190,34 @@ class AddCustomisationOption extends Component {
                     <div>
                         <Button bsStyle="success" bsSize="xsmall" onClick={this.openModal}><span
                             className="glyphicon glyphicon-plus"></span> Option </Button>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Add Option"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Add Option"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
+
                     </div>
                 </div>
             )

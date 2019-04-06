@@ -178,7 +178,7 @@ class AddFood extends Component {
                 <div>
                     <div ref={el => (this.instance = el)} />
                     <Button className="pull-left" bsStyle="success" onClick={this.openModal}>
-                        <span className="glyphicon glyphicon-plus"></span> Add Food Item *New*
+                        <span className="glyphicon glyphicon-plus"></span> Add Food Item
                     </Button>
                     {/*<Modal*/}
                         {/*isOpen={this.state.modalIsOpen}*/}
@@ -236,31 +236,69 @@ class AddFood extends Component {
                     <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
                         <Modal.Header closeButton>
                             <Modal.Title>
-                                <h3><b>Food Item Details</b></h3>
+                                <p align="center">
+                                    <h3><b>Food Item Details</b></h3>
+                                </p>
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <fieldset>
-                                <label align="left">Food ID: </label><input type="text" id="foodId" name="foodId"
-                                                                            placeholder="    Auto-Generated"
-                                                                            disabled></input>
-                                <label>Name: </label><input required type="text" id="foodName" name="foodName"
-                                                            value={this.state.foodName}
-                                                            onChange={this.handleTextChange}></input>
-                                <label>Description: </label><input required type="text" id="foodDescription" name="foodDescription"
-                                                                   value={this.state.foodDescription}
-                                                                   onChange={this.handleTextChange}></input>
+                                <label align="left">Food ID: </label>
+                                <input
+                                    className="center"
+                                    type="text"
+                                    id="foodId"
+                                    name="foodId"
+                                    placeholder="Auto-Generated"
+                                    disabled>
+                                </input>
+                                <label>Name: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="foodName"
+                                    name="foodName"
+                                    value={this.state.foodName}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Description: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="foodDescription"
+                                    name="foodDescription"
+                                    value={this.state.foodDescription}
+                                    onChange={this.handleTextChange}>
+                                </input>
                                 <ChooseFoodCategory selectedMenu={this.props.selectedMenu} selectCategory={this.selectCategory} selectSubCategory={this.selectSubCategory} selectedCategory={this.state.selectedCategory} handleAddFoodUpdate={this.props.handleAddFoodUpdate}/>
-                                <label>Price($): </label><input required type="number" min="0" id="foodPrice" name="foodPrice"
-                                                                value={this.state.foodPrice}
-                                                                onChange={this.handleTextChange}></input><br/>
+                                <label>Price($): </label>
+                                <input
+                                    required
+                                    type="number"
+                                    min="0"
+                                    id="foodPrice"
+                                    name="foodPrice"
+                                    value={this.state.foodPrice}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <br/>
                                 <label>Availability:</label>
-                                <input type="radio" id="foodAvailability1" value="true" name="foodAvailability"
-                                       onChange={this.handleTextChange} checked></input>
+                                <input
+                                    type="radio"
+                                    id="foodAvailability1"
+                                    value="true"
+                                    name="foodAvailability"
+                                    onChange={this.handleTextChange}
+                                    checked>
+                                </input>
                                 <text> Available</text>
-                                {"  "}
-                                <input type="radio" id="foodAvailability2" value="false" name="foodAvailability"
-                                       onChange={this.handleTextChange}></input>
+                                <input
+                                    type="radio"
+                                    id="foodAvailability2"
+                                    value="false"
+                                    name="foodAvailability"
+                                    onChange={this.handleTextChange}>
+                                </input>
                                 <text> Not Available</text>
                                 <table>
                                     <tr>
@@ -308,7 +346,9 @@ class AddFood extends Component {
                                 {/*<Modal.Title>Modal heading</Modal.Title>*/}
                             </Modal.Header>
                             <Modal.Body>
-                                <h3>{this.state.messageFromServer}</h3>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
                             </Modal.Body>
                             <Modal.Footer>
                                 <div className='button-center'>

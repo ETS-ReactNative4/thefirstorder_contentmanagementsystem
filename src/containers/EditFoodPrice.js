@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
-import Modal from 'react-modal';
+import { Button, Modal } from "react-bootstrap";
+// import Modal from 'react-modal';
 import {Input} from "reactstrap";
 
 class EditFoodPrice extends Component {
@@ -207,59 +207,154 @@ class EditFoodPrice extends Component {
                 <div>
                     <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span
                         className="glyphicon glyphicon-edit"></span></Button>
-                    <Modal
-                        isOpen={this.state.modalIsOpen}
-                        onRequestClose={this.closeModal}
-                        contentLabel="Update Food Price"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        {/*<button onClick={this.check}>Check</button>*/}
-                        <p align="center">
-                            <h2><b>Edit Food Item</b></h2>
-                        </p>
-                        <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
-                        <fieldset>
-                            <label align="left">Food ID: </label><input type="text" id="foodId" name="foodId"
-                                                                        placeholder="     Auto-Generated"
-                                                                        disabled></input>
-                            <label>Name: </label><input type="text" id="foodName" name="foodName"
-                                                        value={this.state.foodName}
-                                                        onChange={this.handleTextChange}></input>
-                            <label>Description: </label><input type="text" id="foodDescription" name="foodDescription"
-                                                               value={this.state.foodDescription}
-                                                               onChange={this.handleTextChange}></input>
-                            {/*<UpdateFoodCategory selectedMenu={this.props.selectedMenu} selectCategory={this.selectCategory} selectSubCategory={this.selectSubCategory} selectedCategory={this.state.selectedCategory} selectedSubCategory={this.state.selectedSubCategory} foodCategoryName={this.props.foodCategoryName} subCategoryName={this.props.subCategoryName} handleAddFoodUpdate={this.props.handleAddFoodUpdate}/>*/}
-                            <label>Price($): </label><input type="number" id="foodPrice" name="foodPrice"
-                                                            value={this.state.foodPrice}
-                                                            onChange={this.handleTextChange}></input><br/>
-                            <label>Availability:</label>
-                            <input type="radio" id="foodAvailability1" value="true" name="foodAvailability"
-                                   onChange={this.handleTextChange}></input>
-                            <text> Available</text>
-                            {"  "}
-                            <input type="radio" id="foodAvailability2" value="false" name="foodAvailability"
-                                   onChange={this.handleTextChange}></input>
-                            <text> Not Available</text>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label>Upload Image: </label>
-                                    </td>
-                                    <td>
-                                        <Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>
-                                    </td>
-                                </tr>
-                            </table>
-                            {/*<label>Upload Image:</label><input type="file" name="foodImage" accept="image/*"></input>*/}
-                            <div className='button-center'>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen}*/}
+                        {/*onRequestClose={this.closeModal}*/}
+                        {/*contentLabel="Update Food Price"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                        {/*<p align="center">*/}
+                            {/*<h2><b>Edit Food Item</b></h2>*/}
+                        {/*</p>*/}
+                        {/*<p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>*/}
+                        {/*<fieldset>*/}
+                            {/*<label align="left">Food ID: </label><input type="text" id="foodId" name="foodId"*/}
+                                                                        {/*placeholder="     Auto-Generated"*/}
+                                                                        {/*disabled></input>*/}
+                            {/*<label>Name: </label><input type="text" id="foodName" name="foodName"*/}
+                                                        {/*value={this.state.foodName}*/}
+                                                        {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Description: </label><input type="text" id="foodDescription" name="foodDescription"*/}
+                                                               {/*value={this.state.foodDescription}*/}
+                                                               {/*onChange={this.handleTextChange}></input>*/}
+                            {/*/!*<UpdateFoodCategory selectedMenu={this.props.selectedMenu} selectCategory={this.selectCategory} selectSubCategory={this.selectSubCategory} selectedCategory={this.state.selectedCategory} selectedSubCategory={this.state.selectedSubCategory} foodCategoryName={this.props.foodCategoryName} subCategoryName={this.props.subCategoryName} handleAddFoodUpdate={this.props.handleAddFoodUpdate}/>*!/*/}
+                            {/*<label>Price($): </label><input type="number" id="foodPrice" name="foodPrice"*/}
+                                                            {/*value={this.state.foodPrice}*/}
+                                                            {/*onChange={this.handleTextChange}></input><br/>*/}
+                            {/*<label>Availability:</label>*/}
+                            {/*<input type="radio" id="foodAvailability1" value="true" name="foodAvailability"*/}
+                                   {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<text> Available</text>*/}
+                            {/*{"  "}*/}
+                            {/*<input type="radio" id="foodAvailability2" value="false" name="foodAvailability"*/}
+                                   {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<text> Not Available</text>*/}
+                            {/*<table>*/}
+                                {/*<tr>*/}
+                                    {/*<td>*/}
+                                        {/*<label>Upload Image: </label>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                            {/*</table>*/}
+                            {/*/!*<label>Upload Image:</label><input type="file" name="foodImage" accept="image/*"></input>*!/*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<br/>*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Update Food*/}
+                                    {/*Item</b></Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                <p align="center">
+                                    <h2>
+                                        <b>Edit Food Item</b>
+                                    </h2>
+                                </p>
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <label align="left">Food ID: </label>
+                                <input
+                                    className="center"
+                                    type="text"
+                                    id="foodId"
+                                    name="foodId"
+                                    placeholder="Auto-Generated"
+                                    disabled
+                                >
+                                </input>
+                                <label>Name: </label>
+                                <input
+                                    type="text"
+                                    id="foodName"
+                                    name="foodName"
+                                    value={this.state.foodName}
+                                    onChange={this.handleTextChange}
+                                >
+                                </input>
+                                <label>Description: </label>
+                                <input
+                                    type="text"
+                                    id="foodDescription"
+                                    name="foodDescription"
+                                    value={this.state.foodDescription}
+                                    onChange={this.handleTextChange}
+                                >
+                                </input>
+                                {/*<UpdateFoodCategory selectedMenu={this.props.selectedMenu} selectCategory={this.selectCategory} selectSubCategory={this.selectSubCategory} selectedCategory={this.state.selectedCategory} selectedSubCategory={this.state.selectedSubCategory} foodCategoryName={this.props.foodCategoryName} subCategoryName={this.props.subCategoryName} handleAddFoodUpdate={this.props.handleAddFoodUpdate}/>*/}
+                                <label>Price($): </label>
+                                <input
+                                    type="number"
+                                    id="foodPrice"
+                                    name="foodPrice"
+                                    value={this.state.foodPrice}
+                                    onChange={this.handleTextChange}
+                                >
+                                </input>
                                 <br/>
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Update Food
-                                    Item</b></Button>
+                                <label>Availability:</label>
+                                <input
+                                    type="radio"
+                                    id="foodAvailability1"
+                                    value="true"
+                                    name="foodAvailability"
+                                    onChange={this.handleTextChange}
+                                >
+                                </input>
+                                <text> Available</text>
+                                {"  "}
+                                <input
+                                    type="radio"
+                                    id="foodAvailability2"
+                                    value="false"
+                                    name="foodAvailability"
+                                    onChange={this.handleTextChange}
+                                >
+                                </input>
+                                <text> Not Available</text>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Upload Image: </label>
+                                        </td>
+                                        <td>
+                                            <Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                {/*<label>Upload Image:</label><input type="file" name="foodImage" accept="image/*"></input>*/}
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
+                            <div className='button-center'>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                    <b>Update Food Item</b>
+                                </Button>
                             </div>
-                        </fieldset>
-                        {/*<button onClick={this.check}>Check</button>*/}
+                        </Modal.Footer>
                     </Modal>
+
                 </div>
             )
         }else{
@@ -268,16 +363,32 @@ class EditFoodPrice extends Component {
                     <div>
                         <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span
                             className="glyphicon glyphicon-edit"></span></Button>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Update Food Price"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Update Food Price"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
                     </div>
                 </div>

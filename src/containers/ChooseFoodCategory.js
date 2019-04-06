@@ -297,6 +297,7 @@ class ChooseFoodCategory extends Component {
                                 <fieldset>
                                     <label align="left">Food Category ID: </label>
                                     <input
+                                        className="center"
                                         type="text"
                                         id="foodCategoryId"
                                         name="foodCategoryId"
@@ -424,6 +425,7 @@ class ChooseFoodCategory extends Component {
                             <fieldset>
                                 <label align="left">Sub Category ID: </label>
                                 <input
+                                    className="center"
                                     type="text"
                                     id="subCategoryId"
                                     name="subCategoryId"
@@ -509,7 +511,9 @@ class ChooseFoodCategory extends Component {
                                 {/*<Modal.Title>Modal heading</Modal.Title>*/}
                             </Modal.Header>
                             <Modal.Body>
-                                <h3>{this.state.messageFromServer}</h3>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
                             </Modal.Body>
                             <Modal.Footer>
                                 <div className='button-center'>
@@ -548,7 +552,9 @@ class ChooseFoodCategory extends Component {
                             {/*<Modal.Title>Modal heading</Modal.Title>*/}
                         </Modal.Header>
                         <Modal.Body>
-                            <h3>{this.state.messageFromServer}</h3>
+                            <div className='button-center'>
+                                <h3>{this.state.messageFromServer}</h3>
+                            </div>
                         </Modal.Body>
                         <Modal.Footer>
                             <div className='button-center'>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, MenuItem, ButtonToolbar} from "react-bootstrap";
-import Modal from 'react-modal';
+import {Button, MenuItem, ButtonToolbar, Modal} from "react-bootstrap";
+// import Modal from 'react-modal';
 import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 import ModalDialog from 'react-bootstrap/lib/ModalDialog'
 import DeleteCustomisationOption from "./DeleteCustomisationOption";
@@ -105,43 +105,78 @@ class DisplayFoodCustomisation extends Component {
     render(){
 
         return (
-            <td align="left">
-                <Button bsStyle="info" bsSize="small" onClick={this.openModal}><span
-                    className="glyphicon glyphicon-eye-open"></span> View / <span
-                    className="glyphicon glyphicon-edit"></span> Update </Button>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onRequestClose={this.closeModal}
-                    contentLabel="View Customisations"
-                    className="Modal">
-                    <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                        className="closebtn glyphicon glyphicon-remove"></span></Button>
-                    {/*<button onClick={this.check}>Check</button>*/}
-                    <p align="center">
-                        <h3><b>View / Update Customisations: </b></h3>
-                    </p>
-                    <AddCustomisation categoryId={this.props.categoryId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
-                    <br/>
-                    <fieldset>
-                        {this.state.foodCustomisationData.map((foodCustomisation, k) =>
-                            <div>
-                                <label align="left">Customisation {k+1}: </label>
-                                <span className="glyphicon glyphicon-asterisk"></span><text><b> {foodCustomisation.customisationName} </b></text>
-                                <text> </text>
-                                <ButtonGroup className="pull-right">
-                                    <DeleteCustomisation customisationId={foodCustomisation.customisationId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
-                                </ButtonGroup>
-                                <ButtonGroup className="pull-right">
-                                    <AddCustomisationOption customisationId={foodCustomisation.customisationId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
-                                </ButtonGroup>
-                                <text>{this.getCustomisationOptions(k)}</text>
-                                <hr />
-                            </div>
-                        )}
+            <td align="center">
+                <Button bsStyle="info" bsSize="small" onClick={this.openModal}>
+                    <span className="glyphicon glyphicon-eye-open"></span> View /
+                    <span className="glyphicon glyphicon-edit"></span> Update
+                </Button>
+                {/*<Modal*/}
+                    {/*isOpen={this.state.modalIsOpen}*/}
+                    {/*onRequestClose={this.closeModal}*/}
+                    {/*contentLabel="View Customisations"*/}
+                    {/*className="Modal">*/}
+                    {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                        {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                    {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*<p align="center">*/}
+                        {/*<h3><b>View / Update Customisations: </b></h3>*/}
+                    {/*</p>*/}
+                    {/*<AddCustomisation categoryId={this.props.categoryId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>*/}
+                    {/*<br/>*/}
+                    {/*<fieldset>*/}
+                        {/*{this.state.foodCustomisationData.map((foodCustomisation, k) =>*/}
+                            {/*<div>*/}
+                                {/*<label align="left">Customisation {k+1}: </label>*/}
+                                {/*<span className="glyphicon glyphicon-asterisk"></span><text><b> {foodCustomisation.customisationName} </b></text>*/}
+                                {/*<text> </text>*/}
+                                {/*<ButtonGroup className="pull-right">*/}
+                                    {/*<DeleteCustomisation customisationId={foodCustomisation.customisationId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>*/}
+                                {/*</ButtonGroup>*/}
+                                {/*<ButtonGroup className="pull-right">*/}
+                                    {/*<AddCustomisationOption customisationId={foodCustomisation.customisationId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>*/}
+                                {/*</ButtonGroup>*/}
+                                {/*<text>{this.getCustomisationOptions(k)}</text>*/}
+                                {/*<hr />*/}
+                            {/*</div>*/}
+                        {/*)}*/}
+                        {/*<div className='button-center'>*/}
+                            {/*<Button bsStyle="success" bsSize="large" onClick={this.closeModal}><b>Done</b></Button>*/}
+                        {/*</div>*/}
+                    {/*</fieldset>*/}
+                {/*</Modal>*/}
+
+                <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>
+                            <p align="center">
+                                <h3><b>View / Update Customisations: </b></h3>
+                            </p>
+                        </Modal.Title>
+                            <AddCustomisation categoryId={this.props.categoryId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <fieldset>
+                            {this.state.foodCustomisationData.map((foodCustomisation, k) =>
+                                <div>
+                                    <label align="left">Customisation {k+1}: </label>
+                                    <span className="glyphicon glyphicon-asterisk"></span><text><b> {foodCustomisation.customisationName} </b></text>
+                                    <text> </text>
+                                    <ButtonGroup className="pull-right">
+                                        <DeleteCustomisation customisationId={foodCustomisation.customisationId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
+                                    </ButtonGroup>
+                                    <ButtonGroup className="pull-right">
+                                        <AddCustomisationOption customisationId={foodCustomisation.customisationId} foodId={this.props.foodId} menuId={this.props.menuId} managerId={this.props.managerId} restaurantId={this.props.restaurantId} handleCustomisationOptionUpdate={this.handleCustomisationOptionUpdate}/>
+                                    </ButtonGroup>
+                                    <text>{this.getCustomisationOptions(k)}</text>
+                                </div>
+                            )}
+                        </fieldset>
+                    </Modal.Body>
+                    <Modal.Footer>
                         <div className='button-center'>
                             <Button bsStyle="success" bsSize="large" onClick={this.closeModal}><b>Done</b></Button>
                         </div>
-                    </fieldset>
+                    </Modal.Footer>
                 </Modal>
             </td>
         )

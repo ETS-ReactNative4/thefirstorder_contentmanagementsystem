@@ -2,7 +2,7 @@
     content: "Loading Food Items";
     position: absolute;
     left: 50%;
-    top: 100%;
+    bottom: 40%;
     z-index: 1;
     width: 150px;
     height: 150px;
@@ -19,4 +19,19 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+span.green {
+    font-size: 30px;
+    color: green;
+}
+
+span.red {
+    font-size: 30px;
+    color: red;
+}
+
+table#MenuItems thead > tr > th{
+    text-align: center;
+    vertical-align: middle;
 }

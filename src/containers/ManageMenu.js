@@ -6,6 +6,7 @@ import {Button, Tab, Tabs} from 'react-bootstrap';
 import MenuTabs from "./MenuTabs";
 import AddMenu from "./AddMenu";
 import AddMenu2 from "./AddMenu2";
+import Header from "./Header";
 import Img from "react-image";
 import activitylog from "./images/activitylog.png";
 
@@ -65,7 +66,7 @@ class ManageMenu extends Component {
                 if(response.data.length !== 0){
                     ev.setState({selectedRestaurant: response.data[0].restaurantId})
                 }
-        });
+            });
     }
 
     handleUpdateMenuTab(){
@@ -91,18 +92,20 @@ class ManageMenu extends Component {
         }
 
         return(
-
             <div class="MainPage">
+
+                <Header title={"Menu Manager"}/>
+
                 <div class="content">
-                    <h2>Menu Manager</h2>
                     <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
-                        {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
+                        {this.state.restaurantData.map((restaurant, i) =>
+                            <Tab eventKey={i} title={restaurant.restaurantName}>
 
-                            <AddMenu manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
+                                {/*<AddMenu manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>*/}
 
-                            <AddMenu2 manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
+                                <AddMenu2 manager={this.state.managerId} selectedRestaurant={this.state.restaurantData[i].restaurantId} selectedRestaurantName={this.state.restaurantData[i].restaurantName} handleUpdateMenuTab={this.handleUpdateMenuTab}/>
 
-                            <MenuTabs manager={this.state.managerId} restaurant={this.state.restaurantData[i]} update={this.state.update} handleUpdateMenuTab={this.handleUpdateMenuTab} handleStopUpdateMenuTab={this.handleStopUpdateMenuTab}/>
+                                <MenuTabs manager={this.state.managerId} restaurant={this.state.restaurantData[i]} update={this.state.update} handleUpdateMenuTab={this.handleUpdateMenuTab} handleStopUpdateMenuTab={this.handleStopUpdateMenuTab}/>
 
                             </Tab>
                         )}

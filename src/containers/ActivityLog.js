@@ -4,6 +4,7 @@ import {Button, Tab, Table, Tabs} from "react-bootstrap";
 import "./MainPage.css";
 import {Redirect} from "react-router-dom";
 import ActivityLogTable from "./ActivityLogTable";
+import Header from "./Header";
 
 class ActivityLog extends Component {
 
@@ -68,8 +69,10 @@ class ActivityLog extends Component {
         }
         return(
             <div className="MainPage">
+
+                <Header title={"Activity Log"}/>
+
                 <div className="content">
-                    <h2>Activity Log</h2>
                     <Tabs defaultActiveKey={0} onSelect={index => {this.handleSelect(index)}}>
                         {this.state.restaurantData.map((restaurant, i) => <Tab eventKey={i} title={restaurant.restaurantName}>
                             <ActivityLogTable selectedRestaurant={this.state.restaurantData[i].restaurantId}/>

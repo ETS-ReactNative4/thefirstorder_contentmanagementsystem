@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
-import Modal from 'react-modal';
+import { Button, Modal } from "react-bootstrap";
+// import Modal from 'react-modal';
 import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 
 class DeleteManagerAllocation extends Component {
@@ -62,25 +62,50 @@ class DeleteManagerAllocation extends Component {
                 <div>
                     <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}><span
                         className="glyphicon glyphicon-remove"></span> Delete </Button>
-                    <Modal
-                        isOpen={this.state.modalIsOpen}
-                        onRequestClose={this.closeModal}
-                        contentLabel="Delete Manager Allocation"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <fieldset>
-                            <p></p>
-                            <p align="center"><b>Delete allocated manager?</b></p>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen}*/}
+                        {/*onRequestClose={this.closeModal}*/}
+                        {/*contentLabel="Delete Manager Allocation"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*<fieldset>*/}
+                            {/*<p></p>*/}
+                            {/*<p align="center"><b>Delete allocated manager?</b></p>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<Button bsStyle="danger" bsSize="large" onClick={this.closeModal}>*/}
+                                    {/*<span className="glyphicon glyphicon-remove"></span>*/}
+                                {/*</Button>*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick}>*/}
+                                    {/*<span className="glyphicon glyphicon-ok"></span>*/}
+                                {/*</Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <p align="center">
+                                    <b>Delete allocated manager?</b>
+                                </p>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
                             <div className='button-center'>
-                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}><span
-                                    className="glyphicon glyphicon-remove"></span></Button>
-                                {" "}
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}><span
-                                    className="glyphicon glyphicon-ok"></span></Button>
+                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}>
+                                    <span className="glyphicon glyphicon-remove"></span>
+                                </Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                    <span className="glyphicon glyphicon-ok"></span>
+                                </Button>
                             </div>
-                        </fieldset>
+                        </Modal.Footer>
                     </Modal>
+
                 </div>
             )
         } else {
@@ -89,16 +114,32 @@ class DeleteManagerAllocation extends Component {
                     <div>
                         <Button bsStyle="danger" bsSize="xsmall" onClick={this.openModal}><span
                             className="glyphicon glyphicon-remove"></span> Delete </Button>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Delete Manager Allocation"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Delete Manager Allocation"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, MenuItem, ButtonToolbar} from "react-bootstrap";
-import Modal from 'react-modal';
+import {Button, MenuItem, ButtonToolbar, Modal} from "react-bootstrap";
+// import Modal from 'react-modal';
 import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 import ModalDialog from 'react-bootstrap/lib/ModalDialog'
 import DeleteCustomisationOption from "./DeleteCustomisationOption";
@@ -88,37 +88,73 @@ class DisplayCustomerOrder extends Component {
             <td align="left">
                 <Button bsStyle="info" bsSize="small" onClick={this.openModal}><span
                     className="glyphicon glyphicon-eye-open"></span> View </Button>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onRequestClose={this.closeModal}
-                    contentLabel="View Customer Orders"
-                    className="Modal">
-                    <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                        className="closebtn glyphicon glyphicon-remove"></span></Button>
-                    {/*<button onClick={this.check}>Check</button>*/}
-                    <p align="center">
-                        <h3><b> Order Summary </b></h3>
-                    </p>
-                    <br/>
-                    <fieldset>
-                        {this.state.customerOrderData.map((customerOrder, k) =>
-                            <div>
-                                <label align="left"><span className="glyphicon glyphicon-asterisk"></span> Food Name: </label>
-                                <text><b> {customerOrder.foodName} </b></text>
-                                <label align="left"> Quantity: </label>
-                                <text> {customerOrder.customerOrderQuantity} </text>
-                                <label align="left"> Subtotal: </label>
-                                <text> S${customerOrder.customerOrderPrice} </text>
-                                <text>{this.getCustomerRemarks(k)}</text>
-                                <text>{this.getOrderCustomisations(k)}</text>
-                                <hr />
-                            </div>
-                        )}
+                {/*<Modal*/}
+                    {/*isOpen={this.state.modalIsOpen}*/}
+                    {/*onRequestClose={this.closeModal}*/}
+                    {/*contentLabel="View Customer Orders"*/}
+                    {/*className="Modal">*/}
+                    {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                        {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                    {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*<p align="center">*/}
+                        {/*<h3><b> Order Summary </b></h3>*/}
+                    {/*</p>*/}
+                    {/*<br/>*/}
+                    {/*<fieldset>*/}
+                        {/*{this.state.customerOrderData.map((customerOrder, k) =>*/}
+                            {/*<div>*/}
+                                {/*<label align="left"><span className="glyphicon glyphicon-asterisk"></span> Food Name: </label>*/}
+                                {/*<text><b> {customerOrder.foodName} </b></text>*/}
+                                {/*<label align="left"> Quantity: </label>*/}
+                                {/*<text> {customerOrder.customerOrderQuantity} </text>*/}
+                                {/*<label align="left"> Subtotal: </label>*/}
+                                {/*<text> S${customerOrder.customerOrderPrice} </text>*/}
+                                {/*<text>{this.getCustomerRemarks(k)}</text>*/}
+                                {/*<text>{this.getOrderCustomisations(k)}</text>*/}
+                                {/*<hr />*/}
+                            {/*</div>*/}
+                        {/*)}*/}
+                        {/*<div className='button-center'>*/}
+                            {/*<Button bsStyle="success" bsSize="large" onClick={this.closeModal}><b>Done</b></Button>*/}
+                        {/*</div>*/}
+                    {/*</fieldset>*/}
+                {/*</Modal>*/}
+
+                <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>
+                            <p align="center">
+                                <h3>
+                                    <b> Order Summary </b>
+                                </h3>
+                            </p>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <fieldset>
+                            {this.state.customerOrderData.map((customerOrder, k) =>
+                                <div>
+                                    <label align="left"><span className="glyphicon glyphicon-asterisk"></span> Food Name: </label>
+                                    <text><b> {customerOrder.foodName} </b></text>
+                                    <label align="left"> Quantity: </label>
+                                    <text> {customerOrder.customerOrderQuantity} </text>
+                                    <label align="left"> Subtotal: </label>
+                                    <text> S${customerOrder.customerOrderPrice.toFixed(2)} </text>
+                                    <text>{this.getCustomerRemarks(k)}</text>
+                                    <text>{this.getOrderCustomisations(k)}</text>
+                                </div>
+                            )}
+                        </fieldset>
+                    </Modal.Body>
+                    <Modal.Footer>
                         <div className='button-center'>
-                            <Button bsStyle="success" bsSize="large" onClick={this.closeModal}><b>Done</b></Button>
+                            <Button bsStyle="success" bsSize="large" onClick={this.closeModal}>
+                                <b>Done</b>
+                            </Button>
                         </div>
-                    </fieldset>
+                    </Modal.Footer>
                 </Modal>
+
             </td>
         )
     }

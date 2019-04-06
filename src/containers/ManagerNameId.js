@@ -31,9 +31,7 @@ class ManagerNameId extends Component {
 
     render(){
         return(
-            <div>
-                <td align="left">{this.state.managerName}, {this.props.managerId}</td>
-            </div>
+            <td align="left">{this.state.managerName}, {this.props.managerId}</td>
         )
     }
 

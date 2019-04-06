@@ -191,3 +191,45 @@ div.form-group input.form-control:focus, input.form-control:focus + .fa {
 .toolbar{
     margin: 10px 0;
 }
+
+fieldset > input.center{
+    text-align: center;
+    vertical-align: middle;
+}
+
+table.MenuItems .table-striped > tbody > tr:nth-of-type(2n+1){
+    background-color: red;
+}
+
+/*Top Item*/
+div.right-graph > div.TopItem {
+    float: top;
+    background-color: #ede48b;
+    height: 33.33%;
+    width: 100%;
+    /*border: black 1px dashed;*/
+    display: inline-block;
+    padding: 5px;
+}
+
+div.right-graph > div.TopItem span.rank {
+    float: right;
+    margin: 10px;
+}
+
+div.right-graph > div.TopItem span.name {
+    font-weight: bold;
+}
+
+.float_right{
+    float: right;
+}
+
+
+
+
+
+
+
+
+

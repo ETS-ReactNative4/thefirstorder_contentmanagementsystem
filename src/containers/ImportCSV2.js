@@ -100,7 +100,7 @@ class ImportCSV extends Component {
                 <div>
                     {/*<button onClick={this.check}>Check</button>*/}
                     <Button className="pull-right" bsStyle="info" onClick={this.openModal}>
-                        <span className="glyphicon glyphicon-open"></span> Import Menu *New*
+                        <span className="glyphicon glyphicon-open"></span> Import Menu
                     </Button>
                     {/*<Modal*/}
                         {/*isOpen={this.state.modalIsOpen}*/}

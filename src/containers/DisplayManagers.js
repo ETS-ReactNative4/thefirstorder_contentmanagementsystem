@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, MenuItem, ButtonToolbar} from "react-bootstrap";
-import Modal from 'react-modal';
+import {Button, MenuItem, ButtonToolbar, Modal} from "react-bootstrap";
+// import Modal from 'react-modal';
 import ButtonGroup from "react-bootstrap/es/ButtonGroup";
 import ModalDialog from 'react-bootstrap/lib/ModalDialog'
 import DeleteCustomisationOption from "./DeleteCustomisationOption";
@@ -107,6 +107,42 @@ class DisplayManagers extends Component {
                         </div>
                     </fieldset>
                 </Modal>
+
+
+                <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>
+                            <p align="center">
+                                <h3>
+                                    <b> Manager Allocations:</b>
+                                </h3>
+                            </p>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <AddManagerAllocation restaurantId={this.props.restaurant.restaurantId} handleManagerAllocationUpdate={this.handleManagerAllocationUpdate}/>
+                        <br/>
+                        <fieldset>
+                            {this.state.managerData.map((manager, k) =>
+                                <div>
+                                    <label align="left"><span className="glyphicon glyphicon-asterisk"></span> Manager:</label>
+                                    <text>
+                                        <b>{manager.managerId}: {manager.firstName}</b>
+                                    </text>
+                                    <ButtonGroup className="pull-right">
+                                        <DeleteManagerAllocation manager={manager} restaurantId={this.props.restaurant.restaurantId} handleManagerAllocationUpdate={this.handleManagerAllocationUpdate}/>
+                                    </ButtonGroup>
+                                </div>
+                            )}
+                        </fieldset>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <div className='button-center'>
+                            <Button bsStyle="success" bsSize="large" onClick={this.closeModal}><b>Done</b></Button>
+                        </div>
+                    </Modal.Footer>
+                </Modal>
+
             </td>
         )
     }

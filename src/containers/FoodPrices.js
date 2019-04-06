@@ -31,6 +31,7 @@ class FoodPrices extends Component {
             categoryData: [],
             subCategoryData: [],
             dropdownTitle: "View All",
+            loading: true
         };
         this.check = this.check.bind(this);
         this.getFoods = this.getFoods.bind(this);
@@ -176,7 +177,8 @@ class FoodPrices extends Component {
             .then(function(response) {
                 ev.setState({
                     foodData: response.data[0],
-                    foodDataCSV: response.data[1]
+                    foodDataCSV: response.data[1],
+                    loading: false
                 });
             });
     }
@@ -186,7 +188,8 @@ class FoodPrices extends Component {
             .then(function(response) {
                 ev.setState({
                     foodData: response.data[0],
-                    foodDataCSV: response.data[1]
+                    foodDataCSV: response.data[1],
+                    loading: false
                 });
             });
     }
@@ -212,7 +215,8 @@ class FoodPrices extends Component {
             .then(function(response) {
                 ev.setState({
                     foodData: response.data[0],
-                    foodDataCSV: response.data[1]
+                    foodDataCSV: response.data[1],
+                    loading: false
                 });
             });
     }
@@ -247,10 +251,18 @@ class FoodPrices extends Component {
     checkFoodAvailability(k){
         if (this.state.foodData[k].foodAvailability === true){
             return (
-                <span className="glyphicon glyphicon-ok"></span>
+                //<span style="color: Green;">
+                //<i className="fas fa-check"></i>
+                // </span>
+                 <span className="fas fa-check green"></span>
             )
         }
-        return <span className="glyphicon glyphicon-remove"></span>
+        return (
+            //<span style="color: Red;">
+            //<i className="fas fa-times"></i>
+                // </span>
+             <span className="fas fa-times red"></span>
+        )
     }
 
     displayFoodImage(k){
@@ -263,7 +275,7 @@ class FoodPrices extends Component {
     }
 
     showLoader(){
-        if(this.state.foodData.length === 0){
+        if(this.state.loading === true){
             return(
                 <div className="loader"></div>
             )
@@ -285,12 +297,12 @@ class FoodPrices extends Component {
             <div>
                 <ButtonToolbar className="toolbar">
                     <ButtonGroup className="pull-left">
-                        <DeleteMenu manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />
+                        {/*<DeleteMenu manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />*/}
                         <DeleteMenu2 manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleUpdateMenuTab={this.props.handleUpdateMenuTab} handleDeleteMenuUpdate={this.handleDeleteMenuUpdate} handleUpdateFoodPrices={this.props.handleUpdateFoodPrices} />
                         {/*<Button className="pull-right" bsStyle="danger" bsSize="small" onClick={this.onClick}><span className="glyphicon glyphicon-remove"></span> Delete Menu {this.props.menu.menuId}</Button>*/}
                     </ButtonGroup>
                     <ButtonGroup className="pull-left">
-                        <ChangeMenuName handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>
+                        {/*<ChangeMenuName handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>*/}
                         <ChangeMenuName2 handleUpdateMenuTab={this.props.handleUpdateMenuTab} manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant}/>
                     </ButtonGroup>
                 </ButtonToolbar>
@@ -316,12 +328,12 @@ class FoodPrices extends Component {
                         </CSVLink>
                     </ButtonGroup>
                     <ButtonGroup className="pull-right">
-                        <ImportCSV manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
+                        {/*<ImportCSV manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>*/}
                         <ImportCSV2 manager={this.props.manager} selectedMenu={this.props.menu} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
                     </ButtonGroup>
 
                     <ButtonGroup className="pull-right">
-                        <AddFood manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
+                        {/*<AddFood manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>*/}
                         <AddFood2 manager={this.props.manager} selectedMenu={this.props.menu.menuId} restaurant={this.props.restaurant} handleAddFoodUpdate={this.handleAddFoodUpdate}/>
                         {/*<Button className="pull-left" bsStyle="success" bsSize="small"><span className="glyphicon glyphicon-plus"></span> Add Food Item</Button>*/}
                     </ButtonGroup>
@@ -332,21 +344,21 @@ class FoodPrices extends Component {
                     {/*<span className="glyphicon glyphicon-time"></span> Last Updated:  {this.props.menu.dateOfCreation}*/}
                 {/*</p>*/}
                 {/*<p></p>*/}
-                {this.showLoader()}
-                <Table striped hover>
+                <Table hover id="MenuItems">
+                    {this.showLoader()}
                     <thead>
                         <tr>
-                            <th align="center">S/N</th>
-                            <th align="center">Food ID</th>
-                            <th align="center"></th>
-                            <th align="center">Name</th>
-                            <th align="center">Description</th>
-                            <th align="center">Customisations</th>
-                            <th align="center">Price ($)</th>
+                            <th>S/N</th>
+                            <th >Food ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Customisations</th>
+                            <th>Price ($)</th>
                             {/*<th align="center">Customisations</th>*/}
-                            <th align="center">Availability</th>
-                            <th align="center">Edit</th>
-                            <th align="center">Delete</th>
+                            <th>Availability</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -363,9 +375,9 @@ class FoodPrices extends Component {
                                 {/*<td align="center">{this.props.menu.foodPrices[k].price}</td>*/}
                                 {/*<td align="center">{this.checkFoodAvailability(k)}</td>*/}
                                 {/*<td align="center"><Button bsStyle="info" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-eye-open"></span> View </Button></td>*/}
-                                <td align="left"><EditFoodPrice manager={this.props.manager} selectedMenu={this.props.menu.menuId} menuName={this.props.menu.menuName} restaurant={this.props.restaurant} selectedFood={food.foodId} foodName={food.foodName} foodCategoryId={food.foodCategory} subCategoryId={food.foodSubCategory} foodCategoryName={food.foodCategoryName} subCategoryName={food.subCategoryName} handleEditFoodUpdate={this.handleEditFoodUpdate} foodName={food.foodName} foodDescription={food.foodDescription} foodCategory={food.foodCategory} foodPrice={food.foodPrice} foodImage={food.foodImg} foodAvailability={food.foodAvailability} handleAddFoodUpdate={this.handleFoodUpdate}/></td>
+                                <td align="center"><EditFoodPrice manager={this.props.manager} selectedMenu={this.props.menu.menuId} menuName={this.props.menu.menuName} restaurant={this.props.restaurant} selectedFood={food.foodId} foodName={food.foodName} foodCategoryId={food.foodCategory} subCategoryId={food.foodSubCategory} foodCategoryName={food.foodCategoryName} subCategoryName={food.subCategoryName} handleEditFoodUpdate={this.handleEditFoodUpdate} foodName={food.foodName} foodDescription={food.foodDescription} foodCategory={food.foodCategory} foodPrice={food.foodPrice} foodImage={food.foodImg} foodAvailability={food.foodAvailability} handleAddFoodUpdate={this.handleFoodUpdate}/></td>
                                 {/*<td align="center"><Button bsStyle="danger" bsSize="small" onClick={this.onClick}><span className="glyphicon glyphicon-remove"></span></Button></td>*/}
-                                <td align="left"><DeleteFoodPrice manager={this.props.manager} selectedMenu={this.props.menu.menuId} menuName={this.props.menu.menuName} restaurant={this.props.restaurant} selectedFood={food.foodId} foodName={food.foodName} selectedFoodCategory={food.foodCategory} handleDeleteFoodUpdate={this.handleDeleteFoodUpdate} handleFoodData={this.handleFoodData} updateDropdownTitle={this.updateDropdownTitle}/></td>
+                                <td align="center"><DeleteFoodPrice manager={this.props.manager} selectedMenu={this.props.menu.menuId} menuName={this.props.menu.menuName} restaurant={this.props.restaurant} selectedFood={food.foodId} foodName={food.foodName} selectedFoodCategory={food.foodCategory} handleDeleteFoodUpdate={this.handleDeleteFoodUpdate} handleFoodData={this.handleFoodData} updateDropdownTitle={this.updateDropdownTitle}/></td>
                             </tr>
                         )
                     }

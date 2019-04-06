@@ -132,6 +132,18 @@ class OrderTable extends Component {
         })
     }
 
+    displayPaymentStatus(paymentStatus){
+        if(paymentStatus === "READY"){
+            return(
+                <text align="center" style={{color:"green"}}><b>{paymentStatus}</b></text>
+            )
+        }else{
+            return(
+                <text align="center" style={{color:"red"}}><b>{paymentStatus}</b></text>
+            )
+        }
+    }
+
     check(){
         console.log(this.state.sentOrderData);
     }
@@ -159,7 +171,7 @@ class OrderTable extends Component {
                             </tr>
                         </thead>
                     </Table>
-                    <p><h3><b>Acknowledged & Unpaid Orders: </b></h3></p>
+                    <p><h3><b>Acknowledged Orders: </b></h3></p>
                     <Table striped condensed hover>
                         <thead>
                         <tr>
@@ -218,7 +230,7 @@ class OrderTable extends Component {
                             {/*<th align="center">Mode of Payment:</th>*/}
                             <th align="center">Payment Status:</th>
                             <th align="center">Date & Time:</th>
-                            <th align="center">Acknowledge:</th>
+                            <th align="center">Cancel / Acknowledge:</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -230,16 +242,16 @@ class OrderTable extends Component {
                                 <DisplayCustomerOrderList orderId={sentOrder.orderId} updateAcknowledgedOrders={this.state.updateAcknowledgedOrders} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate}/>
                                 <td align="left">S${sentOrder.totalAmount}</td>
                                 {/*<td align="left">{sentOrder.orderSummary.modeOfPayment}</td>*/}
-                                <td align="left">{sentOrder.paymentStatus}</td>
+                                <td>{this.displayPaymentStatus(sentOrder.paymentStatus)}</td>
                                 <td align="left">{new Intl.DateTimeFormat('en-GB', {year: 'numeric', month: 'long',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date(sentOrder.orderDate))}</td>
-                                <td align="center"><AcknowledgeOrder restaurantId={this.props.selectedRestaurant} orderId={sentOrder.orderId} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate}/></td>
+                                <td align="center"><AcknowledgeOrder restaurantId={this.props.selectedRestaurant} orderId={sentOrder.orderId} handleAcknowledgedOrderUpdate={this.handleAcknowledgedOrderUpdate} restaurant={this.props.restaurant} sentOrder={sentOrder}/></td>
                             </tr>
                         )
                         }
                         </tbody>
                     </Table>
                     <hr/>
-                    <p><h3><b>Acknowledged & Unpaid Orders: </b></h3></p>
+                    <p><h3><b>Acknowledged Orders: </b></h3></p>
                     <Table striped condensed hover>
                         <thead>
                         <tr>

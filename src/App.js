@@ -86,14 +86,14 @@ class App extends Component {
                                             <p>Orders</p>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a className="nav-link" href="/ManagerProfile">
-                                            <i className="fas fa-cog">
-                                                {/*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*/}
-                                            </i>
-                                            <p>Profile</p>
-                                        </a>
-                                    </li>
+                                    {/*<li>*/}
+                                        {/*<a className="nav-link" href="/ManagerProfile">*/}
+                                            {/*<i className="fas fa-cog">*/}
+                                                {/*/!*<Img style = {{width: 20, height: 20}} src={activitylog} resizeMode="contain"/>*!/*/}
+                                            {/*</i>*/}
+                                            {/*<p>Profile</p>*/}
+                                        {/*</a>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <a className = "nav-link" href="" onClick={this.logout}>
                                             <i class="glyphicon glyphicon-off">

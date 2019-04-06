@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, DropdownButton, MenuItem, SplitButton} from "react-bootstrap";
-import Modal from "react-modal";
+import {Button, DropdownButton, MenuItem, SplitButton, Modal} from "react-bootstrap";
+// import Modal from "react-modal";
 
 class UpdateFoodCategory extends Component {
 
@@ -206,32 +206,75 @@ class UpdateFoodCategory extends Component {
                         <MenuItem divider/>
                         <MenuItem onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add
                             Category</MenuItem>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Add Category"
-                            className="Modal">
-                            <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                                className="closebtn glyphicon glyphicon-remove"></span></Button>
-                            <p align="center">
-                                <h2><b>Add Category</b></h2>
-                            </p>
-                            <p align="center" style={{color: "red"}}>{this.state.errorMessage}</p>
-                            <fieldset>
-                                <label align="left">Food Category ID: </label><input type="text" id="foodCategoryId"
-                                                                                     name="foodCategoryId"
-                                                                                     placeholder="    Auto-Generated"
-                                                                                     disabled></input>
-                                <label>Name: </label><input required type="text" id="foodCategoryName"
-                                                            name="foodCategoryName"
-                                                            value={this.state.foodCategoryName}
-                                                            onChange={this.handleTextChange}></input>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Add Category"*/}
+                            {/*className="Modal">*/}
+                            {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                                {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                            {/*<p align="center">*/}
+                                {/*<h2><b>Add Category</b></h2>*/}
+                            {/*</p>*/}
+                            {/*<p align="center" style={{color: "red"}}>{this.state.errorMessage}</p>*/}
+                            {/*<fieldset>*/}
+                                {/*<label align="left">Food Category ID: </label><input type="text" id="foodCategoryId"*/}
+                                                                                     {/*name="foodCategoryId"*/}
+                                                                                     {/*placeholder="    Auto-Generated"*/}
+                                                                                     {/*disabled></input>*/}
+                                {/*<label>Name: </label><input required type="text" id="foodCategoryName"*/}
+                                                            {/*name="foodCategoryName"*/}
+                                                            {/*value={this.state.foodCategoryName}*/}
+                                                            {/*onChange={this.handleTextChange}></input>*/}
+                                {/*<div className='button-center'>*/}
+                                    {/*<br/>*/}
+                                    {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Add Category</b></Button>*/}
+                                {/*</div>*/}
+                            {/*</fieldset>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>
+                                    <p align="center">
+                                        <h2><b>Add Category</b></h2>
+                                    </p>
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <fieldset>
+                                    <label align="left">Food Category ID: </label>
+                                    <input
+                                        className="center"
+                                        type="text"
+                                        id="foodCategoryId"
+                                        name="foodCategoryId"
+                                        placeholder="Auto-Generated"
+                                        disabled
+                                    >
+                                    </input>
+                                    <label>Name: </label>
+                                    <input
+                                        required
+                                        type="text"
+                                        id="foodCategoryName"
+                                        name="foodCategoryName"
+                                        value={this.state.foodCategoryName}
+                                        onChange={this.handleTextChange}
+                                    >
+                                    </input>
+                                </fieldset>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <p align="center" style={{color: "red"}}>{this.state.errorMessage}</p>
                                 <div className='button-center'>
-                                    <br/>
-                                    <Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Add Category</b></Button>
+                                    <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                        <b>Add Category</b>
+                                    </Button>
                                 </div>
-                            </fieldset>
+                            </Modal.Footer>
                         </Modal>
+
                     </SplitButton>
                     <label>Sub Category: </label><SplitButton title={this.state.subDropdownTitle}>
                     {this.state.subCategoryData.map((subCategory, k) =>
@@ -241,32 +284,75 @@ class UpdateFoodCategory extends Component {
                     <MenuItem divider/>
                     <MenuItem onClick={this.openModal1}><span className="glyphicon glyphicon-plus"></span> Add Sub
                         Category</MenuItem>
-                    <Modal
-                        isOpen={this.state.modalIsOpen1}
-                        onRequestClose={this.closeModal1}
-                        contentLabel="Add Sub Category"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <p align="center">
-                            <h2><b>Add Sub Category to {this.state.dropdownTitle}</b></h2>
-                        </p>
-                        <p align="center" style={{color: "red"}}>{this.state.errorMessage1}</p>
-                        <fieldset>
-                            <label align="left">Sub Category ID: </label><input type="text" id="subCategoryId"
-                                                                                name="subCategoryId"
-                                                                                placeholder="    Auto-Generated"
-                                                                                disabled></input>
-                            <label>Name: </label><input required type="text" id="subCategoryName"
-                                                        name="subCategoryName"
-                                                        value={this.state.subCategoryName}
-                                                        onChange={this.handleTextChange}></input>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen1}*/}
+                        {/*onRequestClose={this.closeModal1}*/}
+                        {/*contentLabel="Add Sub Category"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*<p align="center">*/}
+                            {/*<h2><b>Add Sub Category to {this.state.dropdownTitle}</b></h2>*/}
+                        {/*</p>*/}
+                        {/*<p align="center" style={{color: "red"}}>{this.state.errorMessage1}</p>*/}
+                        {/*<fieldset>*/}
+                            {/*<label align="left">Sub Category ID: </label><input type="text" id="subCategoryId"*/}
+                                                                                {/*name="subCategoryId"*/}
+                                                                                {/*placeholder="    Auto-Generated"*/}
+                                                                                {/*disabled></input>*/}
+                            {/*<label>Name: </label><input required type="text" id="subCategoryName"*/}
+                                                        {/*name="subCategoryName"*/}
+                                                        {/*value={this.state.subCategoryName}*/}
+                                                        {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<br/>*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick1}><b>Add Sub Category</b></Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen1} onHide={this.closeModal1}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                <p align="center">
+                                    <h2><b>Add Sub Category to {this.state.dropdownTitle}</b></h2>
+                                </p>
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <label align="left">Sub Category ID: </label>
+                                <input
+                                    className="center"
+                                    type="text"
+                                    id="subCategoryId"
+                                    name="subCategoryId"
+                                    placeholder="Auto-Generated"
+                                    disabled
+                                >
+                                </input>
+                                <label>Name: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="subCategoryName"
+                                    name="subCategoryName"
+                                    value={this.state.subCategoryName}
+                                    onChange={this.handleTextChange}
+                                >
+                                </input>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <p align="center" style={{color: "red"}}>{this.state.errorMessage1}</p>
                             <div className='button-center'>
-                                <br/>
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick1}><b>Add Sub Category</b></Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick1}>
+                                    <b>Add Sub Category</b>
+                                </Button>
                             </div>
-                        </fieldset>
+                        </Modal.Footer>
                     </Modal>
+
                 </SplitButton>
                 </div>
             )
@@ -283,17 +369,34 @@ class UpdateFoodCategory extends Component {
                         <MenuItem divider/>
                         <MenuItem onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add
                             Category</MenuItem>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Add Category"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Add Category"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
+
                     </SplitButton>
                     <label>Sub Category: </label><SplitButton title={this.state.subDropdownTitle}>
                     {this.state.subCategoryData.map((subCategory, k) =>
@@ -303,17 +406,34 @@ class UpdateFoodCategory extends Component {
                     <MenuItem divider/>
                     <MenuItem onClick={this.openModal1}><span className="glyphicon glyphicon-plus"></span> Add Sub
                         Category</MenuItem>
-                    <Modal
-                        isOpen={this.state.modalIsOpen1}
-                        onAfterOpen={this.afterOpenModal}
-                        onRequestClose={this.closeModal1}
-                        contentLabel="Add Category"
-                        className="Modal">
-                        <div className='button-center'>
-                            <h3>{this.state.messageFromServer}</h3>
-                            <Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>Close</Button>
-                        </div>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen1}*/}
+                        {/*onAfterOpen={this.afterOpenModal}*/}
+                        {/*onRequestClose={this.closeModal1}*/}
+                        {/*contentLabel="Add Category"*/}
+                        {/*className="Modal">*/}
+                        {/*<div className='button-center'>*/}
+                            {/*<h3>{this.state.messageFromServer}</h3>*/}
+                            {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>Close</Button>*/}
+                        {/*</div>*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen1} onHide={this.closeModal1}>
+                        <Modal.Header closeButton>
+                            {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className='button-center'>
+                                <h3>{this.state.messageFromServer}</h3>
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <div className='button-center'>
+                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal1}>Close</Button>
+                            </div>
+                        </Modal.Footer>
                     </Modal>
+
                     {/*<button onClick={this.check}>Check</button>*/}
                 </SplitButton>
                 </div>

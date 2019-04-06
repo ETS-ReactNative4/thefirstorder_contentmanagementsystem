@@ -4,6 +4,7 @@ import {Button, Tab, Table, Tabs} from "react-bootstrap";
 import "./MainPage.css";
 import {Redirect} from "react-router-dom";
 import ActivityLogTable from "./ActivityLogTable";
+import Header from "./Header";
 
 class ManagerProfile extends Component {
 
@@ -149,8 +150,10 @@ class ManagerProfile extends Component {
         }
         return(
             <div className="MainPage">
+
+                <Header title={"Profile Page"}/>
+
                 <div className="content">
-                    <h2>Your Profile</h2>
                     <form>
                         {this.displayMessage()}
                         <div className="form-group">

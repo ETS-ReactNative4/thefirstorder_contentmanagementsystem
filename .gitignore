@@ -22,8 +22,6 @@ yarn-error.log*
 .idea/codeStyles/codeStyleConfig.xml
 .idea/workspace.xml
 package-lock.json
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
+#.##
+package.json
 .idea/workspace.xml

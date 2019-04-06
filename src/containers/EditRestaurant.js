@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Button, MenuItem, SplitButton} from "react-bootstrap";
-import Modal from 'react-modal';
+import {Button, MenuItem, SplitButton, Modal} from "react-bootstrap";
+// import Modal from 'react-modal';
 import {Input} from "reactstrap";
 import "./AddRestaurantModal.css";
 
@@ -264,76 +264,204 @@ class EditRestaurant extends Component {
                 <div>
                     <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span
                         className="glyphicon glyphicon-edit"></span></Button>
-                    <Modal
-                        isOpen={this.state.modalIsOpen}
-                        onRequestClose={this.closeModal}
-                        contentLabel="Update Restaurant"
-                        className="my-modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        {/*<button onClick={this.check}>Check</button>*/}
-                        <p align="center">
-                            <h2><b>Edit Restaurant Details:</b></h2>
-                        </p>
-                        <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
-                        <fieldset>
-                            <label align="left">Restaurant ID: </label><input type="text" id="restaurantId" name="restaurantId"
-                                                                              placeholder="    Auto-Generated"
-                                                                              disabled></input>
-                            <label>Name: </label><input required type="text" id="restaurantName" name="restaurantName"
-                                                        value={this.state.restaurantName}
-                                                        onChange={this.handleTextChange}></input>
-                            <label>Description: </label><input required type="text" id="restaurantDescription" name="restaurantDescription"
-                                                               value={this.state.restaurantDescription}
-                                                               onChange={this.handleTextChange}></input>
-                            <label>Contact No: </label><input required type="text" id="contactNumber" name="contactNumber"
-                                                              value={this.state.contactNumber}
-                                                              onChange={this.handleTextChange}></input>
-                            <label>Building: </label><input required type="text" id="building" name="building"
-                                                            value={this.state.building}
-                                                            onChange={this.handleTextChange}></input>
-                            <label>Address: </label><input required type="text" id="street" name="street"
-                                                           value={this.state.street}
-                                                           onChange={this.handleTextChange}></input>
-                            <label>Postal Code: </label><input required type="text" id="postalCode" name="postalCode"
-                                                               value={this.state.postalCode}
-                                                               onChange={this.handleTextChange}></input>
-                            <label>Cuisine: </label><input required type="text" id="cuisine" name="cuisine"
-                                                           value={this.state.cuisine}
-                                                           onChange={this.handleTextChange}></input>
-                            <label>Operating Hours: </label><input required type="text" id="operatingHours" name="operatingHours"
-                                                                   value={this.state.operatingHours}
-                                                                   onChange={this.handleTextChange}></input>
-                            {/*<input required type="time" id="operatingHours1" name="operatingHours1" onChange={this.handleTextChange}></input>*/}
-                            {/*<text> to </text>*/}
-                            {/*<input required type="time" id="operatingHours2" name="operatingHours2" onChange={this.handleTextChange}></input>*/}
-                            <label>Affordability: </label>
-                            <SplitButton title={<b>{this.state.dropdownTitle}</b>}>
-                                <MenuItem onClick={() => this.onSelect1()}>Low</MenuItem>
-                                <MenuItem onClick={() => this.onSelect2()}>Medium</MenuItem>
-                                <MenuItem onClick={() => this.onSelect3()}>High</MenuItem>
-                            </SplitButton>
-                            {/*<input required type="text" id="affordability" name="affordability"*/}
-                                                                 {/*value={this.state.affordability}*/}
-                                                                 {/*onChange={this.handleTextChange}></input>*/}
-                            <table>
-                                <tr>
-                                    <td>
-                                        <label>Upload Image: </label>
-                                    </td>
-                                    <td>
-                                        <Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>
-                                    </td>
-                                </tr>
-                            </table>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen}*/}
+                        {/*onRequestClose={this.closeModal}*/}
+                        {/*contentLabel="Update Restaurant"*/}
+                        {/*className="my-modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                        {/*<p align="center">*/}
+                            {/*<h2><b>Edit Restaurant Details:</b></h2>*/}
+                        {/*</p>*/}
+                        {/*<p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>*/}
+                        {/*<fieldset>*/}
+                            {/*<label align="left">Restaurant ID: </label><input type="text" id="restaurantId" name="restaurantId"*/}
+                                                                              {/*placeholder="    Auto-Generated"*/}
+                                                                              {/*disabled></input>*/}
+                            {/*<label>Name: </label><input required type="text" id="restaurantName" name="restaurantName"*/}
+                                                        {/*value={this.state.restaurantName}*/}
+                                                        {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Description: </label><input required type="text" id="restaurantDescription" name="restaurantDescription"*/}
+                                                               {/*value={this.state.restaurantDescription}*/}
+                                                               {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Contact No: </label><input required type="text" id="contactNumber" name="contactNumber"*/}
+                                                              {/*value={this.state.contactNumber}*/}
+                                                              {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Building: </label><input required type="text" id="building" name="building"*/}
+                                                            {/*value={this.state.building}*/}
+                                                            {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Address: </label><input required type="text" id="street" name="street"*/}
+                                                           {/*value={this.state.street}*/}
+                                                           {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Postal Code: </label><input required type="text" id="postalCode" name="postalCode"*/}
+                                                               {/*value={this.state.postalCode}*/}
+                                                               {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Cuisine: </label><input required type="text" id="cuisine" name="cuisine"*/}
+                                                           {/*value={this.state.cuisine}*/}
+                                                           {/*onChange={this.handleTextChange}></input>*/}
+                            {/*<label>Operating Hours: </label><input required type="text" id="operatingHours" name="operatingHours"*/}
+                                                                   {/*value={this.state.operatingHours}*/}
+                                                                   {/*onChange={this.handleTextChange}></input>*/}
+                            {/*/!*<input required type="time" id="operatingHours1" name="operatingHours1" onChange={this.handleTextChange}></input>*!/*/}
+                            {/*/!*<text> to </text>*!/*/}
+                            {/*/!*<input required type="time" id="operatingHours2" name="operatingHours2" onChange={this.handleTextChange}></input>*!/*/}
+                            {/*<label>Affordability: </label>*/}
+                            {/*<SplitButton title={<b>{this.state.dropdownTitle}</b>}>*/}
+                                {/*<MenuItem onClick={() => this.onSelect1()}>Low</MenuItem>*/}
+                                {/*<MenuItem onClick={() => this.onSelect2()}>Medium</MenuItem>*/}
+                                {/*<MenuItem onClick={() => this.onSelect3()}>High</MenuItem>*/}
+                            {/*</SplitButton>*/}
+                            {/*/!*<input required type="text" id="affordability" name="affordability"*!/*/}
+                                                                 {/*/!*value={this.state.affordability}*!/*/}
+                                                                 {/*/!*onChange={this.handleTextChange}></input>*!/*/}
+                            {/*<table>*/}
+                                {/*<tr>*/}
+                                    {/*<td>*/}
+                                        {/*<label>Upload Image: </label>*/}
+                                    {/*</td>*/}
+                                    {/*<td>*/}
+                                        {/*<Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>*/}
+                                    {/*</td>*/}
+                                {/*</tr>*/}
+                            {/*</table>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<br/>*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Update Restaurant</b></Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                        {/*<br/>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                <p align="center">
+                                    <h2>
+                                        <b>Edit Restaurant Details:</b>
+                                    </h2>
+                                </p>
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <label align="left">Restaurant ID: </label>
+                                <input
+                                    className="center"
+                                    type="text"
+                                    id="restaurantId"
+                                    name="restaurantId"
+                                    placeholder="Auto-Generated"
+                                    disabled>
+                                </input>
+                                <label>Name: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="restaurantName"
+                                    name="restaurantName"
+                                    value={this.state.restaurantName}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Description: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="restaurantDescription"
+                                    name="restaurantDescription"
+                                    value={this.state.restaurantDescription}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Contact No: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="contactNumber"
+                                    name="contactNumber"
+                                    value={this.state.contactNumber}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Building: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="building"
+                                    name="building"
+                                    value={this.state.building}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Address: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="street"
+                                    name="street"
+                                    value={this.state.street}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Postal Code: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="postalCode"
+                                    name="postalCode"
+                                    value={this.state.postalCode}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Cuisine: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="cuisine"
+                                    name="cuisine"
+                                    value={this.state.cuisine}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                <label>Operating Hours: </label>
+                                <input
+                                    required
+                                    type="text"
+                                    id="operatingHours"
+                                    name="operatingHours"
+                                    value={this.state.operatingHours}
+                                    onChange={this.handleTextChange}>
+                                </input>
+                                {/*<input required type="time" id="operatingHours1" name="operatingHours1" onChange={this.handleTextChange}></input>*/}
+                                {/*<text> to </text>*/}
+                                {/*<input required type="time" id="operatingHours2" name="operatingHours2" onChange={this.handleTextChange}></input>*/}
+                                <label>Affordability: </label>
+                                <SplitButton title={<b>{this.state.dropdownTitle}</b>}>
+                                    <MenuItem onClick={() => this.onSelect1()}>Low</MenuItem>
+                                    <MenuItem onClick={() => this.onSelect2()}>Medium</MenuItem>
+                                    <MenuItem onClick={() => this.onSelect3()}>High</MenuItem>
+                                </SplitButton>
+                                {/*<input required type="text" id="affordability" name="affordability"*/}
+                                {/*value={this.state.affordability}*/}
+                                {/*onChange={this.handleTextChange}></input>*/}
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <label>Upload Image: </label>
+                                        </td>
+                                        <td>
+                                            <Input id="file-id" name="file_name" type="file" onChange={this.setImages} accept=".jpg, .png, .jpeg"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <p align="center" style={{color:"red"}}>{this.state.errorMessage}</p>
                             <div className='button-center'>
-                                <br/>
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}><b>Update Restaurant</b></Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                    <b>Update Restaurant</b>
+                                </Button>
                             </div>
-                        </fieldset>
-                        <br/>
-                        {/*<button onClick={this.check}>Check</button>*/}
+                        </Modal.Footer>
                     </Modal>
+
                 </div>
             )
         }else{
@@ -342,16 +470,32 @@ class EditRestaurant extends Component {
                     <div>
                         <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span
                             className="glyphicon glyphicon-edit"></span></Button>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Update Restaurant"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Update Restaurant"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
                     </div>
                 </div>

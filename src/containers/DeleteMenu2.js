@@ -76,7 +76,7 @@ class DeleteMenu extends Component {
                 <div>
                     {/*<button onClick={this.check}>Check</button>*/}
                     <Button className="pull-right" bsStyle="danger" bsSize="medium" onClick={this.openModal}>
-                        <span className="glyphicon glyphicon-remove"></span> Delete "{this.props.selectedMenu.menuName}" *New*
+                        <span className="glyphicon glyphicon-remove"></span> Delete "{this.props.selectedMenu.menuName}"
                     </Button>
                     {/*<Modal*/}
                         {/*isOpen={this.state.modalIsOpen}*/}
@@ -105,18 +105,19 @@ class DeleteMenu extends Component {
                         </Modal.Header>
                         <Modal.Body>
                             <fieldset>
-                                <p></p>
-                                <p align="center"><b>Delete Menu "{this.props.selectedMenu.menuName}" and all of its food items?</b>
+                                <p align="center">
+                                    <b>Delete Menu "{this.props.selectedMenu.menuName}" and all of its food items?</b>
                                 </p>
                             </fieldset>
                         </Modal.Body>
                         <Modal.Footer>
                             <div className='button-center'>
-                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}><span
-                                    className="glyphicon glyphicon-remove"></span></Button>
-                                {" "}
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}><span
-                                    className="glyphicon glyphicon-ok"></span></Button>
+                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}>
+                                    <span className="glyphicon glyphicon-remove"></span>
+                                </Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                    <span className="glyphicon glyphicon-ok"></span>
+                                </Button>
                             </div>
                         </Modal.Footer>
                     </Modal>
@@ -145,7 +146,9 @@ class DeleteMenu extends Component {
                                 {/*<Modal.Title>Modal heading</Modal.Title>*/}
                             </Modal.Header>
                             <Modal.Body>
-                                <h3>{this.state.messageFromServer}</h3>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
                             </Modal.Body>
                             <Modal.Footer>
                                 <div className='button-center'>

@@ -82,21 +82,18 @@ class AddMenu extends Component {
 
             return (
                 <div>
-                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu *New*</Button>
+                    <Button className="pull-right" bsStyle="success" bsSize="medium" onClick={this.openModal}><span className="glyphicon glyphicon-plus"></span> Add Menu</Button>
 
                     <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
                         <Modal.Header closeButton>
-                            {/*<Modal.Title>Add Menu</Modal.Title>*/}
+                            <p align="center">
+                                <h3>
+                                    <b>Add Menu to "{this.props.selectedRestaurantName}"?</b>
+                                </h3>
+                            </p>
                         </Modal.Header>
                         <Modal.Body>
                             <fieldset>
-                                <p></p>
-                                <p align="center">
-                                    <h3>
-                                        <b>Add Menu to "{this.props.selectedRestaurantName}"?</b>
-                                    </h3>
-                                </p>
-                                <hr />
                                 <label>Menu Name: </label>
                                 <input
                                     required type="text"
