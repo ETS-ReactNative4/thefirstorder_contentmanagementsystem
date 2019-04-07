@@ -20,6 +20,7 @@ class Analytics extends Component {
         super(props);
         this.state={
             date: "",
+            dateTest: "",
             focused: false,
             isMonthly: true,
             graph1Data: [],
@@ -28,6 +29,8 @@ class Analytics extends Component {
             graph2Label: [],
             transactions: [],
             totalItems: 0,
+            totalRevenue: "",
+            revenueDifference:"",
         };
         this.check = this.check.bind(this);
         this.handleChecked = this.handleChecked.bind(this); // set this, because you need get methods from CheckBox
@@ -39,6 +42,12 @@ class Analytics extends Component {
         this.getDailyFoodItems = this.getDailyFoodItems.bind(this);
         this.getMonthlyTotalItems = this.getMonthlyTotalItems.bind(this);
         this.getDailyTotalItems = this.getDailyTotalItems.bind(this);
+        this.setDate = this.setDate.bind(this);
+        this.getMonthlyTotalRevenue = this.getMonthlyTotalRevenue.bind(this);
+        this.getDailyTotalRevenue = this.getDailyTotalRevenue.bind(this);
+        this.getMonthlyDifferene = this.getMonthlyDifferene.bind(this);
+        this.getDailyDifferene = this.getDailyDifferene.bind(this);
+
     }
 
     componentWillMount() {
@@ -50,17 +59,40 @@ class Analytics extends Component {
             this.getMonthlyTransactions(this);
             this.getMonthlyFoodItems(this);
             this.getMonthlyTotalItems(this);
+            this.getMonthlyTotalRevenue(this);
+            this.getMonthlyDifferene(this);
         }else{
             this.getDailyRevenue(this);
             this.getDailyTransactions(this);
             this.getDailyFoodItems(this);
             this.getDailyTotalItems(this);
+            this.getDailyTotalRevenue(this);
+            this.getDailyDifferene(this);
         }
     }
 
     componentDidUpdate(){
     }
 
+
+    setDate(newDate){
+        this.setState({date : newDate})
+        if (this.state.isMonthly){
+            this.getMonthlyRevenue(this);
+            this.getMonthlyTransactions(this);
+            this.getMonthlyFoodItems(this);
+            this.getMonthlyTotalItems(this);
+            this.getMonthlyTotalRevenue(this);
+            this.getMonthlyDifferene(this);
+        }else{
+            this.getDailyRevenue(this);
+            this.getDailyTransactions(this);
+            this.getDailyFoodItems(this);
+            this.getDailyTotalItems(this);
+            this.getDailyTotalRevenue(this);
+            this.getDailyDifferene(this);
+        }
+    }
 
     handleChecked(e) {
         if (e.target.checked){
@@ -69,12 +101,16 @@ class Analytics extends Component {
             this.getMonthlyTransactions();
             this.getMonthlyFoodItems();
             this.getMonthlyTotalItems();
+            this.getMonthlyTotalRevenue();
+            this.getMonthlyDifferene();
         }else{
             this.setState({isMonthly: false});
             this.getDailyRevenue(this);
             this.getDailyTransactions();
             this.getDailyFoodItems();
             this.getDailyTotalItems();
+            this.getDailyTotalRevenue();
+            this.getDailyDifferene();
         }
     }
 
@@ -213,8 +249,81 @@ class Analytics extends Component {
             });
     }
 
+    getMonthlyTotalRevenue(){
+        var site = 'http://makanow.herokuapp.com/api/analytics/getMonthlyRevenue/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
+        console.log(site);
 
+        axios.get(site)
+            .then(response => {
+                // console.log("success");
+                console.log(response.data)
+
+                this.setState({totalRevenue: response.data});
+            });
+
+    }
+
+    getDailyTotalRevenue(){
+        var site = 'http://makanow.herokuapp.com/api/analytics/getDailyRevenue/'+this.props.selectedRestaurant+'/'+this.getDate();
+
+        console.log(site);
+
+        axios.get(site)
+            .then(response => {
+                // console.log("success");
+                console.log(response.data)
+
+                this.setState({totalRevenue: response.data});
+            });
+
+    }
+
+    getMonthlyDifferene(){
+        var site = 'http://makanow.herokuapp.com/api/analytics/getPercentageMonthlyRevenueCompareToPreviousMonth/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
+
+        console.log(site);
+
+        axios.get(site)
+            .then(response => {
+                // console.log("success");
+                console.log(response.data)
+
+                this.setState({revenueDifference: response.data});
+            });
+
+    }
+
+    getDailyDifferene(){
+        var site = 'http://makanow.herokuapp.com/api/analytics/getPercentageDailyRevenueCompareToPreviousDate/'+this.props.selectedRestaurant+'/'+this.getDate();
+
+        console.log(site);
+
+        axios.get(site)
+            .then(response => {
+                // console.log("success");
+                console.log(response.data)
+
+                this.setState({revenueDifference: response.data});
+            });
+
+    }
+
+    revenueDifference(){
+        if (this.state.revenueDifference > 0) {
+            return (
+                <span className="amt">{this.state.revenueDifference}% <i className="fas fa-long-arrow-alt-up green"></i></span>
+            )
+        }else if(this.state.revenueDifference < 0){
+            return(
+                <span className="amt">{this.state.revenueDifference}% <i className="fas fa-long-arrow-alt-down red"></i></span>
+            )
+        }else{
+            return(
+                <span className="amt">{this.state.revenueDifference}% <i className="fas fa-minus"></i></span>
+            )
+        }
+    }
 
     check(){
         console.log(this.state);
@@ -232,34 +341,37 @@ class Analytics extends Component {
                     <Row>
                         {/*<Button onClick={this.getMonthlyFoodItems}>Check Monthly</Button>*/}
                         {/*<Button onClick={this.getDailyTransactions}>Check Daily</Button>*/}
-                        {/*<Button onClick={this.check}>Check</Button>*/}
+                        <Button onClick={this.check}>Check</Button>
 
                         <div className="float_right">
 
                             <div>
                                 <SingleDatePicker
                                     date={this.state.date} // momentPropTypes.momentObj or null
-                                    onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+                                    onDateChange={date => this.setDate(date)} // PropTypes.func.isRequired
                                     focused={this.state.focused} // PropTypes.bool
                                     onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
                                     id="datePicker" // PropTypes.string.isRequired,
                                     placeholder="Select Date"
                                     small={true}
-                                    withPortal={true}
                                     numberOfMonths={1}
                                     isOutsideRange={() => false}
+                                    showDefaultInputIcon
+                                    inputIconPosition="after"
+                                    // withPortal={true}
                                 />
                             </div>
+                            <div className="selector">
 
-                            <span>Daily</span>
-
-                            <label className="switch">
-                                <input type="checkbox" onChange={this.handleChecked} checked={this.state.isMonthly}/>
-                                <span className="slider round"></span>
-                            </label>
-
-                            <span>Monthly</span>
-
+                                <div className="label_left">Daily</div>
+                                <div>
+                                    <label className="switch">
+                                        <input type="checkbox" onChange={this.handleChecked} checked={this.state.isMonthly}/>
+                                        <span className="slider round"></span>
+                                    </label>
+                                </div>
+                                <div className="label_right">Monthly</div>
+                            </div>
                         </div>
 
 
@@ -269,6 +381,14 @@ class Analytics extends Component {
                             <div className="items">
                                 <h3 align="center">Sales Revenue</h3>
                                 <SaleRevenueGraph data={this.state.graph1Data} labels={this.state.graph1XAxis}/>
+                            </div>
+                            <div className="items">
+                                <span>Total revenue: </span>
+                                <span className="revenue">${this.state.totalRevenue}</span>
+                                <div className="right_side">
+                                    <span>Difference: </span>
+                                    {this.revenueDifference()}
+                                </div>
                             </div>
                         </Col>
                         <Col md={6}>

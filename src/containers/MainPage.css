@@ -99,35 +99,6 @@ div.main_content > div.container-fluid > div.row > div > div.items> div.right-gr
     vertical-align: top;
 }
 
-/*Toggle*/
-/*! ========================================================================
- * Bootstrap Toggle: bootstrap2-toggle.css v2.2.0
- * http://www.bootstraptoggle.com
- * ========================================================================
- * Copyright 2014 Min Hur, The New York Times Company
- * Licensed under MIT
- * ======================================================================== */
-label.checkbox .toggle,label.checkbox.inline .toggle{margin-left:-20px;margin-right:5px}
-.toggle{min-width:40px;height:20px;position:relative;overflow:hidden}
-.toggle input[type=checkbox]{display:none}
-.toggle-group{position:absolute;width:200%;top:0;bottom:0;left:0;transition:left .35s;-webkit-transition:left .35s;-moz-user-select:none;-webkit-user-select:none}
-.toggle.off .toggle-group{left:-100%}
-.toggle-on{position:absolute;top:0;bottom:0;left:0;right:50%;margin:0;border:0;border-radius:0}
-.toggle-off{position:absolute;top:0;bottom:0;left:50%;right:0;margin:0;border:0;border-radius:0}
-.toggle-handle{position:relative;margin:0 auto;padding-top:0;padding-bottom:0;height:100%;width:0;border-width:0 1px}
-.toggle-handle.btn-mini{top:-1px}
-.toggle.btn{min-width:30px}
-.toggle-on.btn{padding-right:24px}
-.toggle-off.btn{padding-left:24px}
-.toggle.btn-large{min-width:40px}
-.toggle-on.btn-large{padding-right:35px}
-.toggle-off.btn-large{padding-left:35px}
-.toggle.btn-small{min-width:25px}
-.toggle-on.btn-small{padding-right:20px}
-.toggle-off.btn-small{padding-left:20px}
-.toggle.btn-mini{min-width:20px}
-.toggle-on.btn-mini{padding-right:12px}
-.toggle-off.btn-mini{padding-left:12px}
 
 
 /*Switcher*/
@@ -203,6 +174,27 @@ div.left-graph > div.description{
     width: 100%;
 }
 
+i.green {
+    color: #049F0C;
+}
+
+i.red {
+    color: #ed1c24;
+}
+
+div.items > span.revenue{
+    font-size: 25px;
+}
+
+div.items > div.right_side{
+    display: inline-block;
+    margin-left: 10%;
+}
+
+div.items > div.right_side > span.amt{
+    font-size: 25px;
+}
+
 div.left-graph > div.description > span#number{
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
     font-size: 20px;
@@ -220,9 +212,67 @@ div.right-graph > div.TopItem.Third{
     background-color: rgba(0, 130, 200, 0.2);
 }
 
+div.float_right > div.selector{
+    height: 100%;
+    margin-top: 3%;
+}
 
+div.float_right > div.selector > div > label.switch{
+    margin-right: 0px;
+    display: inline-block;
+}
+div.float_right > div.selector > div {
+    display: inline-block;
+}
 
+div.float_right > div.selector > div.label_left{
+    /*background-color: #a1e82c;*/
+    position: relative;
+    height: 100%;
+    top: 6px;
+    margin-right: 2%;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+}
 
+div.float_right > div.selector > div.label_right{
+    /*background-color: gold;*/
+    position: relative;
+    height: 100%;
+    top: 6px;
+    margin-left: 2%;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;;
+    font-weight: bold;
+}
 
+/*ConversationRates*/
+div.jumbotron{
+    background-color: #F5F5F5;
+}
 
+div.jumbotron > div.container_middle{
+    position: relative;
+    width: 400px;
+    padding: 40px 30px;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    margin: auto;
+}
 
+div.jumbotron > div.container_middle > div > span{
+    font-size: 22px;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+div.jumbotron > div.container_middle > div > div > input[type=number]{
+    width: 80px;
+    margin: 2% 0;
+}
+
+div.jumbotron > div.container_middle > div > div > span{
+    margin: 0 5%;
+}
+
+div.jumbotron > div.container_middle > div > div.margin_top{
+    margin-top: 10%;
+}

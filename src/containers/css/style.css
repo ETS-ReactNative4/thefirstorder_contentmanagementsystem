@@ -223,6 +223,7 @@ div.right-graph > div.TopItem span.name {
 
 .float_right{
     float: right;
+    width: 170px;
 }
 
 

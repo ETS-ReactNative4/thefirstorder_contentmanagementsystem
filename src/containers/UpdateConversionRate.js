@@ -62,7 +62,7 @@ class UpdateConversionRate extends Component {
         if (this.state.messageFromServer === '') {
             return (
                 <div>
-                    <Button className="submitButton" type="submit" bsStyle="primary" onClick={this.openModal}>UPDATE</Button>
+                    <Button block className="submitButton" type="submit" bsStyle="primary" onClick={this.openModal}>UPDATE</Button>
                     {/*<Modal*/}
                         {/*isOpen={this.state.modalIsOpen}*/}
                         {/*onRequestClose={this.closeModal}*/}
