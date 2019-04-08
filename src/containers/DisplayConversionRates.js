@@ -139,7 +139,7 @@ class DisplayConversionRate extends Component {
                             <text> POINT(S)</text>
                         </div>
                         <div className="margin_top">
-                            <UpdateConversionRate restaurantId={this.props.restaurantId} pointsToCash={this.state.pointsToCash/this.state.pointsToCash1} cashToPoints={this.state.cashToPoints/this.state.cashToPoints1}/>
+                            <UpdateConversionRate managerId={this.state.managerId} restaurantId={this.props.restaurantId} pointsToCash={this.state.pointsToCash/this.state.pointsToCash1} cashToPoints={this.state.cashToPoints/this.state.cashToPoints1}/>
                         </div>
                     </div>
                 </div>

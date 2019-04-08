@@ -45,7 +45,7 @@ class UpdateConversionRate extends Component {
     }
 
     updateConversionRates(ev){
-        axios.post('http://makanow.herokuapp.com/api/restaurants/updateConversionRates/'+ this.props.restaurantId + '/' +this.props.pointsToCash+'/'+this.props.cashToPoints)
+        axios.post('http://makanow.herokuapp.com/api/restaurants/updateConversionRates/'+ this.props.restaurantId + '/' + this.props.managerId + '/' +this.props.pointsToCash+'/'+this.props.cashToPoints)
             .then(function(response) {
                 ev.setState({
                     messageFromServer: response.data});

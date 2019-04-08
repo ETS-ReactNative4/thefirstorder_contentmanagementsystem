@@ -275,7 +275,7 @@ class ChooseFoodCategory extends Component {
                                             {/*<img src={this.state.images[0]} width="150" height="125"/>*/}
                                         {/*</td>*/}
                                     {/*</tr>*/}
-                                    {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                                    {/*<button onClick={this.check}>Check</button>*/}
                                 {/*</table>*/}
                                 {/*<div className='button-center'>*/}
                                     {/*<br/>*/}

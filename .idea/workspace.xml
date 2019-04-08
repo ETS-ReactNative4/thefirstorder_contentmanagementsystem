@@ -3,9 +3,55 @@
   <component name="ChangeListManager">
     <list default="true" id="6a5a415f-ea07-4a45-b925-005814b3d2e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PostData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/AcknowledgeOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AcknowledgeOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ActivityLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ActivityLog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ActivityLogTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ActivityLogTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddCustomisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddCustomisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddCustomisationOption.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddCustomisationOption.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddFood.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddFood.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddFood2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddFood2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddManagerAllocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddManagerAllocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddMenu2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddMenu2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AdminMainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AdminMainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Analytics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MainPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ChangeMenuName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ChangeMenuName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ChangeMenuName2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ChangeMenuName2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ChooseFoodCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ChooseFoodCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ChooseFoodSubCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ChooseFoodSubCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ConversionRate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ConversionRate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteCustomisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteCustomisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteCustomisationOption.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteCustomisationOption.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteFoodPrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteFoodPrice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteManagerAllocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteManagerAllocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteMenu2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteMenu2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DeleteRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DeleteRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DisplayConversionRates.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisplayConversionRates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DisplayCustomerOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisplayCustomerOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DisplayCustomerOrderList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisplayCustomerOrderList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DisplayFoodCustomisation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisplayFoodCustomisation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DisplayManagers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DisplayManagers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EditFoodPrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditFoodPrice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/EditRestaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/EditRestaurant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/FilterCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FilterCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/FoodPrices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FoodPrices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ImportCSV.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ImportCSV.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ImportCSV2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ImportCSV2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ManageMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ManageMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ManageProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ManageProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ManagerNameId.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ManagerNameId.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ManagerProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ManagerProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/MenuTabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MenuTabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/OrderTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/OrderTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/UpdateConversionRate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UpdateConversionRate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/UpdateCustomisationOption.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UpdateCustomisationOption.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/UpdateFoodCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/UpdateFoodCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -270,33 +316,33 @@
     <session id="6498792">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="1" />
+          <entry key="ESLintLanguageService" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="10" />
+          <entry key="js" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="10" />
+          <entry key="JavaScript" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1039" />
+          <entry key="js" value="1222" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1039" />
+          <entry key="JavaScript" value="1222" />
         </counts>
       </usages-collector>
     </session>
@@ -304,81 +350,85 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Dashboard.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#247#281#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/TopItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1026">
-              <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Analytics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="370" column="34" lean-forward="true" selection-start-line="370" selection-start-column="34" selection-end-line="370" selection-end-column="34" />
+            <state relative-caret-position="-4607">
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/ChooseFoodCategory.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/ActivityLog.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <element signature="n#!!block;n#handleChecked#0;n#Analytics#0" />
-                <element signature="n#!!block;n#generateXAxis#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDate#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getMonthlyRevenue#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDailyRevenue#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getMonthlyTransactions#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDailyTransactions#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getMonthlyFoodItems#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDailyFoodItems#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getMonthlyTotalItems#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDailyTotalItems#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getMonthlyTotalRevenue#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDailyTotalRevenue#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getMonthlyDifference#0;n#Analytics#0" />
-                <element signature="n#!!block;n#getDailyDifference#0;n#Analytics#0" />
-                <element signature="n#!!block;n#revenueDifference#0;n#Analytics#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Orders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="74" column="41" lean-forward="true" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/OrderTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="246" column="62" lean-forward="true" selection-start-line="246" selection-start-column="52" selection-end-line="246" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/ActivityLogTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="55" column="46" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/DisplayCustomerOrder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="623">
+              <caret line="150" column="93" selection-start-line="150" selection-start-column="83" selection-end-line="150" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/AcknowledgeOrder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="249" column="52" lean-forward="true" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
+            <state relative-caret-position="103">
+              <caret line="103" column="24" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/UpdateConversionRate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/PostData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/ConversionRate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="419">
+              <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -387,10 +437,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/MainPage.css">
+        <entry file="file://$PROJECT_DIR$/src/containers/DisplayConversionRates.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-272">
-              <caret line="191" selection-start-line="191" selection-end-line="191" />
+            <state relative-caret-position="320">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -407,9 +460,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dark</find>
-      <find>pull</find>
-      <find>import addmenu</find>
       <find>profile</find>
       <find>Header</find>
       <find>ManagerProfile</find>
@@ -437,14 +487,18 @@
       <find>ORders</find>
       <find>Cancel / A</find>
       <find>Modal heading</find>
+      <find>check</find>
+      <find>http://localhost:8080</find>
+      <find>http://makanow.herokuapp.com</find>
     </findStrings>
     <replaceStrings>
       <replace>https://makanow.herokuapp.com</replace>
-      <replace>http://localhost:8080</replace>
       <replace>restaurant</replace>
       <replace>https://makanow.herokuapp.com/api/</replace>
       <replace>http://localhost:8080/api/</replace>
       <replace>http://makanow.herokuapp.com/api/</replace>
+      <replace>http://makanow.herokuapp.com</replace>
+      <replace>http://localhost:8080</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -453,7 +507,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/containers/SideNavRoutes.jsx" />
         <option value="$PROJECT_DIR$/src/containers/ImportCSV.js" />
         <option value="$PROJECT_DIR$/src/containers/Login.css" />
         <option value="$PROJECT_DIR$/src/containers/FoodPrices.css" />
@@ -476,7 +529,6 @@
         <option value="$PROJECT_DIR$/src/containers/AddRestaurantModal.css" />
         <option value="$PROJECT_DIR$/src/containers/DisplayManagers.js" />
         <option value="$PROJECT_DIR$/src/containers/AddRestaurant.js" />
-        <option value="$PROJECT_DIR$/src/containers/ChooseFoodCategory.js" />
         <option value="$PROJECT_DIR$/src/containers/AddFood2.js" />
         <option value="$PROJECT_DIR$/src/containers/ManagerNameId.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
@@ -493,8 +545,6 @@
         <option value="$PROJECT_DIR$/src/containers/FoodPrices.js" />
         <option value="$PROJECT_DIR$/src/containers/Orders.js" />
         <option value="$PROJECT_DIR$/src/containers/DisplayCustomerOrder.js" />
-        <option value="$PROJECT_DIR$/src/containers/DisplayConversionRates.js" />
-        <option value="$PROJECT_DIR$/src/containers/UpdateConversionRate.js" />
         <option value="$PROJECT_DIR$/src/containers/loader.css" />
         <option value="$PROJECT_DIR$/src/containers/TopItem.js" />
         <option value="$PROJECT_DIR$/src/containers/css/style.css" />
@@ -504,6 +554,10 @@
         <option value="$PROJECT_DIR$/src/containers/MainPage.css" />
         <option value="$PROJECT_DIR$/src/containers/OrderTable.js" />
         <option value="$PROJECT_DIR$/src/containers/AcknowledgeOrder.js" />
+        <option value="$PROJECT_DIR$/src/containers/DisplayConversionRates.js" />
+        <option value="$PROJECT_DIR$/src/containers/UpdateConversionRate.js" />
+        <option value="$PROJECT_DIR$/src/containers/ChooseFoodCategory.js" />
+        <option value="$PROJECT_DIR$/src/containers/ActivityLogTable.js" />
       </list>
     </option>
   </component>
@@ -533,16 +587,15 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="922" />
-    <option name="width" value="943" />
-    <option name="height" value="1087" />
+    <option name="x" value="921" />
+    <option name="width" value="944" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -578,6 +631,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -585,14 +640,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554729313977" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/eslint" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="C:\IntelliJ\thefirstorder_contentmanagementsystem\node_modules\eslint" />
-    <property name="node.js.selected.package.standard" value="C:\IntelliJ\thefirstorder_contentmanagementsystem\node_modules\eslint" />
+    <property name="node.js.selected.package.eslint" value="C:\Users\Gordon\Desktop\Year3Sem2\FYP Matters\thefirstorder_contentmanagementsystem\node_modules\eslint" />
+    <property name="node.js.selected.package.standard" value="C:\Users\Gordon\Desktop\Year3Sem2\FYP Matters\thefirstorder_contentmanagementsystem\node_modules\eslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -737,11 +792,12 @@
       <workItem from="1554699861798" duration="2932000" />
       <workItem from="1554707319308" duration="8059000" />
       <workItem from="1554719107031" duration="4116000" />
+      <workItem from="1554738166769" duration="2959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="780207000" />
+    <option name="totallyTimeSpent" value="783166000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -753,10 +809,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17475192" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18926175" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -771,7 +827,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32917964" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49944875" visible="true" weight="0.15057114" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49944875" weight="0.15602838" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005513" side_tool="true" weight="0.33021808" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3281412" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -906,13 +962,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ChooseFoodCategory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7380">
-          <caret line="412" column="34" selection-start-line="412" selection-start-column="34" selection-end-line="412" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -944,16 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ActivityLog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1028,44 +1067,10 @@
     <entry file="file://$PROJECT_DIR$/src/containers/AddCustomisation.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ActivityLogTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="55" column="46" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ConversionRate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="80" column="45" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-bootstrap/es/Col.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="827">
           <caret line="252" column="15" selection-start-line="252" selection-start-column="15" selection-end-line="252" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/UpdateConversionRate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/DisplayConversionRates.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="141" column="40" lean-forward="true" selection-start-line="141" selection-start-column="40" selection-end-line="141" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1076,27 +1081,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/FoodPrices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="251" column="62" lean-forward="true" selection-start-line="251" selection-start-column="62" selection-end-line="251" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Telegram Desktop/yarn.lock" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
           <caret line="990" column="8" selection-start-line="990" selection-start-column="8" selection-end-line="990" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PostData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1107,71 +1096,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#247#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/TopItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/sectional.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="46" column="42" lean-forward="true" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/MainPage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-272">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/DisplayCustomerOrder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="150" column="93" selection-start-line="150" selection-start-column="83" selection-end-line="150" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Analytics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="370" column="34" lean-forward="true" selection-start-line="370" selection-start-column="34" selection-end-line="370" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#handleChecked#0;n#Analytics#0" />
-            <element signature="n#!!block;n#generateXAxis#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDate#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getMonthlyRevenue#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDailyRevenue#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getMonthlyTransactions#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDailyTransactions#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getMonthlyFoodItems#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDailyFoodItems#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getMonthlyTotalItems#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDailyTotalItems#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getMonthlyTotalRevenue#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDailyTotalRevenue#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getMonthlyDifference#0;n#Analytics#0" />
-            <element signature="n#!!block;n#getDailyDifference#0;n#Analytics#0" />
-            <element signature="n#!!block;n#revenueDifference#0;n#Analytics#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1182,27 +1110,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1972">
+          <caret line="116" column="15" selection-start-line="116" selection-start-column="15" selection-end-line="116" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/TopItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="66" column="55" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Orders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="74" column="41" lean-forward="true" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+        <state relative-caret-position="1156">
+          <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/MainPage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/FoodPrices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="251" column="62" selection-start-line="251" selection-start-column="62" selection-end-line="251" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/OrderTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="573">
-          <caret line="246" column="62" lean-forward="true" selection-start-line="246" selection-start-column="52" selection-end-line="246" selection-end-column="68" />
+          <caret line="246" column="62" selection-start-line="246" selection-start-column="62" selection-end-line="246" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/DisplayCustomerOrder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="150" column="93" selection-start-line="150" selection-start-column="83" selection-end-line="150" selection-end-column="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/AcknowledgeOrder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="249" column="52" lean-forward="true" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
+        <state relative-caret-position="103">
+          <caret line="103" column="24" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ConversionRate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Analytics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4607">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/DisplayConversionRates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/UpdateConversionRate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ChooseFoodCategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="353" lean-forward="true" selection-start-line="353" selection-end-line="353" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PostData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ActivityLog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ActivityLogTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="55" column="46" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="46" />
         </state>
       </provider>
     </entry>
