@@ -88,6 +88,10 @@ div.main_content > div.container-fluid > div.row > div > div.items{
     background-color: rgba(205, 205, 205, 0.1);
 }
 
+div.main_content > div.container-fluid > div.row > div > div.items > h3.header{
+    font-family: arial;
+}
+
 div.main_content > div.container-fluid > div.row > div > div.items> div.left-graph{
     width: 50%;
     display: inline-block;
@@ -182,13 +186,19 @@ i.red {
     color: #ed1c24;
 }
 
+div.items{
+    position: relative;
+}
+
+
 div.items > span.revenue{
     font-size: 25px;
 }
 
 div.items > div.right_side{
     display: inline-block;
-    margin-left: 10%;
+    position: absolute;
+    right: 5%;
 }
 
 div.items > div.right_side > span.amt{
@@ -231,7 +241,6 @@ div.float_right > div.selector > div.label_left{
     height: 100%;
     top: 6px;
     margin-right: 2%;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
     font-weight: bold;
 }
 
@@ -241,7 +250,6 @@ div.float_right > div.selector > div.label_right{
     height: 100%;
     top: 6px;
     margin-left: 2%;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;;
     font-weight: bold;
 }
 

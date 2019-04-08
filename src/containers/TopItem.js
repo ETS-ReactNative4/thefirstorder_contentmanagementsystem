@@ -34,37 +34,37 @@ class TopItem extends Component {
         if(this.props.ranking === 1){
             return(
                 <div className="TopItem First">
-                <span className="rank">
-                    <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
-                </span>
+                    <span className="rank">
+                        <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
+                    </span>
 
                     <span className="name">{fName}</span>
 
-                    <p>${amt}</p>
+                    <span className="amt">${amt}</span>
                 </div>
             )
         }else if(this.props.ranking === 2){
             return(
                 <div className="TopItem Second">
-                <span className="rank">
-                    <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
-                </span>
+                    <span className="rank">
+                        <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
+                    </span>
 
                     <span className="name">{fName}</span>
 
-                    <p>${amt}</p>
+                    <span className="amt">${amt}</span>
                 </div>
             )
         }else{
             return(
                 <div className="TopItem Third">
-                <span className="rank">
-                    <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
-                </span>
+                    <span className="rank">
+                        <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
+                    </span>
 
                     <span className="name">{fName}</span>
 
-                    <p>${amt}</p>
+                    <span className="amt">${amt}</span>
                 </div>
             )
         }

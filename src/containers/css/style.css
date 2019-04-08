@@ -203,22 +203,30 @@ table.MenuItems .table-striped > tbody > tr:nth-of-type(2n+1){
 
 /*Top Item*/
 div.right-graph > div.TopItem {
+    position: relative;
     float: top;
     background-color: #ede48b;
     height: 33.33%;
-    width: 100%;
+    width: 90%;
     /*border: black 1px dashed;*/
     display: inline-block;
     padding: 5px;
 }
 
-div.right-graph > div.TopItem span.rank {
+div.right-graph > div.TopItem > span.rank {
     float: right;
     margin: 10px;
 }
 
-div.right-graph > div.TopItem span.name {
+div.right-graph > div.TopItem > span.name {
     font-weight: bold;
+}
+
+div.right-graph > div.TopItem > span.amt {
+    position: absolute;
+    display: block;
+    left: 40%;
+    font-size: 25px;
 }
 
 .float_right{

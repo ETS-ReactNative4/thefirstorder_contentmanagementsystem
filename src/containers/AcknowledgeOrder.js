@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button, ButtonToolbar } from "react-bootstrap";
-import Modal from 'react-modal';
+import { Button, ButtonToolbar, Modal } from "react-bootstrap";
+// import Modal from 'react-modal';
 
 
 class AcknowledgeOrder extends Component {
@@ -138,68 +138,138 @@ class AcknowledgeOrder extends Component {
             return(
                 <div>
                     <ButtonToolbar>
-                    <Button bsStyle="danger" bsSize="small" onClick={this.openModal1}><span
-                        className="glyphicon glyphicon-remove"></span></Button>
-                    <Modal
-                        isOpen={this.state.modalIsOpen1}
-                        onRequestClose={this.closeModal1}
-                        contentLabel="Cancel Order"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <fieldset>
-                            <p></p>
-                            <p align="center"><b>Cancel Order?</b></p>
-                            <div className='button-center'>
-                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal1}><span
-                                    className="glyphicon glyphicon-remove"></span></Button>
-                                {" "}
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClickCancelOrder}><span
-                                    className="glyphicon glyphicon-ok"></span></Button>
-                            </div>
-                        </fieldset>
-                        {/*<button onClick={this.check}>Check</button>*/}
-                    </Modal>
+                        <Button bsStyle="danger" bsSize="small" onClick={this.openModal1}>
+                            <span className="glyphicon glyphicon-remove"></span>
+                        </Button>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen1}*/}
+                        {/*onRequestClose={this.closeModal1}*/}
+                        {/*contentLabel="Cancel Order"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*<fieldset>*/}
+                            {/*<p></p>*/}
+                            {/*<p align="center"><b>Cancel Order?</b></p>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<Button bsStyle="danger" bsSize="large" onClick={this.closeModal1}><span*/}
+                                    {/*className="glyphicon glyphicon-remove"></span></Button>*/}
+                                {/*{" "}*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClickCancelOrder}><span*/}
+                                    {/*className="glyphicon glyphicon-ok"></span></Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*</Modal>*/}
+                        <Modal show={this.state.modalIsOpen1} onHide={this.closeModal1}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <fieldset>
+                                    <div className='button-center'>
+                                        <b>Cancel Order?</b>
+                                    </div>
+                                </fieldset>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="danger" bsSize="large" onClick={this.closeModal1}>
+                                        <span className="glyphicon glyphicon-remove"></span>
+                                    </Button>
+                                    <Button bsStyle="success" bsSize="large" onClick={this.onClickCancelOrder}>
+                                        <span className="glyphicon glyphicon-ok"></span>
+                                    </Button>
+                                </div>
+                            </Modal.Footer>
+                        </Modal>
+
                     <Button bsStyle="success" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-ok"></span></Button>
                     </ButtonToolbar>
-                    <Modal
-                        isOpen={this.state.modalIsOpen}
-                        onRequestClose={this.closeModal}
-                        contentLabel="Acknowledge Order"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <fieldset>
-                            <p></p>
-                            <p align="center"><b>Acknowledge Order?</b></p>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen}*/}
+                        {/*onRequestClose={this.closeModal}*/}
+                        {/*contentLabel="Acknowledge Order"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}>*/}
+                            {/*<span className="closebtn glyphicon glyphicon-remove"></span>*/}
+                        {/*</Button>*/}
+                        {/*<fieldset>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<b>Acknowledge Order?</b>*/}
+                            {/*</div>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<Button bsStyle="danger" bsSize="large" onClick={this.closeModal}>*/}
+                                    {/*<span className="glyphicon glyphicon-remove"></span>*/}
+                                {/*</Button>*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClick}>*/}
+                                    {/*<span className="glyphicon glyphicon-ok"></span>*/}
+                                {/*</Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                        <Modal.Header closeButton>
+                            {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <div className='button-center'>
+                                    <b>Acknowledge Order?</b>
+                                </div>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
                             <div className='button-center'>
-                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}><span
-                                    className="glyphicon glyphicon-remove"></span></Button>
-                                {" "}
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}><span
-                                    className="glyphicon glyphicon-ok"></span></Button>
+                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal}>
+                                    <span className="glyphicon glyphicon-remove"></span>
+                                </Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClick}>
+                                    <span className="glyphicon glyphicon-ok"></span>
+                                </Button>
                             </div>
-                        </fieldset>
-                        {/*<button onClick={this.check}>Check</button>*/}
+                        </Modal.Footer>
                     </Modal>
+
                 </div>
             )
         }else if(this.props.sentOrder.paymentStatus === "READY" && this.state.messageFromServer !== ''){
             return (
                 <div>
                     <div>
-                        <Button bsStyle="success" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-ok"></span></Button>
-                        <Modal
-                            isOpen={this.state.modalIsOpen}
-                            onAfterOpen={this.afterOpenModal}
-                            onRequestClose={this.closeModal}
-                            contentLabel="Acknowledge Order"
-                            className="Modal">
-                            <div className='button-center'>
-                                <h3>{this.state.messageFromServer}</h3>
-                                <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
-                            </div>
+                        <Button bsStyle="success" bsSize="small" onClick={this.openModal}>
+                            <span className="glyphicon glyphicon-ok"></span>
+                        </Button>
+                        {/*<Modal*/}
+                            {/*isOpen={this.state.modalIsOpen}*/}
+                            {/*onAfterOpen={this.afterOpenModal}*/}
+                            {/*onRequestClose={this.closeModal}*/}
+                            {/*contentLabel="Acknowledge Order"*/}
+                            {/*className="Modal">*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<h3>{this.state.messageFromServer}</h3>*/}
+                                {/*<Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>*/}
+                            {/*</div>*/}
+                        {/*</Modal>*/}
+
+                        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+                            <Modal.Header closeButton>
+                                {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div className='button-center'>
+                                    <Button bsStyle="success" bsSize="mini" onClick={this.closeModal}>Close</Button>
+                                </div>
+                            </Modal.Footer>
                         </Modal>
+
                     </div>
                 </div>
             )
@@ -207,29 +277,54 @@ class AcknowledgeOrder extends Component {
             return (
                 <div>
                     <ButtonToolbar>
-                    <Button bsStyle="danger" bsSize="small" onClick={this.openModal1}><span
-                        className="glyphicon glyphicon-remove"></span></Button>
+                        <Button bsStyle="danger" bsSize="small" onClick={this.openModal1}>
+                            <span className="glyphicon glyphicon-remove"></span>
+                        </Button>
                     </ButtonToolbar>
-                    <Modal
-                        isOpen={this.state.modalIsOpen1}
-                        onRequestClose={this.closeModal1}
-                        contentLabel="Cancel Order"
-                        className="Modal">
-                        <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span
-                            className="closebtn glyphicon glyphicon-remove"></span></Button>
-                        <fieldset>
-                            <p></p>
-                            <p align="center"><b>Cancel Order?</b></p>
+                    {/*<Modal*/}
+                        {/*isOpen={this.state.modalIsOpen1}*/}
+                        {/*onRequestClose={this.closeModal1}*/}
+                        {/*contentLabel="Cancel Order"*/}
+                        {/*className="Modal">*/}
+                        {/*<Button bsStyle="danger" bsSize="mini" onClick={this.closeModal1}><span*/}
+                            {/*className="closebtn glyphicon glyphicon-remove"></span></Button>*/}
+                        {/*<fieldset>*/}
+                            {/*<p></p>*/}
+                            {/*<p align="center"><b>Cancel Order?</b></p>*/}
+                            {/*<div className='button-center'>*/}
+                                {/*<Button bsStyle="danger" bsSize="large" onClick={this.closeModal1}><span*/}
+                                    {/*className="glyphicon glyphicon-remove"></span></Button>*/}
+                                {/*{" "}*/}
+                                {/*<Button bsStyle="success" bsSize="large" onClick={this.onClickCancelOrder}><span*/}
+                                    {/*className="glyphicon glyphicon-ok"></span></Button>*/}
+                            {/*</div>*/}
+                        {/*</fieldset>*/}
+                        {/*/!*<button onClick={this.check}>Check</button>*!/*/}
+                    {/*</Modal>*/}
+
+                    <Modal show={this.state.modalIsOpen1} onHide={this.closeModal1}>
+                        <Modal.Header closeButton>
+                            {/*<Modal.Title>Modal heading</Modal.Title>*/}
+                        </Modal.Header>
+                        <Modal.Body>
+                            <fieldset>
+                                <div className='button-center'>
+                                    <b>Cancel Order?</b>
+                                </div>
+                            </fieldset>
+                        </Modal.Body>
+                        <Modal.Footer>
                             <div className='button-center'>
-                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal1}><span
-                                    className="glyphicon glyphicon-remove"></span></Button>
-                                {" "}
-                                <Button bsStyle="success" bsSize="large" onClick={this.onClickCancelOrder}><span
-                                    className="glyphicon glyphicon-ok"></span></Button>
+                                <Button bsStyle="danger" bsSize="large" onClick={this.closeModal1}>
+                                    <span className="glyphicon glyphicon-remove"></span>
+                                </Button>
+                                <Button bsStyle="success" bsSize="large" onClick={this.onClickCancelOrder}>
+                                    <span className="glyphicon glyphicon-ok"></span>
+                                </Button>
                             </div>
-                        </fieldset>
-                        {/*<button onClick={this.check}>Check</button>*/}
+                        </Modal.Footer>
                     </Modal>
+
                 </div>
             )
         }

@@ -42,11 +42,12 @@ class Analytics extends Component {
         this.getDailyFoodItems = this.getDailyFoodItems.bind(this);
         this.getMonthlyTotalItems = this.getMonthlyTotalItems.bind(this);
         this.getDailyTotalItems = this.getDailyTotalItems.bind(this);
-        this.setDate = this.setDate.bind(this);
+        this.handleDate = this.handleDate.bind(this);
         this.getMonthlyTotalRevenue = this.getMonthlyTotalRevenue.bind(this);
         this.getDailyTotalRevenue = this.getDailyTotalRevenue.bind(this);
-        this.getMonthlyDifferene = this.getMonthlyDifferene.bind(this);
-        this.getDailyDifferene = this.getDailyDifferene.bind(this);
+        this.getMonthlyDifference = this.getMonthlyDifference.bind(this);
+        this.getDailyDifference = this.getDailyDifference.bind(this);
+        this.apiFunctions = this.apiFunctions.bind(this);
 
     }
 
@@ -60,65 +61,89 @@ class Analytics extends Component {
             this.getMonthlyFoodItems(this);
             this.getMonthlyTotalItems(this);
             this.getMonthlyTotalRevenue(this);
-            this.getMonthlyDifferene(this);
+            this.getMonthlyDifference(this);
         }else{
             this.getDailyRevenue(this);
             this.getDailyTransactions(this);
             this.getDailyFoodItems(this);
             this.getDailyTotalItems(this);
             this.getDailyTotalRevenue(this);
-            this.getDailyDifferene(this);
+            this.getDailyDifference(this);
         }
     }
 
     componentDidUpdate(){
     }
 
-
-    setDate(newDate){
-        this.setState({date : newDate})
+    apiFunctions(){
         if (this.state.isMonthly){
+            console.log(">>>>> Date: Monthly <<<<<");
             this.getMonthlyRevenue(this);
             this.getMonthlyTransactions(this);
             this.getMonthlyFoodItems(this);
             this.getMonthlyTotalItems(this);
             this.getMonthlyTotalRevenue(this);
-            this.getMonthlyDifferene(this);
+            this.getMonthlyDifference(this);
         }else{
+            console.log(">>>>> Date: Daily <<<<<");
             this.getDailyRevenue(this);
             this.getDailyTransactions(this);
             this.getDailyFoodItems(this);
             this.getDailyTotalItems(this);
             this.getDailyTotalRevenue(this);
-            this.getDailyDifferene(this);
+            this.getDailyDifference(this);
         }
+    }
+
+    handleDate(newDate){
+        console.log(newDate);
+        this.setState({date : newDate}, () => this.apiFunctions());
+
     }
 
     handleChecked(e) {
         if (e.target.checked){
+            console.log(">>>>> Boolean: Monthly <<<<<")
             this.setState({isMonthly: true});
             this.getMonthlyRevenue(this);
-            this.getMonthlyTransactions();
-            this.getMonthlyFoodItems();
-            this.getMonthlyTotalItems();
-            this.getMonthlyTotalRevenue();
-            this.getMonthlyDifferene();
+            this.getMonthlyTransactions(this);
+            this.getMonthlyFoodItems(this);
+            this.getMonthlyTotalItems(this);
+            this.getMonthlyTotalRevenue(this);
+            this.getMonthlyDifference(this);
         }else{
+            console.log(">>>>> Boolean: Daily <<<<<")
             this.setState({isMonthly: false});
             this.getDailyRevenue(this);
-            this.getDailyTransactions();
-            this.getDailyFoodItems();
-            this.getDailyTotalItems();
-            this.getDailyTotalRevenue();
-            this.getDailyDifferene();
+            this.getDailyTransactions(this);
+            this.getDailyFoodItems(this);
+            this.getDailyTotalItems(this);
+            this.getDailyTotalRevenue(this);
+            this.getDailyDifference(this);
         }
     }
 
+    generateXAxis(number){
+        var result = []
+        for(var i = 0; i < number; i++){
+            result.push(i)
+        }
+        this.setState({graph1XAxis: result});
+    }
+
+    getDate(){
+        var moment = require('moment');
+        if (this.state.date === ""){
+            return moment().format("YYYY-MM-DD")
+        }else{
+            return moment(this.state.date).format("YYYY-MM-DD")
+        }
+    }
 
     getMonthlyRevenue(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getMonthlyRevenueBreakdownByDays/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
@@ -134,7 +159,7 @@ class Analytics extends Component {
 
         var site = 'http://makanow.herokuapp.com/api/analytics/getDailyRevenueBreakdownByHour/'+this.props.selectedRestaurant+'/'+this.getDate();
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
@@ -146,165 +171,148 @@ class Analytics extends Component {
             });
     }
 
-    generateXAxis(number){
-        var result = []
-        for(var i = 1; i <= number; i++){
-            result.push(i)
-        }
-        this.setState({graph1XAxis: result});
-    }
-
-    getDate(){
-        var moment = require('moment');
-        if (this.state.date === ""){
-            return  moment().format("YYYY-MM-DD")
-        }else{
-            return moment(this.state.date).format("YYYY-MM-DD")
-        }
-    }
-
-    getMonthlyTransactions(){
+    getMonthlyTransactions(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getMonthlyTransactions/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({transactions: response.data});
+                ev.setState({transactions: response.data});
             });
     }
 
-    getDailyTransactions(){
+    getDailyTransactions(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getDailyTransactions/'+this.props.selectedRestaurant+'/'+this.getDate();
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({transactions: response.data});
+                ev.setState({transactions: response.data});
             });
     }
 
-    getMonthlyFoodItems(){
+    getMonthlyFoodItems(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getMonthlyRevenueBreakdownByFoodItem/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({graph2Label: Object.keys(response.data).slice(0,3)});
-                this.setState({graph2Data: Object.values(response.data).slice(0,3)});
+                ev.setState({graph2Label: Object.keys(response.data).slice(0,3)});
+                ev.setState({graph2Data: Object.values(response.data).slice(0,3)});
             });
     }
 
-    getDailyFoodItems(){
+    getDailyFoodItems(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getDailyRevenueBreakdownByFoodItem/'+this.props.selectedRestaurant+'/'+this.getDate();
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({graph2Label: Object.keys(response.data).slice(0,3)});
-                this.setState({graph2Data: Object.values(response.data).slice(0,3)});
+                ev.setState({graph2Label: Object.keys(response.data).slice(0,3)});
+                ev.setState({graph2Data: Object.values(response.data).slice(0,3)});
             });
     }
 
-    getMonthlyTotalItems(){
+    getMonthlyTotalItems(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getMonthlyTotalOfFoodItemsSold/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({totalItems: response.data});
+                ev.setState({totalItems: response.data});
             });
     }
 
-    getDailyTotalItems(){
+    getDailyTotalItems(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getDailyTotalOfFoodItemsSold/'+this.props.selectedRestaurant+'/'+this.getDate();
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({totalItems: response.data});
+                ev.setState({totalItems: response.data});
             });
     }
 
-    getMonthlyTotalRevenue(){
+    getMonthlyTotalRevenue(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getMonthlyRevenue/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({totalRevenue: response.data});
+                ev.setState({totalRevenue: response.data});
             });
 
     }
 
-    getDailyTotalRevenue(){
+    getDailyTotalRevenue(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getDailyRevenue/'+this.props.selectedRestaurant+'/'+this.getDate();
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({totalRevenue: response.data});
+                ev.setState({totalRevenue: response.data});
             });
 
     }
 
-    getMonthlyDifferene(){
+    getMonthlyDifference(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getPercentageMonthlyRevenueCompareToPreviousMonth/'+this.props.selectedRestaurant+'/'+this.getDate().substring(0, 7);
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({revenueDifference: response.data});
+                ev.setState({revenueDifference: response.data});
             });
 
     }
 
-    getDailyDifferene(){
+    getDailyDifference(ev){
         var site = 'http://makanow.herokuapp.com/api/analytics/getPercentageDailyRevenueCompareToPreviousDate/'+this.props.selectedRestaurant+'/'+this.getDate();
 
-        console.log(site);
+        // console.log(site);
 
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                console.log(response.data)
+                // console.log(response.data)
 
-                this.setState({revenueDifference: response.data});
+                ev.setState({revenueDifference: response.data});
             });
 
     }
@@ -333,7 +341,7 @@ class Analytics extends Component {
 
     render(){
         console.log("ANALYTICS")
-        console.log(this.state)
+        // console.log(this.state)
         // console.log(this.props)
         return(
             <div className="main_content">
@@ -341,14 +349,14 @@ class Analytics extends Component {
                     <Row>
                         {/*<Button onClick={this.getMonthlyFoodItems}>Check Monthly</Button>*/}
                         {/*<Button onClick={this.getDailyTransactions}>Check Daily</Button>*/}
-                        <Button onClick={this.check}>Check</Button>
-
+                        {/*<Button onClick={this.check}>Check</Button>*/}
+                        {/**/}
                         <div className="float_right">
 
                             <div>
                                 <SingleDatePicker
                                     date={this.state.date} // momentPropTypes.momentObj or null
-                                    onDateChange={date => this.setDate(date)} // PropTypes.func.isRequired
+                                    onDateChange={date => this.handleDate(date)} // PropTypes.func.isRequired
                                     focused={this.state.focused} // PropTypes.bool
                                     onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
                                     id="datePicker" // PropTypes.string.isRequired,
@@ -379,7 +387,7 @@ class Analytics extends Component {
                     <Row>
                         <Col md={6}>
                             <div className="items">
-                                <h3 align="center">Sales Revenue</h3>
+                                <h3 className="header" align="center">Sales Revenue</h3>
                                 <SaleRevenueGraph data={this.state.graph1Data} labels={this.state.graph1XAxis}/>
                             </div>
                             <div className="items">
@@ -393,7 +401,7 @@ class Analytics extends Component {
                         </Col>
                         <Col md={6}>
                             <div className="items">
-                                <h3 align="center">Food Items</h3>
+                                <h3 className="header" align="center">Food Items</h3>
                                 <div className="left-graph">
                                     <FoodItemGraph data={this.state.graph2Data} labels={this.state.graph2Label}/>
                                     <div className="description">
