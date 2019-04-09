@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Image} from 'react-bootstrap'
+import {Col} from 'react-bootstrap'
 import "./css/style.css";
 import activitylog from './images/activitylog.png';
 import first from './images/006-first.png';
@@ -34,37 +34,49 @@ class TopItem extends Component {
         if(this.props.ranking === 1){
             return(
                 <div className="TopItem First">
-                    <span className="rank">
-                        <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
-                    </span>
-
-                    <span className="name">{fName}</span>
-
-                    <span className="amt">${amt}</span>
+                    <Col md={6}>
+                        <span className="name">{fName}</span>
+                    </Col>
+                    <Col md={3}>
+                        <span className="amt">${amt}</span>
+                    </Col>
+                    <Col md={3}>
+                        <span className="rank">
+                            <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
+                        </span>
+                    </Col>
                 </div>
             )
         }else if(this.props.ranking === 2){
             return(
                 <div className="TopItem Second">
-                    <span className="rank">
-                        <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
-                    </span>
-
-                    <span className="name">{fName}</span>
-
-                    <span className="amt">${amt}</span>
+                    <Col md={6}>
+                        <span className="name">{fName}</span>
+                    </Col>
+                    <Col md={3}>
+                        <span className="amt">${amt}</span>
+                    </Col>
+                    <Col md={3}>
+                        <span className="rank">
+                            <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
+                        </span>
+                    </Col>
                 </div>
             )
         }else{
             return(
                 <div className="TopItem Third">
-                    <span className="rank">
-                        <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
-                    </span>
-
-                    <span className="name">{fName}</span>
-
-                    <span className="amt">${amt}</span>
+                    <Col md={6}>
+                        <span className="name">{fName}</span>
+                    </Col>
+                    <Col md={3}>
+                        <span className="amt">${amt}</span>
+                    </Col>
+                    <Col md={3}>
+                        <span className="rank">
+                            <img src={this.selectRanking(this.props.ranking)} height="35" width="35"/>
+                        </span>
+                    </Col>
                 </div>
             )
         }

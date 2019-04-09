@@ -41,9 +41,10 @@ export default class SalesRevenueGraph extends Component {
                     }]
                 }}
                 options={{
+                    maintainAspectRatio: true,
                     title: {
                         display: false,
-                        text: 'Total Number',
+                        text: 'Best Sellers',
                     },
                     animation: {
                         animateRotate: true,
@@ -51,7 +52,8 @@ export default class SalesRevenueGraph extends Component {
                     }
                 }}
                 legend={{
-                    display: false
+                    display: true,
+                    position: "top",
                 }}
 
             />

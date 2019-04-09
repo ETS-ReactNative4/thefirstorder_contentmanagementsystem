@@ -203,35 +203,34 @@ table.MenuItems .table-striped > tbody > tr:nth-of-type(2n+1){
 
 /*Top Item*/
 div.right-graph > div.TopItem {
-    position: relative;
-    float: top;
     background-color: #ede48b;
-    height: 33.33%;
-    width: 90%;
+    /*height: 50px;*/
+    width: 100%;
     /*border: black 1px dashed;*/
     display: inline-block;
-    padding: 5px;
+    padding: 1%;
 }
 
-div.right-graph > div.TopItem > span.rank {
-    float: right;
-    margin: 10px;
-}
-
-div.right-graph > div.TopItem > span.name {
+div.right-graph > div.TopItem > div.col-md-6 > span.name {
     font-weight: bold;
+
 }
 
-div.right-graph > div.TopItem > span.amt {
-    position: absolute;
-    display: block;
-    left: 40%;
-    font-size: 25px;
+div.right-graph > div.TopItem > div.col-md-3 > span.amt {
+    font-size: 20px;
+}
+
+div.right-graph > div.TopItem > div.col-md-3 > span.rank {
+    float: right;
 }
 
 .float_right{
     float: right;
     width: 170px;
+}
+
+.float_left{
+    float: left;
 }
 
 

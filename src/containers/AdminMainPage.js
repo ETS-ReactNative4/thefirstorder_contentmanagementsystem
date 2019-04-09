@@ -13,6 +13,7 @@ import DeleteRestaurant from "./DeleteRestaurant";
 import AddRestaurant from "./AddRestaurant";
 import DisplayManagers from "./DisplayManagers";
 import no_image_icon from "./images/no-image-icon.png";
+import "./loader.css";
 
 class AdminMainPage extends Component {
 
@@ -23,7 +24,8 @@ class AdminMainPage extends Component {
             adminId: "",
             update: false,
             redirect: false,
-            restaurantUpdate: false
+            restaurantUpdate: false,
+            loading: true
         };
         this.check = this.check.bind(this);
         this.getRestaurants = this.getRestaurants.bind(this);
@@ -66,7 +68,10 @@ class AdminMainPage extends Component {
     getRestaurants(ev){
         axios.get('http://makanow.herokuapp.com/api/restaurants/getAllRestaurantsByAdminId/'+this.state.adminId)
             .then(function(response) {
-                ev.setState({restaurantData: response.data});
+                ev.setState({
+                    restaurantData: response.data,
+                    loading: false
+                });
             });
     }
 
@@ -87,6 +92,14 @@ class AdminMainPage extends Component {
 
     check(){
         console.log(this.state.restaurantData);
+    }
+
+    showLoader(){
+        if(this.state.loading === true){
+            return(
+                <div className="loader"></div>
+            )
+        }
     }
 
     render(){
@@ -117,6 +130,7 @@ class AdminMainPage extends Component {
                         </tr>
                         </thead>
                         <tbody>
+                        {this.showLoader()}
                         {this.state.restaurantData.map((restaurant, k) =>
                             <tr index={k}>
                                 <td align="'center">{k+1}</td>

@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
-import {Button, Col, Grid, Row, Tab, Table, Tabs} from "react-bootstrap";
-import ManagerNameId from "./ManagerNameId";
-import {Doughnut, Line} from "react-chartjs-2";
+import {Col, Grid, Row, Table} from "react-bootstrap";
 import TopItem from "./TopItem";
 import "./MainPage.css"
 import 'react-dates/initialize';
@@ -10,9 +8,6 @@ import {SingleDatePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import SaleRevenueGraph from "./SalesRevenueGraph";
 import FoodItemGraph from "./FoodItemGraph";
-import DisplayFoodCustomisation from "./DisplayFoodCustomisation";
-import EditFoodPrice from "./EditFoodPrice";
-import DeleteFoodPrice from "./DeleteFoodPrice";
 
 class Analytics extends Component {
 
@@ -48,6 +43,8 @@ class Analytics extends Component {
         this.getMonthlyDifference = this.getMonthlyDifference.bind(this);
         this.getDailyDifference = this.getDailyDifference.bind(this);
         this.apiFunctions = this.apiFunctions.bind(this);
+        this.getRevenuePeriod = this.getRevenuePeriod.bind(this);
+        this.getRevenueDifference = this.getRevenueDifference.bind(this);
 
     }
 
@@ -123,9 +120,17 @@ class Analytics extends Component {
         }
     }
 
-    generateXAxis(number){
+    generateDailyXAxis(number){
         var result = []
         for(var i = 0; i < number; i++){
+            result.push(i)
+        }
+        this.setState({graph1XAxis: result});
+    }
+
+    generateMonthlyXAxis(number){
+        var result = []
+        for(var i = 1; i <= number; i++){
             result.push(i)
         }
         this.setState({graph1XAxis: result});
@@ -151,7 +156,7 @@ class Analytics extends Component {
                 // console.log(response.data)
 
                 ev.setState({graph1Data: Object.values(response.data)});
-                ev.generateXAxis(Object.values(response.data).length);
+                ev.generateMonthlyXAxis(Object.values(response.data).length);
             });
     }
 
@@ -167,7 +172,7 @@ class Analytics extends Component {
                 // console.log(response.data)
 
                 ev.setState({graph1Data: Object.values(response.data)});
-                ev.generateXAxis(Object.values(response.data).length);
+                ev.generateDailyXAxis(Object.values(response.data).length);
             });
     }
 
@@ -333,6 +338,29 @@ class Analytics extends Component {
         }
     }
 
+    getRevenuePeriod(){
+        var moment = require('moment');
+        if (this.state.isMonthly){
+            return "for " + moment(this.getDate()).format("MMMM YY")
+        }else{
+            return "for " + moment(this.getDate()).format("D MMMM YY")
+        }
+    }
+
+    getRevenueDifference(){
+        var moment = require('moment');
+        if (this.state.isMonthly){
+            return "from " + moment(this.getDate()).subtract(1, 'month').format("MMMM YY")
+        }else{
+            return "from " + moment(this.getDate()).subtract(1, 'day').format("D MMMM YY")
+        }
+    }
+
+    formatDatetime(datetime){
+        var moment = require('moment');
+        return moment(datetime).format("YYYY-MM-DD, HH:mm:ss")
+    }
+
     check(){
         console.log(this.state);
     }
@@ -351,8 +379,30 @@ class Analytics extends Component {
                         {/*<Button onClick={this.getDailyTransactions}>Check Daily</Button>*/}
                         {/*<Button onClick={this.check}>Check</Button>*/}
                         {/**/}
+                        <Col md={6} className="float_left">
+                            <div className="items">
+                                <div>
+                                    <div>
+                                        <span className="title">Total revenue: </span>
+                                        <span className="revenue">${this.state.totalRevenue}</span>
+                                        <span className="difference">{this.getRevenuePeriod()}</span>
+                                    </div>
+                                    <div>
+                                        <span className="title">Difference: </span>
+                                        {this.revenueDifference()}
+                                        <span className="difference">{this.getRevenueDifference()}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col md={4}>
+                            <div className="right-graph">
+                                <TopItem ranking={1} food_name={this.state.graph2Label[0]} revenue={this.state.graph2Data[0]}/>
+                                <TopItem ranking={2} food_name={this.state.graph2Label[1]} revenue={this.state.graph2Data[1]}/>
+                                <TopItem ranking={3} food_name={this.state.graph2Label[2]} revenue={this.state.graph2Data[2]}/>
+                            </div>
+                        </Col>
                         <div className="float_right">
-
                             <div>
                                 <SingleDatePicker
                                     date={this.state.date} // momentPropTypes.momentObj or null
@@ -360,7 +410,7 @@ class Analytics extends Component {
                                     focused={this.state.focused} // PropTypes.bool
                                     onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
                                     id="datePicker" // PropTypes.string.isRequired,
-                                    placeholder="Select Date"
+                                    placeholder="       Today"
                                     small={true}
                                     numberOfMonths={1}
                                     isOutsideRange={() => false}
@@ -385,35 +435,21 @@ class Analytics extends Component {
 
                     </Row>
                     <Row>
-                        <Col md={6}>
+                        <Col md={7}>
                             <div className="items">
                                 <h3 className="header" align="center">Sales Revenue</h3>
-                                <SaleRevenueGraph data={this.state.graph1Data} labels={this.state.graph1XAxis}/>
-                            </div>
-                            <div className="items">
-                                <span>Total revenue: </span>
-                                <span className="revenue">${this.state.totalRevenue}</span>
-                                <div className="right_side">
-                                    <span>Difference: </span>
-                                    {this.revenueDifference()}
-                                </div>
+                                <SaleRevenueGraph data={this.state.graph1Data} labels={this.state.graph1XAxis} isMonthly={this.state.isMonthly} date={this.getDate()}/>
                             </div>
                         </Col>
-                        <Col md={6}>
+                        <Col md={5}>
                             <div className="items">
                                 <h3 className="header" align="center">Food Items</h3>
-                                <div className="left-graph">
                                     <FoodItemGraph data={this.state.graph2Data} labels={this.state.graph2Label}/>
+                                <div className="left-graph">
                                     <div className="description">
                                         <span id="number">{this.state.totalItems}</span>
                                         <span> number of items sold</span>
                                     </div>
-                                </div>
-
-                                <div className="right-graph">
-                                    <TopItem ranking={1} food_name={this.state.graph2Label[0]} revenue={this.state.graph2Data[0]}/>
-                                    <TopItem ranking={2} food_name={this.state.graph2Label[1]} revenue={this.state.graph2Data[1]}/>
-                                    <TopItem ranking={3} food_name={this.state.graph2Label[2]} revenue={this.state.graph2Data[2]}/>
                                 </div>
                             </div>
                         </Col>
@@ -439,7 +475,7 @@ class Analytics extends Component {
                                     <td>{items.seatingTable}</td>
                                     <td>{items.totalAmount}</td>
                                     <td>{items.modeOfPayment}</td>
-                                    <td>{items.transactionDateTime}</td>
+                                    <td>{this.formatDatetime(items.transactionDateTime)}</td>
                                 </tr>
                             )
                             }

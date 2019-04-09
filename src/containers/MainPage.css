@@ -191,17 +191,30 @@ div.items{
 }
 
 
-div.items > span.revenue{
+div.items > div{
+    padding: 4%;
+}
+
+div.items > div > div{
+    padding: 1% 0;
+}
+
+
+div.items > div > div > span.title{
     font-size: 25px;
 }
 
-div.items > div.right_side{
-    display: inline-block;
-    position: absolute;
-    right: 5%;
+div.items > div > div > span.revenue{
+    font-size: 30px;
+    font-weight: bold;
 }
 
-div.items > div.right_side > span.amt{
+div.items > div > div > span.difference{
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+div.items > div > div > span.amt{
     font-size: 25px;
 }
 
