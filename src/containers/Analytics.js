@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
-import {Col, Grid, Row, Table} from "react-bootstrap";
+import {Col, Grid, Row, Table, Button} from "react-bootstrap";
 import TopItem from "./TopItem";
 import "./MainPage.css"
 import 'react-dates/initialize';
@@ -184,9 +184,28 @@ class Analytics extends Component {
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                // console.log(response.data)
+                console.log(response.data)
 
-                ev.setState({transactions: response.data});
+                var date_sort_desc = function (a, b) {
+                    if (a.transactionDateTime > b.transactionDateTime) return -1;
+                    if (a.transactionDateTime < b.transactionDateTime) return 1;
+                    return 0;
+                };
+
+                var date_sort_asc  = function (a, b) {
+                    if (a.transactionDateTime > b.transactionDateTime) return 1;
+                    if (a.transactionDateTime < b.transactionDateTime) return -1;
+                    return 0;
+                };
+
+                var swapped = response.data.slice(0);
+
+                swapped.sort(date_sort_desc);
+
+                console.log("SWAPPED");
+                console.log(swapped)
+
+                ev.setState({transactions: swapped});
             });
     }
 
@@ -198,9 +217,28 @@ class Analytics extends Component {
         axios.get(site)
             .then(response => {
                 // console.log("success");
-                // console.log(response.data)
+                console.log(response.data)
 
-                ev.setState({transactions: response.data});
+                var date_sort_desc = function (a, b) {
+                    if (a.transactionDateTime > b.transactionDateTime) return -1;
+                    if (a.transactionDateTime < b.transactionDateTime) return 1;
+                    return 0;
+                };
+
+                var date_sort_asc  = function (a, b) {
+                    if (a.transactionDateTime > b.transactionDateTime) return 1;
+                    if (a.transactionDateTime < b.transactionDateTime) return -1;
+                    return 0;
+                };
+
+                var swapped = response.data.slice(0);
+
+                swapped.sort(date_sort_desc);
+
+                console.log("SWAPPED");
+                console.log(swapped)
+
+                ev.setState({transactions: swapped});
             });
     }
 

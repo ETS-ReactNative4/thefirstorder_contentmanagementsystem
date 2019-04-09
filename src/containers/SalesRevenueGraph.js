@@ -70,6 +70,7 @@ export default class SalesRevenueGraph extends Component {
             'rgba(70, 240, 240, 0.2)',
 
         ]
+
         return(
             <Line
                 id="saleRevenue"
@@ -83,8 +84,8 @@ export default class SalesRevenueGraph extends Component {
                         pointHitRadius: 10,
                         label: 'Revenue (SGD $)',
                         data: this.props.data,
-                        pointBackgroundColor: colorCodes,
-                        borderColor: colorCodes,
+                        pointBackgroundColor: 'rgba(0, 130, 200, 0.3)',
+                        borderColor: 'rgba(0, 130, 200, 0.2)',
                         borderWidth: 1
                     }]
                 }}
