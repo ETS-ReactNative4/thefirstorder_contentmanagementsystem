@@ -168,7 +168,6 @@ class ImportCSV extends Component {
                                 <Button bsStyle="danger" onClick={this.closeModal}><span
                                     className="glyphicon glyphicon-remove"></span><b> Close </b>
                                 </Button>
-                                {" "}
                                 <Button bsStyle="success" onClick={this.onClick}><span
                                     className="glyphicon glyphicon-ok"></span><b> Import </b>
                                 </Button>
@@ -201,7 +200,9 @@ class ImportCSV extends Component {
                                 {/*<Modal.Title>Modal heading</Modal.Title>*/}
                             </Modal.Header>
                             <Modal.Body>
-                                <h3>{this.state.messageFromServer}</h3>
+                                <div className='button-center'>
+                                    <h3>{this.state.messageFromServer}</h3>
+                                </div>
                             </Modal.Body>
                             <Modal.Footer>
                                 <div className='button-center'>

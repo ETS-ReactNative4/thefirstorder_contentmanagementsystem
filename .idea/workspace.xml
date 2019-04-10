@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a5a415f-ea07-4a45-b925-005814b3d2e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ActivityLogTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ActivityLogTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Analytics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/FoodItemGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/FoodItemGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MainPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/SalesRevenueGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/SalesRevenueGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/TopItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/TopItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ImportCSV2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/ImportCSV2.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +191,7 @@
     <session id="1124279229">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.13" value="4" />
@@ -312,17 +304,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/FoodItemGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="558">
               <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/SalesRevenueGraph.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
-              <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+              <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/ImportCSV2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="156" column="140" lean-forward="true" selection-start-line="156" selection-start-column="140" selection-end-line="156" selection-end-column="140" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -330,8 +334,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Analytics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="406" column="49" selection-start-line="406" selection-start-column="49" selection-end-line="406" selection-end-column="49" />
+            <state relative-caret-position="3924">
+              <caret line="406" selection-start-line="406" selection-end-line="406" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="n#!!block;n#getMonthlyTransactions#0;n#Analytics#0" />
@@ -510,8 +514,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -546,6 +548,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -713,7 +717,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="792575000" />
+    <option name="totallyTimeSpent" value="792576000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1119,8 +1123,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Analytics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="406" column="49" selection-start-line="406" selection-start-column="49" selection-end-line="406" selection-end-column="49" />
+        <state relative-caret-position="3924">
+          <caret line="406" selection-start-line="406" selection-end-line="406" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="n#!!block;n#getMonthlyTransactions#0;n#Analytics#0" />
@@ -1142,7 +1146,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/FoodItemGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="558">
           <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
         </state>
       </provider>
@@ -1150,7 +1154,7 @@
     <entry file="file://$PROJECT_DIR$/src/containers/SalesRevenueGraph.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
-          <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
         </state>
       </provider>
     </entry>
